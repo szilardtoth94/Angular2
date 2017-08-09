@@ -17,6 +17,7 @@ import {AboutComponent, HomeComponent, UsersComponent } from 'pages';
 import {UsersService} from "../services/user.service/users.service";
 import {UserComponent} from "../pages/users/user/user.component";
 import {JobsComponent} from "../pages/jobs/jobs.component";
+import {JobsService} from "../services/job.service/jobs.service";
 
 @NgModule({
   bootstrap: [ AppComponent ],
@@ -44,6 +45,7 @@ import {JobsComponent} from "../pages/jobs/jobs.component";
    */
   providers: [
     UsersService,
+    JobsService,
   ]
 })
 export class AppModule {}
