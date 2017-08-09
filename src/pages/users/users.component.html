@@ -1,27 +1,37 @@
-<h1>Home Component</h1>
+<!--<h1>Home Component</h1>-->
 
-<div *ngIf="me">
-  <br>
+<!--<div *ngIf="me">-->
+  <!--<br>-->
 
-  <h2>{{ me.name }}</h2>
+  <!--<h2>{{ me.name }}</h2>-->
 
-  <div *ngFor="let school of me.schools; let i = index">
-    ****************************
-    <p [ngSwitch]="i + 1">
-      {{ i + 1 }}
-      <span *ngSwitchCase="1">st </span>
-      <span *ngSwitchCase="2">nd </span>
-      <span *ngSwitchCase="3">rd </span>
-      <span *ngSwitchDefault>th </span>
-    </p>
+  <!--<div *ngFor="let school of me.schools; let i = index">-->
+    <!--****************************-->
+    <!--<p [ngSwitch]="i + 1">-->
+      <!--{{ i + 1 }}-->
+      <!--<span *ngSwitchCase="1">st </span>-->
+      <!--<span *ngSwitchCase="2">nd </span>-->
+      <!--<span *ngSwitchCase="3">rd </span>-->
+      <!--<span *ngSwitchDefault>th </span>-->
+    <!--</p>-->
 
-    <b>{{ school.name }}</b>
+    <!--<b>{{ school.name }}</b>-->
 
-    <ul>
-      <li *ngFor="let something of school.mainThings">
-        {{ something  }}
-      </li>
-    </ul>
-    *****************************
-  </div>
-</div>
+    <!--<ul>-->
+      <!--<li *ngFor="let something of school.mainThings">-->
+        <!--{{ something  }}-->
+      <!--</li>-->
+    <!--</ul>-->
+    <!--*****************************-->
+  <!--</div>-->
+<!--</div>-->
+
+<h1>Users </h1>
+<ul class="items">
+  <li *ngFor="let user of usersList "
+      (click)="onSelect(user)">
+    <span>{{ user.id }}</span> {{ user.name}}
+  </li>
+</ul>
+
+

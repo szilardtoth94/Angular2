@@ -1,9 +1,9 @@
 <md-sidenav-container >
+
   <md-sidenav #sidenav class="example-sidenav">
-    <button type = "button"  (click)="sidenav.close()" routerLink="about">About</button>
-    <button type = "button"  (click)="sidenav.close()" routerLink="home">Home</button>
-    <button type = "button"  (click)="sidenav.close()" routerLink="users">User</button>
+    <navigation-component (click)="sidenav.close()"></navigation-component>
   </md-sidenav>
+
   <div class="container">
     <nav class="navbar">
         <div class="fabelement">
