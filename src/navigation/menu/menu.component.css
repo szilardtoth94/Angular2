@@ -1,0 +1,22 @@
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+button {
+  margin-top: 20px;
+  display: block;
+  padding: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+  width: 155px;
+  background: rgba(64, 155, 39, 0.81);
+  color: #ecf2de;
+  }
+
+.menu-container {
+  padding-top: 10px;
+  padding-bottom: 30px;
+  background-color: rgba(29,82,24, 0.40);
+}
+
+

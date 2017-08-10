@@ -1,5 +1,10 @@
-<ul class="items">
-  <li *ngFor="let job of jobList ">
-    <span>{{ job.id }}</span> {{ job.name}}
-  </li>
-</ul>
+<!--<ul class="items">-->
+  <!--<li *ngFor="let job of jobList ">-->
+    <!--<span>{{ job.id }}</span> {{ job.name}}-->
+  <!--</li>-->
+<!--</ul>-->
+
+<div>
+  <button (click)="loadJobs()">Load profile</button>
+  {{ profile | json }}
+</div>

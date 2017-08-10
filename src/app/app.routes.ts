@@ -2,7 +2,6 @@
 
 import {Routes} from "@angular/router";
 import {AboutComponent} from "../pages/about/about.component";
-import {HomeComponent} from "../pages/home/home.component";
 import {JobsComponent} from "../pages/jobs/jobs.component";
 import {UsersComponent} from "../pages/users/users.component";
 import {UserComponent} from "../pages/users/user/user.component";
@@ -10,16 +9,12 @@ import {UserComponent} from "../pages/users/user/user.component";
 export const ROUTES: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'about',
     pathMatch: 'full'
   },
   {
     path: 'about',
     component: AboutComponent
-  },
-  {
-    path: 'home',
-    component: HomeComponent
   },
   {
     path: 'jobs',
@@ -35,6 +30,6 @@ export const ROUTES: Routes = [
   },
   {
     path: '**',
-    component: HomeComponent
+    component: AboutComponent
   },
 ];

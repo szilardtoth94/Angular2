@@ -1,48 +1,48 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { MdSidenavModule} from '@angular/material';
+import { MdSidenavModule } from '@angular/material';
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms"
+import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { RouterModule } from '@angular/router';
-import { ROUTES } from './app.routes';
-import {ROUTES1} from "../pages/users/users.routes"
+import { HttpModule } from "@angular/http";
 
+import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
-import  {NavigationComponent} from "navigation"
-import {AboutComponent, HomeComponent, UsersComponent } from 'pages';
-
-import {UsersService} from "../services/user.service/users.service";
-import {UserComponent} from "../pages/users/user/user.component";
+import  { NavigationComponent } from "navigation"
+import { AboutComponent, UsersComponent } from 'pages';
 import {JobsComponent} from "../pages/jobs/jobs.component";
-import {JobsService} from "../services/job.service/jobs.service";
+import {UserComponent} from "../pages/users/user/user.component";
+import {PersonalInformationComponent} from "../navigation/personal.information/personal.information.component";
+import {MenuComponent} from "../navigation/menu/menu.component";
+
+import { UsersService } from "../services/user.service/users.service";
+import { JobsService } from "../services/job.service/jobs.service";
 
 @NgModule({
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    HomeComponent,
+    AboutComponent,
     JobsComponent,
+    MenuComponent,
     NavigationComponent,
+    PersonalInformationComponent,
     UserComponent,
     UsersComponent,
-    AboutComponent,
-  ],
-  /**
-   * Import Angular's modules.
-   */
-  imports: [
-    BrowserModule,
-    MdSidenavModule,
-    FormsModule,
-    RouterModule.forRoot(ROUTES),
 
   ],
-  /**
-   * Expose our Services and Providers into Angular's dependency injection.
-   */
+
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    MdSidenavModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(ROUTES),
+  ],
   providers: [
     UsersService,
     JobsService,

@@ -4,17 +4,32 @@
     <navigation-component (click)="sidenav.close()"></navigation-component>
   </md-sidenav>
 
-  <div class="container">
-    <nav class="navbar">
-        <div class="fabelement">
-          <button class=" fab " (click)="sidenav.open()">Menu</button>
-        </div>
-        <div class="user-info">
-         <button class=" login-button">Login</button>
-        </div>
-    </nav>
-    <div class="content">
-      <router-outlet></router-outlet>
+  <div class="container-fluid">
+    <div class=" header row">
+      <div class=" header-conetent col-md-12">
+        <button  class="menu-button" (click)="sidenav.open()"><img class= " menu-image"src="../assets/icon/menu.svg"></button>
+        <h2>HR assistant</h2>
+       <h4>Login</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class=" content col-md-12">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
+
+  <!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+    <!--<nav class="navbar">-->
+        <!--&lt;!&ndash;<div class="fabelement">&ndash;&gt;-->
+
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="user-info">&ndash;&gt;-->
+         <!--&lt;!&ndash;<button class=" login-button">Login</button>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--</nav>-->
+    <!--<div class="content">-->
+      <!--<router-outlet></router-outlet>-->
+    <!--</div>-->
+  <!--</div>-->
 </md-sidenav-container>

@@ -6,18 +6,25 @@ import {JobsService} from "../../services/job.service/jobs.service";
   templateUrl:'./jobs.component.html',
 })
 
-export class JobsComponent{
-  public jobList: any[];
-
-  constructor(private jobService:JobsService) {
-    console.log('****************');
-    console.log('creating users component');
+export class  JobsComponent {
+  constructor(private  jobsService:JobsService){}
+  profile={};
+  loadJobs(){
+    this.jobsService.getJobs().subscribe(data=>this.profile = data);
   }
-
-  ngOnInit() {
-    setTimeout(() => {
-      this.jobList = this.jobService.getAllJobs();
-    }, 3000)
-  }
-
 }
+// export class JobsComponent{
+//   public jobList: any[];
+//
+//   constructor(private jobService:JobsService) {
+//     console.log('****************');
+//     console.log('creating users component');
+//   }
+//
+//   ngOnInit() {
+//     setTimeout(() => {
+//       this.jobList = this.jobService.getAllJobs();
+//     }, 3000)
+//   }
+//
+// }

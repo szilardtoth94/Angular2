@@ -12,6 +12,20 @@ const usersList =[
   new User(5,'Szilard'),
   new User(6,'Szilard'),
   new User(7,'Szilard'),
+  new User(1,'Szilard'),
+  new User(2,'Szilard'),
+  new User(3,'Szilard'),
+  new User(4,'Szilard'),
+  new User(5,'Szilard'),
+  new User(6,'Szilard'),
+  new User(7,'Szilard'),
+  new User(1,'Szilard'),
+  new User(2,'Szilard'),
+  new User(3,'Szilard'),
+  new User(4,'Szilard'),
+  new User(5,'Szilard'),
+  new User(6,'Szilard'),
+  new User(7,'Szilard'),
 ];
 
 @Injectable()
