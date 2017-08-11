@@ -15,9 +15,10 @@ export class UserComponent implements OnInit{
   constructor(private route: ActivatedRoute,private router:Router,private userService: UsersService ) {}
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      this.id = +params['id'];
-      this.user = this.userService.getUser(this.id);
+    this.sub = this.route.params.subscribe(
+      params => {
+          this.id = +params['id'];
+          this.user = this.userService.getUser(this.id);
     });
   }
 

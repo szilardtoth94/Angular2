@@ -1,0 +1,20 @@
+{
+  "users": [
+    { "id": 1, "username": "szili", "email": "szili@arobs.com" },
+    { "id": 2, "username": "andras", "email": "andras@arobs.com" },
+    { "id": 3, "username": "ricsi", "email": "ricsi@arobs.com" },
+    { "id": 4, "username": "zsolti", "email": "zsolti@arobs.com" },
+    { "id": 5, "username": "levi", "email": "levi@arobs.com" },
+    { "id": 6, "username": "tatiana", "email": "tatiana@arobs.com" },
+    { "id": 7, "username": "vlad", "email": "vlad@arobs.com" }
+  ],
+  "jobs": [
+    { "id": 1, "name": "Node.js", "description": "new job"},
+    { "id": 2, "name": "Angular2", "description": "new job"},
+    { "id": 3, "name": "barman", "description": "new job"},
+    { "id": 4, "name": "PHP", "description": "new job"},
+    { "id": 5, "name": "C#", "description": "new job"},
+    { "id": 6, "name": ".Net", "description": "new job"},
+    { "id": 7, "name": "JS", "description": "new job"}
+  ]
+}

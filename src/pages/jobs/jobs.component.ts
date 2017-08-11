@@ -13,18 +13,4 @@ export class  JobsComponent {
     this.jobsService.getJobs().subscribe(data=>this.profile = data);
   }
 }
-// export class JobsComponent{
-//   public jobList: any[];
-//
-//   constructor(private jobService:JobsService) {
-//     console.log('****************');
-//     console.log('creating users component');
-//   }
-//
-//   ngOnInit() {
-//     setTimeout(() => {
-//       this.jobList = this.jobService.getAllJobs();
-//     }, 3000)
-//   }
-//
-// }
+
