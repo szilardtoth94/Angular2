@@ -1,4 +1,7 @@
 {
+  "me": [
+    { "id": 1, "name": "Node.js", "description": "new job"},
+  ],
   "users": [
     { "id": 1, "username": "szili", "email": "szili@arobs.com" },
     { "id": 2, "username": "andras", "email": "andras@arobs.com" },

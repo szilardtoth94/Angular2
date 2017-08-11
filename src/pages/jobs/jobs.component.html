@@ -4,7 +4,9 @@
   <!--</li>-->
 <!--</ul>-->
 
-<div>
-  <button (click)="loadJobs()">Load profile</button>
-  {{ profile | json }}
-</div>
+<md-card>
+  <div
+    *ngFor="let job of jobs">
+    <h3>{{ job.getName() }}</h3>
+  </div>
+</md-card>

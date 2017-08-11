@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { MdSidenavModule } from '@angular/material';
+import {
+  MdButtonModule, MdCardModule, MdIconModule, MdListModule, MdMenuModule, MdSidenavModule, MdToolbar,
+  MdToolbarModule
+} from '@angular/material';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { RouterModule } from '@angular/router';
@@ -20,6 +23,8 @@ import {MenuComponent} from "../navigation/menu/menu.component";
 
 import { UsersService } from "../services/user.service/users.service";
 import { JobsService } from "../services/job.service/jobs.service";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FlexLayoutModule} from "@angular/flex-layout"
 
 @NgModule({
   bootstrap: [ AppComponent ],
@@ -37,9 +42,17 @@ import { JobsService } from "../services/job.service/jobs.service";
 
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
     FormsModule,
     HttpModule,
+    MdCardModule,
+    MdIconModule,
+    MdButtonModule,
+    MdListModule,
+    MdMenuModule,
     MdSidenavModule,
+    MdToolbarModule,
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES),
   ],
