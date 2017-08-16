@@ -17,9 +17,7 @@ import '../styles/headings.css';
 import  { NavigationComponent } from "navigation"
 import { AboutComponent, UsersComponent } from 'pages';
 import {JobsComponent} from "../pages/jobs/jobs.component";
-import {UserComponent} from "../pages/users/user/user.component";
-import {PersonalInformationComponent} from "../navigation/personal.information/personal.information.component";
-import {MenuComponent} from "../navigation/menu/menu.component";
+import {UserComponent} from "../pages/users/user/user.component";;
 
 import { UsersService } from "../services/user.service/users.service";
 import { JobsService } from "../services/job.service/jobs.service";
@@ -32,9 +30,6 @@ import {FlexLayoutModule} from "@angular/flex-layout"
     AppComponent,
     AboutComponent,
     JobsComponent,
-    MenuComponent,
-    NavigationComponent,
-    PersonalInformationComponent,
     UserComponent,
     UsersComponent,
 
