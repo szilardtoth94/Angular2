@@ -1,15 +1,19 @@
 
 <h1>Users </h1>
-  <div class= "card-container" *ngFor="let user of usersList "
-      (click)="onSelect(user)">
-    <md-card class="example-card">
-      <md-card-header>
-        <div md-card-avatar class="example-header-image"></div>
-        <md-card-title> user.name </md-card-title>
-        <md-card-subtitle> user.name</md-card-subtitle>
-      </md-card-header>
-    </md-card>
-  </div>
+<div class= "card-container" *ngFor="let user of usersList "
+     (click)="onSelect(user)">
+  <md-card class="example-card">
+    <md-card-header>
+      <md-card-title> user.name </md-card-title>
+      <md-card-subtitle> user.name</md-card-subtitle>
+    </md-card-header>
+    <img md-card-image src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt'>
+    <md-card-actions>
+      <button md-button>EDIT</button>
+      <button md-button>DELETE</button>
+    </md-card-actions>
+  </md-card>
+</div>
 
 
 

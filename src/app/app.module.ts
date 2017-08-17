@@ -22,7 +22,10 @@ import {UserComponent} from "../pages/users/user/user.component";;
 import { UsersService } from "../services/user.service/users.service";
 import { JobsService } from "../services/job.service/jobs.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {FlexLayoutModule} from "@angular/flex-layout"
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {PersonalInformationComponent} from "../desktop-sidenav/personal-information/personal-information.component";
+import {SidenavComponent} from "../desktop-sidenav/sidenav.component";
+import {MenuBarComponent} from "../desktop-sidenav/menu-bar/menu-bar.component";
 
 @NgModule({
   bootstrap: [ AppComponent ],
@@ -30,8 +33,11 @@ import {FlexLayoutModule} from "@angular/flex-layout"
     AppComponent,
     AboutComponent,
     JobsComponent,
+    MenuBarComponent,
+    PersonalInformationComponent,
     UserComponent,
     UsersComponent,
+    SidenavComponent,
 
   ],
 

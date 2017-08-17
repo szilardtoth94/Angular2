@@ -1,5 +1,6 @@
 .example-card {
   width: 50%;
+  text-align: center;
 }
 
 .example-header-image {
@@ -12,4 +13,8 @@
   align-items: center;
   justify-content: center;
   margin:10px
+}
+
+img{
+  width: 50px;
 }
