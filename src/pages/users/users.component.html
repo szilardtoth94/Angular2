@@ -1,17 +1,36 @@
-
 <h1>Users </h1>
-<div class= "card-container" *ngFor="let user of usersList "
-     (click)="onSelect(user)">
+<div class="card-container" *ngFor="let user of users ">
   <md-card class="example-card">
-    <md-card-header>
-      <md-card-title> user.name </md-card-title>
-      <md-card-subtitle> user.name</md-card-subtitle>
-    </md-card-header>
-    <img md-card-image src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt'>
-    <md-card-actions>
-      <button md-button>EDIT</button>
-      <button md-button>DELETE</button>
-    </md-card-actions>
+    <div class="flex-container"
+         fxLayout="row"
+         fxLayout.xs="column">
+      <div class="flex-item"fxFlex="10%" fxHide fxHide.gt-xs fxShow.gt-sm fxShow.gt-lg>
+        <md-icon class="material-icons">person</md-icon>
+      </div>
+      <div class="flex-item" fxFlex="66%" fxFlex.xs="60%">
+        <md-card-title> {{user.getFirstName()}}</md-card-title>
+        <md-card-subtitle> {{user.getLastName()}}</md-card-subtitle>
+      </div>
+      <div class="flex-item" fxFlex="8%">
+        <button md-mini-fab  (click)="onSelect(user)">
+          <md-icon>pageview</md-icon>
+        </button>
+      </div>
+      <div class="flex-item" fxFlex="8%">
+        <button md-mini-fab>
+          <md-icon>edit</md-icon>
+        </button>
+      </div>
+      <div class="flex-item" fxFlex="8%">
+        <button  md-mini-fab>
+          <md-icon>delete</md-icon>
+        </button>
+      </div>
+    </div>
+    <md-card-content>
+      {{user.getDescription()}}
+    </md-card-content>
+
   </md-card>
 </div>
 

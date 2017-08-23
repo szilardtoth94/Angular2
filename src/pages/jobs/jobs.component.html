@@ -1,12 +1,38 @@
-<!--<ul class="items">-->
-  <!--<li *ngFor="let job of jobList ">-->
-    <!--<span>{{ job.id }}</span> {{ job.name}}-->
-  <!--</li>-->
-<!--</ul>-->
+<h1>Jobs </h1>
+<div class="card-container" *ngFor="let job of jobs ">
+  <!--(click)="onSelect(user)">-->
+  <md-card class="example-card">
+    <div class="flex-container"
+         fxLayout="row"
+         fxLayout.xs="column">
+      <div class="flex-item"fxFlex="10%" fxHide fxHide.gt-xs fxShow.gt-sm fxShow.gt-lg>
+        <md-icon class="material-icons">person</md-icon>
+      </div>
+      <div class="flex-item" fxFlex="66%" fxFlex.xs="60%">
+        <md-card-title> {{job.getName()}}</md-card-title>
+      </div>
+      <div class="flex-item" fxFlex="8%">
+        <button md-mini-fab>
+          <md-icon>pageview</md-icon>
+        </button>
+      </div>
+      <div class="flex-item" fxFlex="8%">
+        <button md-mini-fab>
+          <md-icon>edit</md-icon>
+        </button>
+      </div>
+      <div class="flex-item" fxFlex="8%">
+        <button  md-mini-fab>
+          <md-icon>delete</md-icon>
+        </button>
+      </div>
+    </div>
+    <md-card-content>
+      {{job.getDescription()}}
+    </md-card-content>
 
-<md-card>
-  <div
-    *ngFor="let job of jobs">
-    <h3>{{ job.getName() }}</h3>
-  </div>
-</md-card>
+  </md-card>
+</div>
+
+
+

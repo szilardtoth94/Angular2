@@ -26,6 +26,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {PersonalInformationComponent} from "../desktop-sidenav/personal-information/personal-information.component";
 import {SidenavComponent} from "../desktop-sidenav/sidenav.component";
 import {MenuBarComponent} from "../desktop-sidenav/menu-bar/menu-bar.component";
+import {BaseService} from "../services/service";
 
 @NgModule({
   bootstrap: [ AppComponent ],
@@ -60,6 +61,7 @@ import {MenuBarComponent} from "../desktop-sidenav/menu-bar/menu-bar.component";
   providers: [
     UsersService,
     JobsService,
+    BaseService,
   ]
 })
 export class AppModule {}

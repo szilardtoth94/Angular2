@@ -1,17 +1,19 @@
-
 import {Injectable} from "@angular/core";
-import {Http,Response} from "@angular/http";
 import "rxjs/add/operator/map";
 import {JobModel} from "../../model/jobs.model";
+import {BaseService} from "../service"
 
 @Injectable()
-export class JobsService{
+export class JobsService {
 
-  constructor(private http:Http){}
-
-  public url = 'http://localhost:3000/jobs';
-  getJobs(){
-    return this.http.get(this.url)
-      .map((res:Response) => res.json().map((job) => new JobModel(job)));
+  constructor(private baseService: BaseService) {
   }
+
+  public url = 'http://localhost:5000/api';
+
+  getJobs(endpoint) {
+    return (this.baseService.getBase(endpoint, JobModel));
+  }
+
 }
+

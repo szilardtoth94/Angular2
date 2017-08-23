@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import { UsersService} from "../../services/user.service/users.service";
+import {UserModel} from "../../model/users.model";
 import {Router} from "@angular/router";
-import {User, UsersService} from "../../services/user.service/users.service";
 @Component({
   selector: 'users-component',
   templateUrl: './users.component.html',
@@ -8,17 +9,19 @@ import {User, UsersService} from "../../services/user.service/users.service";
 })
 export class UsersComponent implements OnInit{
 
-  public usersList: any[];
-  constructor(private userService: UsersService, private router:Router){
+  public users: UserModel[];
+  constructor(private  usersService:UsersService,private router:Router){}
 
+  public ngOnInit() {
+    this.usersService
+      .getUsers('/api/persinfo')
+      .subscribe(
+        response=>{this.users=response},
+        error2 => console.log(error2),);
   }
 
-  ngOnInit() {
-      this.usersList = this.userService.getAll();
-  }
 
-  onSelect(user:User){
-    this.router.navigate(['/users',user.id]);
+  onSelect(user:UserModel){
+    this.router.navigate(['/users',user.getId()]);
   }
-
 }

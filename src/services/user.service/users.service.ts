@@ -1,44 +1,23 @@
-
 import {Injectable} from "@angular/core";
-export class User {
-  constructor(public id:number, public name:string, public image:string){}
-}
-
-const usersList =[
-  new User(1,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(2,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(3,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(4,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(5,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(6,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(7,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(7,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(7,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(7,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(7,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(7,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(7,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(7,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(7,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(7,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(7,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(7,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(7,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-  new User(7,'Szilard',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt"),
-
-];
+import "rxjs/add/operator/map";
+import {UserModel} from "../../model/users.model";
+import {BaseService} from "../service"
 
 @Injectable()
-export class  UsersService {
+export class UsersService {
 
-    public getAll(){
-      return usersList;
-    }
+  constructor(private baseService: BaseService) {
+  }
 
-    public getUser(id:number){
-      const user = usersList.find((userInfo) => userInfo.id === id);
+  public url = 'http://localhost:5000/api';
 
-      return user ;
-    }
+  getUsers(endpoint) {
+    return (this.baseService.getBaseAll(endpoint, UserModel));
+  }
+
+  getUsersById(endpoint) {
+    return (this.baseService.getBase(endpoint, UserModel));
+  }
 
 }
+

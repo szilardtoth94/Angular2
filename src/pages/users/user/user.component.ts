@@ -1,29 +1,41 @@
-import {Router ,ActivatedRoute} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import {OnInit, Component} from '@angular/core';
-import {User, UsersService} from "../../../services/user.service/users.service";
+import {UsersService} from "../../../services/user.service/users.service";
+import {UserModel} from "../../../model/users.model";
 
 @Component({
-    selector:"user-component",
-    templateUrl:'./user.component.html',
-    styleUrls:['./user.component.css']
+  selector: "user-component",
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
 })
 
-export class UserComponent implements OnInit{
+export class UserComponent implements OnInit {
 
   id: number;
-  private sub: any;
-  public user :User;
-  constructor(private route: ActivatedRoute,private router:Router,private userService: UsersService ) {}
+  private sub: {};
+  public users: UserModel;
 
-  ngOnInit() {
-    this.sub = this.route.params.subscribe(
-      params => {
-          this.id = +params['id'];
-          this.user = this.userService.getUser(this.id);
-    });
+  constructor(private route: ActivatedRoute, private router: Router, private usersService: UsersService) {
   }
 
-  goToUsers(){
+  ngOnInit() {
+    console.log(this.id);
+    this.sub = this.route.params.subscribe(
+      params => {
+        this.id = +params['id'];
+
+      });
+    this.usersService.getUsersById('/api/persinfo/all/' + this.id)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.users = response;
+        },
+        error2 => console.log(error2),);
+    ;
+  }
+
+  goToUsers() {
     this.router.navigate(['/users']);
   }
 
