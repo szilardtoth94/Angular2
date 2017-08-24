@@ -1,7 +1,13 @@
 .example-card {
-  width:60%;
+  width: 60%;
 }
 
+.card-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px
+}
 
-
-
+.flex-item {
+  justify-content: center;
+}

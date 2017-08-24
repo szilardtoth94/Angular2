@@ -1,7 +1,7 @@
 import {Router, ActivatedRoute} from '@angular/router';
 import {OnInit, Component} from '@angular/core';
 import {UsersService} from "../../../services/user.service/users.service";
-import {UserModel} from "../../../model/users.model";
+import {UserModel} from "../../../model/user.model";
 
 @Component({
   selector: "user-component",
@@ -10,29 +10,32 @@ import {UserModel} from "../../../model/users.model";
 })
 
 export class UserComponent implements OnInit {
-
-  id: number;
-  private sub: {};
+  public id: number;
   public users: UserModel;
 
-  constructor(private route: ActivatedRoute, private router: Router, private usersService: UsersService) {
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private usersService: UsersService) {
   }
 
-  ngOnInit() {
-    console.log(this.id);
-    this.sub = this.route.params.subscribe(
+
+  ngOnInit(): void {
+
+    this.route.params.subscribe(
       params => {
         this.id = +params['id'];
 
       });
+
     this.usersService.getUsersById('/api/persinfo/all/' + this.id)
       .subscribe(
         response => {
-          console.log(response);
+          console.log('call to backend  ' + response);
           this.users = response;
+          console.log(this.users)
         },
-        error2 => console.log(error2),);
-    ;
+        error2 => console.log(error2)
+      );
   }
 
   goToUsers() {

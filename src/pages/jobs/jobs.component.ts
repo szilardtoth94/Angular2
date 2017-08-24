@@ -1,7 +1,7 @@
 import {Component,OnInit} from "@angular/core";
 import {JobsService} from "../../services/job.service/jobs.service";
 import {JobModel} from "../../model/jobs.model";
-import {log} from "util";
+
 
 @Component({
   selector:'jobs-component',
@@ -10,15 +10,19 @@ import {log} from "util";
 })
 
 
-export class  JobsComponent  implements OnInit{
+export class  JobsComponent  implements OnInit {
   public jobs: JobModel[];
-  constructor(private  jobsService:JobsService){}
+
+  constructor(private  jobsService: JobsService) {
+  }
 
   public ngOnInit() {
     this.jobsService
       .getJobs('/api/jobs')
       .subscribe(
-        response=>{this.jobs=response},
+        response => {
+          this.jobs = response
+        },
         error2 => console.log(error2),);
   }
 

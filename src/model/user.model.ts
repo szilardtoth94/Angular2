@@ -6,7 +6,7 @@ export class UserModel {
   private firstName: string;
   private lastName: string;
   private description: string;
-  private user_educations: UserEducationModel[];
+  private user_educations:UserEducationModel[];
 
   constructor({
                 id,
@@ -19,7 +19,16 @@ export class UserModel {
     this.firstName = firstName;
     this.lastName = lastName;
     this.description = description;
-    this.user_educations=user_educations;
+    this.user_educations =[];
+
+    user_educations.forEach((user_education) => {
+      this.user_educations.push(new UserEducationModel(user_education));
+    })
+
+    // for(let i =0; i<user_educations.length;i++) {
+    //   this.user_educations[0] = new UserEducationModel(user_educations[i]);
+    // }
+
   }
 
   public getId(): number {
@@ -54,7 +63,7 @@ export class UserModel {
     this.description = description;
   }
 
-  public getEducationList():UserEducationModel[] {
+  public getEducationList():UserEducationModel[]{
     return this.user_educations;
   }
 }

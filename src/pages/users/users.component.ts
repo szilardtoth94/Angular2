@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { UsersService} from "../../services/user.service/users.service";
-import {UserModel} from "../../model/users.model";
+import {AllUserModel} from "../../model/all.users.model";
 import {Router} from "@angular/router";
 @Component({
   selector: 'users-component',
@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
 })
 export class UsersComponent implements OnInit{
 
-  public users: UserModel[];
+  public users: AllUserModel;
   constructor(private  usersService:UsersService,private router:Router){}
 
   public ngOnInit() {
@@ -21,7 +21,7 @@ export class UsersComponent implements OnInit{
   }
 
 
-  onSelect(user:UserModel){
+  onSelect(user: AllUserModel){
     this.router.navigate(['/users',user.getId()]);
   }
 }

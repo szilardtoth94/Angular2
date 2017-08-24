@@ -12,7 +12,7 @@ export class JobsService {
   public url = 'http://localhost:5000/api';
 
   getJobs(endpoint) {
-    return (this.baseService.getBase(endpoint, JobModel));
+    return (this.baseService.getBaseAll(endpoint, JobModel));
   }
 
 }

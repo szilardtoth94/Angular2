@@ -1,16 +1,32 @@
-
-<md-card class="example-card">
+<h1>User </h1>
+<md-card class="example-card" *ngIf="users">
   <md-card-header>
-    <!--<div md-card-avatar class="example-header-image"></div>-->
-    <!--<md-card-title>{{user.name}}</md-card-title>-->
-    <!--<md-card-subtitle>{{user.id}}</md-card-subtitle>-->
-
+    <md-card-title>{{users.getFirstName()}}</md-card-title>
+    <md-card-subtitle>{{users.getLastName()}}</md-card-subtitle>
   </md-card-header>
-  <!--<img md-card-image src="{{imageUrl}}">-->
   <md-card-content>
-  {{(users.getEducationList()[0]).getSchoolName()}}
+    <p>
+      {{users.getDescription()}}
+    </p>
   </md-card-content>
-  <!--<md-card-actions>-->
-    <!--<button (click)="goToUsers()">Back</button>-->
-  <!--</md-card-actions>-->
+  <md-card-content *ngFor="let education of users.getEducationList()">
+    <h1>Education</h1>
+    <p>
+      {{education.getSchoolName()}}
+    </p>
+    <p>
+      {{education.getGraduatedYear()}}
+    </p>
+    <p>
+      {{education.getDescription()}}
+    </p>
+  </md-card-content>
+
+  <md-card-actions>
+    <button md-button>LIKE</button>
+    <button md-button>SHARE</button>
+  </md-card-actions>
 </md-card>
+
+
+
