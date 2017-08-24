@@ -22,8 +22,12 @@ export class UsersComponent implements OnInit{
   }
 
 
-  onSelectView(user: AllUserModel){
+  onSelectUser(user: AllUserModel){
     this.router.navigate(['/users',user.id]);
+  }
+
+  onEditUser(user: AllUserModel){
+    this.router.navigate(['/users/update',user.id]);
   }
 }
 

@@ -13,12 +13,12 @@
         <md-card-subtitle> {{user.lastName}}</md-card-subtitle>
       </div>
       <div class="flex-item" fxFlex="8%">
-        <button md-mini-fab  (click)="onSelectView(user)">
+        <button md-mini-fab  (click)="onSelectUser(user)">
           <md-icon>pageview</md-icon>
         </button>
       </div>
       <div class="flex-item" fxFlex="8%">
-        <button md-mini-fab>
+        <button md-mini-fab (click)="onEditUser(user)">
           <md-icon>edit</md-icon>
         </button>
       </div>

@@ -27,6 +27,7 @@ import {PersonalInformationComponent} from "../desktop-sidenav/personal-informat
 import {SidenavComponent} from "../desktop-sidenav/sidenav.component";
 import {MenuBarComponent} from "../desktop-sidenav/menu-bar/menu-bar.component";
 import {BaseService} from "../services/service";
+import {UserUpdateComponent} from "../pages/users/update/user.update.component";
 
 @NgModule({
   bootstrap: [ AppComponent ],
@@ -37,6 +38,7 @@ import {BaseService} from "../services/service";
     MenuBarComponent,
     PersonalInformationComponent,
     UserComponent,
+    UserUpdateComponent,
     UsersComponent,
     SidenavComponent,
 

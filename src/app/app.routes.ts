@@ -5,6 +5,7 @@ import {AboutComponent} from "../pages/about/about.component";
 import {JobsComponent} from "../pages/jobs/jobs.component";
 import {UsersComponent} from "../pages/users/users.component";
 import {UserComponent} from "../pages/users/user/user.component";
+import {UserUpdateComponent} from "../pages/users/update/user.update.component";
 
 export const ROUTES: Routes = [
   {
@@ -27,6 +28,10 @@ export const ROUTES: Routes = [
   {
     path: 'users/:id',
     component: UserComponent
+  },
+  {
+    path: 'users/update/:id',
+    component: UserUpdateComponent
   },
   {
     path: '**',
