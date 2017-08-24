@@ -1,61 +1,64 @@
+export class UserEducationModel {
 
-export class  UserEducationModel {
 
+  private _id: number;
+  private _schoolName: string;
+  private _graduatedYear: number;
+  private _description: string;
+  private _personalInfoId: number;
 
-  private id: number;
-  private schoolName: string;
-  private graduatedYear: number;
-  private description:string;
-  private personal_info_id:number;
-
-  constructor ({
-                 id,
-                 schoolName,
-                 graduatedYear,
-                 description,
-                 personal_info_id
-               }){
-    this.id=id;
-    this.schoolName = schoolName;
-    this.graduatedYear=graduatedYear;
-    this.description=description;
-    this.personal_info_id=personal_info_id;
+  constructor({
+                id,
+                schoolName,
+                graduatedYear,
+                description,
+                personalInfoId
+              }) {
+    this._id = id;
+    this._schoolName = schoolName;
+    this._graduatedYear = graduatedYear;
+    this._description = description;
+    this._personalInfoId = personalInfoId;
   }
 
-  public getId():number{
-    return this.id;
+
+  get id(): number {
+    return this._id;
   }
 
-  public setId(id:number){
-    this.id =id;
+  set id(value: number) {
+    this._id = value;
   }
 
-  public  getSchoolName():string{
-    return this.schoolName;
+  get schoolName(): string {
+    return this._schoolName;
   }
 
-  public setSchoolName(schoolName:string){
-    this.schoolName=schoolName;
+  set schoolName(value: string) {
+    this._schoolName = value;
   }
 
-  public getGraduatedYear():number{
-    return this.graduatedYear;
-  }
-  public setGraduatedYear(graduatedYear:number){
-    this.graduatedYear=graduatedYear;
+  get graduatedYear(): number {
+    return this._graduatedYear;
   }
 
-  public getDescription():string{
-    return this.description;
+  set graduatedYear(value: number) {
+    this._graduatedYear = value;
   }
 
-  public setDescription(description:string){
-    this.description=description;
+  get description(): string {
+    return this._description;
   }
-  public getPersonalInfoId():number{
-    return this.personal_info_id;
+
+  set description(value: string) {
+    this._description = value;
   }
-  public setPersonalInfoId(personal_info_id:number){
-    this.personal_info_id=personal_info_id;
+
+  get personalInfoId(): number {
+    return this._personalInfoId;
+  }
+
+  set personalInfoId(value: number) {
+    this._personalInfoId = value;
   }
 }

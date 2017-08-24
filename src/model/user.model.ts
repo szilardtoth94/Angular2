@@ -1,69 +1,88 @@
 import {UserEducationModel} from './user.education.model';
+import {UserWorkExperienceModel} from './user.work.experience';
 
 export class UserModel {
 
-  private id: number;
-  private firstName: string;
-  private lastName: string;
-  private description: string;
-  private user_educations:UserEducationModel[];
+
+  private _id: number;
+  private _firstName: string;
+  private _lastName: string;
+  private _description: string;
+  private _userEducations: UserEducationModel[];
+  private _userWorkExperience: UserWorkExperienceModel[];
 
   constructor({
                 id,
                 firstName,
                 lastName,
                 description,
-                user_educations,
+                userEducation,
+                workExperience
               }) {
-    this.id = id;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.description = description;
-    this.user_educations =[];
+    this._id = id;
+    this._firstName = firstName;
+    this._lastName = lastName;
+    this._description = description;
+    this._userEducations=[];
+    this._userWorkExperience = [];
 
-    user_educations.forEach((user_education) => {
-      this.user_educations.push(new UserEducationModel(user_education));
+    userEducation.forEach((userEducation) => {
+      this._userEducations.push(new UserEducationModel(userEducation));
+    });
+    workExperience.forEach((userWork) => {
+      this._userWorkExperience.push(new UserWorkExperienceModel(userWork));
     })
-
     // for(let i =0; i<user_educations.length;i++) {
     //   this.user_educations[0] = new UserEducationModel(user_educations[i]);
     // }
-
   }
 
-  public getId(): number {
-    return this.id;
+  get id(): number {
+    return this._id;
   }
 
-  public setId(id: number) {
-    this.id = id;
+  set id(value: number) {
+    this._id = value;
   }
 
-  public getFirstName(): string {
-    return this.firstName;
+  get firstName(): string {
+    return this._firstName;
   }
 
-  public setFirstName(firstName: string) {
-    this.firstName = firstName;
+  set firstName(value: string) {
+    this._firstName = value;
   }
 
-  public getLastName(): string {
-    return this.lastName;
+  get lastName(): string {
+    return this._lastName;
   }
 
-  public setLastName(lastName: string) {
-    this.lastName = lastName;
+  set lastName(value: string) {
+    this._lastName = value;
   }
 
-  public getDescription(): string {
-    return this.description;
+  get description(): string {
+    return this._description;
   }
 
-  public setDescription(description: string) {
-    this.description = description;
+  set description(value: string) {
+    this._description = value;
   }
 
-  public getEducationList():UserEducationModel[]{
-    return this.user_educations;
+  get userEducations(): UserEducationModel[] {
+    return this._userEducations;
+  }
+
+  set userEducations(value: UserEducationModel[]) {
+    this._userEducations = value;
+  }
+
+
+  get userWorkExperience(): UserWorkExperienceModel[] {
+    return this._userWorkExperience;
+  }
+
+  set userWorkExperience(value: UserWorkExperienceModel[]) {
+    this._userWorkExperience = value;
   }
 }

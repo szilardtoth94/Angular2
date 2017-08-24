@@ -1,18 +1,19 @@
 <h1>Users </h1>
-<div class="card-container" *ngFor="let user of users ">
-  <md-card class="example-card">
+<div class="card-container" *ngFor="let user of users " >
+  <md-card class="example-card" fxFlex="100%" fxFlex.gt-sm="70%">
     <div class="flex-container"
          fxLayout="row"
+         fxLayoutAlign="center center"
          fxLayout.xs="column">
-      <div class="flex-item"fxFlex="10%" fxHide fxHide.gt-xs fxShow.gt-sm fxShow.gt-lg>
+      <div class="flex-item"fxFlex="10%" fxHide fxHide.gt-xs fxShow.gt-sm fxShow.gt-md fxShow.gt-lg>
         <md-icon class="material-icons">person</md-icon>
       </div>
       <div class="flex-item" fxFlex="66%" fxFlex.xs="60%">
-        <md-card-title> {{user.getFirstName()}}</md-card-title>
-        <md-card-subtitle> {{user.getLastName()}}</md-card-subtitle>
+        <md-card-title> {{user.firstName}}</md-card-title>
+        <md-card-subtitle> {{user.lastName}}</md-card-subtitle>
       </div>
       <div class="flex-item" fxFlex="8%">
-        <button md-mini-fab  (click)="onSelect(user)">
+        <button md-mini-fab  (click)="onSelectView(user)">
           <md-icon>pageview</md-icon>
         </button>
       </div>
@@ -27,8 +28,8 @@
         </button>
       </div>
     </div>
-    <md-card-content>
-      {{user.getDescription()}}
+    <md-card-content fxHide fxShow.gt-xs fxShow.gt-sm fxShow.gt-md fxShow.gt-lg>
+      {{user.description}}
     </md-card-content>
 
   </md-card>

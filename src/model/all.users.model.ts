@@ -1,9 +1,9 @@
 export class AllUserModel {
 
-  private id: number;
-  private firstName: string;
-  private lastName: string;
-  private description: string;
+  private _id: number;
+  private _firstName: string;
+  private _lastName: string;
+  private _description: string;
 
   constructor({
                 id,
@@ -11,42 +11,42 @@ export class AllUserModel {
                 lastName,
                 description,
               }) {
-    this.id = id;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.description = description;
+    this._id = id;
+    this._firstName = firstName;
+    this._lastName = lastName;
+    this._description = description;
   }
 
-  public getId(): number {
-    return this.id;
+
+  get id(): number {
+    return this._id;
   }
 
-  public setId(id: number) {
-    this.id = id;
+  set id(value: number) {
+    this._id = value;
   }
 
-  public getFirstName(): string {
-    return this.firstName;
+  get firstName(): string {
+    return this._firstName;
   }
 
-  public setFirstName(firstName: string) {
-    this.firstName = firstName;
+  set firstName(value: string) {
+    this._firstName = value;
   }
 
-  public getLastName(): string {
-    return this.lastName;
+  get lastName(): string {
+    return this._lastName;
   }
 
-  public setLastName(lastName: string) {
-    this.lastName = lastName;
+  set lastName(value: string) {
+    this._lastName = value;
   }
 
-  public getDescription(): string {
-    return this.description;
+  get description(): string {
+    return this._description;
   }
 
-  public setDescription(description: string) {
-    this.description = description;
+  set description(value: string) {
+    this._description = value;
   }
-
 }

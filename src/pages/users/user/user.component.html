@@ -1,32 +1,47 @@
 <h1>User </h1>
-<md-card class="example-card" *ngIf="users">
-  <md-card-header>
-    <md-card-title>{{users.getFirstName()}}</md-card-title>
-    <md-card-subtitle>{{users.getLastName()}}</md-card-subtitle>
-  </md-card-header>
-  <md-card-content>
-    <p>
-      {{users.getDescription()}}
-    </p>
-  </md-card-content>
-  <md-card-content *ngFor="let education of users.getEducationList()">
-    <h1>Education</h1>
-    <p>
-      {{education.getSchoolName()}}
-    </p>
-    <p>
-      {{education.getGraduatedYear()}}
-    </p>
-    <p>
-      {{education.getDescription()}}
-    </p>
-  </md-card-content>
+<div class="card-container" >
+  <md-card class="example-card" *ngIf="users" fxFlex="100%" fxFlex.gt-sm="60%">
+    <md-card-header>
+      <md-card-title><h2>{{users.firstName}}</h2></md-card-title>
+      <md-card-subtitle><h4>{{users.lastName}}</h4></md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+      <p>
+        {{users.description}}
+      </p>
+    </md-card-content>
+    <h1 *ngIf="users.userEducations[0]">Education</h1>
+    <md-card-content *ngFor="let education of users.userEducations">
 
-  <md-card-actions>
-    <button md-button>LIKE</button>
-    <button md-button>SHARE</button>
-  </md-card-actions>
-</md-card>
+      <p><b>School Name:</b>
+        {{education.schoolName}}
+      </p>
+      <p><b>Graduated year:</b>
+        {{education.graduatedYear}}
+      </p>
+      <p><b>Description:</b>
+        {{education.description}}
+      </p>
+      <hr>
+    </md-card-content>
+    <h1 *ngIf="users.userWorkExperience[0]">Work Experience</h1>
+    <md-card-content *ngFor="let experience of users.userWorkExperience">
 
+      <p><b>Company Name:</b>
+        {{experience.companyName}}
+      </p>
+      <p><b>Position:</b>
+        {{experience.position}}
+      </p>
+      <p><b>Start date:</b>
+        {{experience.startDate}}
+      </p>
+      <p><b>End date:</b>
+        {{experience.endDate}}
+      </p>
+      <hr>
+    </md-card-content>
+  </md-card>
+</div>
 
 

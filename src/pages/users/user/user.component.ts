@@ -10,7 +10,7 @@ import {UserModel} from "../../../model/user.model";
 })
 
 export class UserComponent implements OnInit {
-  public id: number;
+  public id2: number;
   public users: UserModel;
 
   constructor(private route: ActivatedRoute,
@@ -23,14 +23,13 @@ export class UserComponent implements OnInit {
 
     this.route.params.subscribe(
       params => {
-        this.id = +params['id'];
+        this.id2 = +params['id'];
 
       });
 
-    this.usersService.getUsersById('/api/persinfo/all/' + this.id)
+    this.usersService.getUsersById('/api/persinfo/all/' + this.id2)
       .subscribe(
         response => {
-          console.log('call to backend  ' + response);
           this.users = response;
           console.log(this.users)
         },

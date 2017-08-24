@@ -16,12 +16,14 @@ export class UsersComponent implements OnInit{
     this.usersService
       .getUsers('/api/persinfo')
       .subscribe(
-        response=>{this.users=response},
+        response=>{this.users=response
+        console.log(this.users)},
         error2 => console.log(error2),);
   }
 
 
-  onSelect(user: AllUserModel){
-    this.router.navigate(['/users',user.getId()]);
+  onSelectView(user: AllUserModel){
+    this.router.navigate(['/users',user.id]);
   }
 }
+
