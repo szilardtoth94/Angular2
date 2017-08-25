@@ -1,5 +1,5 @@
 <h1>User </h1>
-<div class="card-container" >
+<div class="card-container">
   <md-card class="example-card" *ngIf="users" fxFlex="100%" fxFlex.gt-sm="60%">
     <md-card-header>
       <md-card-title><h2>{{users.firstName}}</h2></md-card-title>
@@ -9,10 +9,13 @@
       <p>
         {{users.description}}
       </p>
+
     </md-card-content>
     <h1 *ngIf="users.userEducations[0]">Education</h1>
     <md-card-content *ngFor="let education of users.userEducations">
-
+      <!--<button md-button >-->
+      <!--<md-icon>edit</md-icon>-->
+      <!--</button>-->
       <p><b>School Name:</b>
         {{education.schoolName}}
       </p>
@@ -24,6 +27,10 @@
       </p>
       <hr>
     </md-card-content>
+    <!--<button md-button >-->
+    <!--<md-icon>add</md-icon>-->
+    <!--</button>-->
+
     <h1 *ngIf="users.userWorkExperience[0]">Work Experience</h1>
     <md-card-content *ngFor="let experience of users.userWorkExperience">
 
@@ -38,6 +45,18 @@
       </p>
       <p><b>End date:</b>
         {{experience.endDate}}
+      </p>
+      <hr>
+    </md-card-content>
+
+    <h1 *ngIf="users.skills[0]">User Skills</h1>
+    <md-card-content *ngFor="let skill of users.skills">
+
+      <p><b>Skill name:</b>
+        {{skill.name}}
+      </p>
+      <p><b>Description:</b>
+        {{skill.description}}
       </p>
       <hr>
     </md-card-content>

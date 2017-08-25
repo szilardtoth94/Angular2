@@ -30,10 +30,6 @@ export const ROUTES: Routes = [
     component: UserComponent
   },
   {
-    path: 'users/update/:id',
-    component: UserUpdateComponent
-  },
-  {
     path: '**',
     component: AboutComponent
   },

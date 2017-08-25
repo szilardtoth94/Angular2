@@ -1,20 +1,31 @@
-export class AllUserModel {
+import {UserModel} from "./user.model";
+
+export class userPersInfoModel {
 
   private _id: number;
   private _firstName: string;
   private _lastName: string;
   private _description: string;
+  private _usersId: number;
+  private _user: UserModel;
 
   constructor({
                 id,
                 firstName,
                 lastName,
                 description,
+                usersId,
+                user
               }) {
     this._id = id;
     this._firstName = firstName;
     this._lastName = lastName;
     this._description = description;
+    this._usersId = usersId;
+    this._user=user;
+    // user.forEach((users) => {
+    //   this._user.push(new UserModel(users));
+    // });
   }
 
 
@@ -48,5 +59,29 @@ export class AllUserModel {
 
   set description(value: string) {
     this._description = value;
+  }
+
+  get userId(): number {
+    return this._usersId;
+  }
+
+  set userId(value: number) {
+    this._usersId = value;
+  }
+
+  get usersId(): number {
+    return this._usersId;
+  }
+
+  set usersId(value: number) {
+    this._usersId = value;
+  }
+
+  get user(): UserModel {
+    return this._user;
+  }
+
+  set user(value: UserModel) {
+    this._user = value;
   }
 }

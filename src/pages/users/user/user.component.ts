@@ -1,7 +1,7 @@
-import {Router, ActivatedRoute} from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import {OnInit, Component} from '@angular/core';
 import {UsersService} from "../../../services/user.service/users.service";
-import {UserModel} from "../../../model/user.model";
+import {PersInfoModel} from "../../../model/pers.info.model";
 
 @Component({
   selector: "user-component",
@@ -11,10 +11,9 @@ import {UserModel} from "../../../model/user.model";
 
 export class UserComponent implements OnInit {
   public id2: number;
-  public users: UserModel;
+  public users: PersInfoModel;
 
   constructor(private route: ActivatedRoute,
-              private router: Router,
               private usersService: UsersService) {
   }
 
@@ -35,10 +34,6 @@ export class UserComponent implements OnInit {
         },
         error2 => console.log(error2)
       );
-  }
-
-  goToUsers() {
-    this.router.navigate(['/users']);
   }
 
 }

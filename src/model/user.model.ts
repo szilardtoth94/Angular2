@@ -1,41 +1,25 @@
-import {UserEducationModel} from './user.education.model';
-import {UserWorkExperienceModel} from './user.work.experience';
-
 export class UserModel {
 
-
   private _id: number;
-  private _firstName: string;
-  private _lastName: string;
-  private _description: string;
-  private _userEducations: UserEducationModel[];
-  private _userWorkExperience: UserWorkExperienceModel[];
+  private _userName: string;
+  private _password: string;
+  private _userRoleId: number;
+  private _lastLogin:Date;
 
   constructor({
                 id,
-                firstName,
-                lastName,
-                description,
-                userEducation,
-                workExperience
+                userName,
+                password,
+                userRoleId,
+                lastLogin
               }) {
     this._id = id;
-    this._firstName = firstName;
-    this._lastName = lastName;
-    this._description = description;
-    this._userEducations=[];
-    this._userWorkExperience = [];
-
-    userEducation.forEach((userEducation) => {
-      this._userEducations.push(new UserEducationModel(userEducation));
-    });
-    workExperience.forEach((userWork) => {
-      this._userWorkExperience.push(new UserWorkExperienceModel(userWork));
-    })
-    // for(let i =0; i<user_educations.length;i++) {
-    //   this.user_educations[0] = new UserEducationModel(user_educations[i]);
-    // }
+    this._userName = userName;
+    this._password = password;
+    this._userRoleId = userRoleId;
+    this._lastLogin=lastLogin;
   }
+
 
   get id(): number {
     return this._id;
@@ -45,44 +29,35 @@ export class UserModel {
     this._id = value;
   }
 
-  get firstName(): string {
-    return this._firstName;
+  get userName(): string {
+    return this._userName;
   }
 
-  set firstName(value: string) {
-    this._firstName = value;
+  set userName(value: string) {
+    this._userName = value;
   }
 
-  get lastName(): string {
-    return this._lastName;
+  get password(): string {
+    return this._password;
   }
 
-  set lastName(value: string) {
-    this._lastName = value;
+  set password(value: string) {
+    this._password = value;
   }
 
-  get description(): string {
-    return this._description;
+  get userRoleId(): number {
+    return this._userRoleId;
   }
 
-  set description(value: string) {
-    this._description = value;
+  set userRoleId(value: number) {
+    this._userRoleId = value;
   }
 
-  get userEducations(): UserEducationModel[] {
-    return this._userEducations;
+  get lastLogin(): Date {
+    return this._lastLogin;
   }
 
-  set userEducations(value: UserEducationModel[]) {
-    this._userEducations = value;
-  }
-
-
-  get userWorkExperience(): UserWorkExperienceModel[] {
-    return this._userWorkExperience;
-  }
-
-  set userWorkExperience(value: UserWorkExperienceModel[]) {
-    this._userWorkExperience = value;
+  set lastLogin(value: Date) {
+    this._lastLogin = value;
   }
 }
