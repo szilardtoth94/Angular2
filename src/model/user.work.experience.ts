@@ -6,7 +6,7 @@ export class UserWorkExperienceModel {
   private _position: string;
   private _startDate: Date;
   private _endDate: Date;
-  private _personal_info_id: number;
+  private _personInfoId: number;
 
   constructor({
                 id,
@@ -14,14 +14,14 @@ export class UserWorkExperienceModel {
                 position,
                 startDate,
                 endDate,
-                personal_info_id
+                personInfoId
               }) {
     this._id = id;
     this._companyName = companyName;
     this._position = position;
     this._startDate = startDate;
     this._endDate = endDate;
-    this._personal_info_id = personal_info_id;
+    this._personInfoId = personInfoId;
   }
 
   get id(): number {
@@ -64,11 +64,11 @@ export class UserWorkExperienceModel {
     this._endDate = value;
   }
 
-  get personal_info_id(): number {
-    return this._personal_info_id;
+  get personInfoId(): number {
+    return this._personInfoId;
   }
 
-  set personal_info_id(value: number) {
-    this._personal_info_id = value;
+  set personInfoId(value: number) {
+    this._personInfoId = value;
   }
 }

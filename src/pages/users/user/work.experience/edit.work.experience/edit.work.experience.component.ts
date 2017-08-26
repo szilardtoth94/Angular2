@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MD_DIALOG_DATA, MdDialogRef} from "@angular/material";
 import {BaseService} from "../../../../../services/service";
 import {UserEducationModel} from "../../../../../model/user.education.model";
+import {UserWorkExperienceModel} from "../../../../../model/user.work.experience";
 
 @Component({
   selector: 'create-education',
@@ -12,23 +13,24 @@ export class EditWorkExperienceComponent implements OnInit {
 
   public editWorkExperienceForm: FormGroup;
 
-  constructor(private  baseService: BaseService, public dialogRef: MdDialogRef<EditWorkExperienceComponent>, @Inject(MD_DIALOG_DATA) public education:UserEducationModel) {
+  constructor(private  baseService: BaseService, public dialogRef: MdDialogRef<EditWorkExperienceComponent>, @Inject(MD_DIALOG_DATA) public experience:UserWorkExperienceModel) {
   }
 
   ngOnInit(): void {
-    console.log(this.education);
+    console.log(this.experience);
     this.editWorkExperienceForm = new FormGroup({
-      'schoolName': new FormControl(this.education.schoolName, Validators.minLength(2), null),
-      'graduatedYear': new FormControl(this.education.graduatedYear, Validators.minLength(2), null),
-      'description': new FormControl(this.education.description, null, null),
-      'personalInfoId': new FormControl(this.education.personalInfoId, Validators.required)
+      'companyName': new FormControl(this.experience.companyName, Validators.minLength(2), null),
+      'position': new FormControl(this.experience.position, Validators.minLength(2), null),
+      'startDate': new FormControl(this.experience.startDate, null, null),
+      'endDate': new FormControl(this.experience.endDate, null, null),
+      'personInfoId': new FormControl(this.experience.personInfoId, Validators.required)
     })
   }
 
-  public editEducation() {
+  public editWorkExperience() {
     console.log(this.editWorkExperienceForm.value);
     this.baseService
-      .updateBase('/api/education/'+this.education.id, this.editWorkExperienceForm.value)
+      .updateBase('/api/work/'+this.experience.id, this.editWorkExperienceForm.value)
       .subscribe(
         response => {
           console.log(response);

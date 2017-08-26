@@ -5,6 +5,6 @@ import {MdDialogRef} from "@angular/material";
   selector: 'dialog-result-example-dialog',
   templateUrl: './dialog.component.html',
 })
-export class DialogResultExampleDialog {
-  constructor(public dialogRef: MdDialogRef<DialogResultExampleDialog>) {}
+export class DeleteConfirmationDialog {
+  constructor(public dialogRef: MdDialogRef<DeleteConfirmationDialog>) {}
 }

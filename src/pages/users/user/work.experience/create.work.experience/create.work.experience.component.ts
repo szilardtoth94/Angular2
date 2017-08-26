@@ -5,29 +5,31 @@ import {BaseService} from "../../../../../services/service";
 
 @Component({
   selector: 'create-education',
-  templateUrl: './create.education.component.html',
+  templateUrl: './create.work.experience.component.html',
 })
-export class CreateEducationComponent implements OnInit {
+export class CreateWorkExperienceComponent implements OnInit {
 
-  public educationForm: FormGroup;
+  public createWorkExperienceForm: FormGroup;
 
-  constructor(private  baseService: BaseService, public dialogRef: MdDialogRef<CreateEducationComponent>,@Inject(MD_DIALOG_DATA) public userId:number) {
+  constructor(private  baseService: BaseService, public dialogRef: MdDialogRef<CreateWorkExperienceComponent>,@Inject(MD_DIALOG_DATA) public userId:number) {
   }
 
   ngOnInit(): void {
-    this.educationForm = new FormGroup({
-      'schoolName': new FormControl(null, Validators.minLength(2), null),
-      'graduatedYear': new FormControl(null, Validators.minLength(2), null),
-      'description': new FormControl(null, null, null),
-      'personalInfoId': new FormControl(this.userId, Validators.required)
+    this.createWorkExperienceForm = new FormGroup({
+      'companyName': new FormControl(null, Validators.minLength(2), null),
+      'position': new FormControl(null, Validators.minLength(2), null),
+      'startDate': new FormControl(null, null, null),
+      'endDate': new FormControl(null, null, null),
+      'personInfoId': new FormControl(this.userId, Validators.required)
     })
+
 
   }
 
-  public createEducation() {
-    console.log(this.educationForm.value);
+  public createWorkExperience() {
+    console.log(this.createWorkExperienceForm.value);
     this.baseService
-      .createBase('/api/education', this.educationForm.value)
+      .createBase('/api/work', this.createWorkExperienceForm.value)
       .subscribe(
         response => {
           console.log(response);

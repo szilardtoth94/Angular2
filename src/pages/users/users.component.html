@@ -1,10 +1,8 @@
 <h1>Users </h1><br>
-<div class="card-container">
-  <div class="example-card">
-    <button  md-raised-button *ngIf="users" (click)="open()">
-      Add new user
-    </button>
-  </div>
+<div class="create-button">
+  <button fxLayoutAlign="right" md-raised-button *ngIf="users" (click)="onCreateDialog()">
+    Add new user
+  </button>
 </div>
 <div class="card-container" *ngFor="let user of users ">
   <md-card class="example-card" fxFlex="100%" fxFlex.gt-sm="80%" fxFlex.gt-md="60%" fxFlex.gt-lg="40%">
@@ -20,16 +18,15 @@
         <md-card-subtitle><b>FirstName:</b> {{user.firstName}}</md-card-subtitle>
         <md-card-subtitle><b>LastName:</b> {{user.lastName}}</md-card-subtitle>
       </div>
-      <div class="flex-item" fxFlex="8%">
+      <div class="flex-item" fxFlex="20%">
         <button md-mini-fab (click)="onSelectUser(user)">
           <md-icon>edit</md-icon>
         </button>
-      </div>
-      <div class="flex-item" fxFlex="8%">
-        <button md-mini-fab (click)="openDialog(user)">
+        <button md-mini-fab (click)="openDeleteDialog(user)">
           <md-icon>delete</md-icon>
         </button>
       </div>
+
     </div>
     <md-card-content fxHide fxShow.gt-xs fxShow.gt-sm fxShow.gt-md fxShow.gt-lg>
       {{user.description}}

@@ -1,6 +1,7 @@
 import {UserEducationModel} from './user.education.model';
 import {UserWorkExperienceModel} from './user.work.experience';
 import {UserSkillsModel} from "./user.skills.model";
+import {UserModel} from "./user.model";
 
 export class PersInfoModel {
   private _id: number;
@@ -10,6 +11,7 @@ export class PersInfoModel {
   private _userEducations: UserEducationModel[];
   private _userWorkExperience: UserWorkExperienceModel[];
   private _skills: UserSkillsModel[];
+  private _user: UserModel;
 
   constructor({
                 id,
@@ -18,13 +20,14 @@ export class PersInfoModel {
                 description,
                 userEducation,
                 workExperience,
-                skills
+                skills,
+                user
               }) {
     this._id = id;
     this._firstName = firstName;
     this._lastName = lastName;
     this._description = description;
-
+    this._user=user;
     this._userEducations = [];
     this._userWorkExperience = [];
     this._skills = [];
@@ -96,5 +99,13 @@ export class PersInfoModel {
 
   set skills(value: UserSkillsModel[]) {
     this._skills = value;
+  }
+
+  get user(): UserModel {
+    return this._user;
+  }
+
+  set user(value: UserModel) {
+    this._user = value;
   }
 }

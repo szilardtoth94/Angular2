@@ -23,9 +23,6 @@ export class userPersInfoModel {
     this._description = description;
     this._usersId = usersId;
     this._user=user;
-    // user.forEach((users) => {
-    //   this._user.push(new UserModel(users));
-    // });
   }
 
 

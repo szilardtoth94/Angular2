@@ -1,1 +1,1 @@
-export {DialogResultExampleDialog} from './dialog.component'
+export {DeleteConfirmationDialog} from './dialog.component'

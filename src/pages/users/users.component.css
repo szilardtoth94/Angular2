@@ -2,6 +2,11 @@
   width:60%;
 }
 
+.create-button {
+  display: flex;
+  justify-content:flex-end;
+  margin:10px
+}
 
 .card-container{
   display: flex;
@@ -13,6 +18,3 @@
   justify-content: center;
 }
 
-.create-button{
-  text-align: center;
-}

@@ -1,40 +1,36 @@
-<h2 md-deletedialog-title>Create user</h2>
-<md-dialog-content >
+<h2>Create user</h2>
+<md-dialog-content>
   <form
-    [formGroup]="this.userCreateForm">
-    <div class="row">
-      <div class="col-xs-12 col-xl-12">
-        <div class="form-group">
-        <label class="control-label" for="firstName">FirstName</label>
-        <input class="form-control" id="firstName"   type="text" [formControlName]="'firstName'">
-        </div>
-        <div class="form-group">
-        <label class="control-label" for="lastName">LastName</label>
-        <input class="form-control" id="lastName" type="text" [formControlName]="'lastName'">
-        </div>
-        <div formGroupName="user">
-          <div class="form-group">
-            <label class="control-label" for="username">Username</label>
-            <input class="form-control" id="username" type="text" [formControlName]="'userName'">
-          </div>
-          <div class="form-group">
-            <label class="control-label" for="password">password</label>
-            <input class="form-control" id="password" type="password" [formControlName]="'password'">
-          </div>
-          <div class="form-group">
-            <label class="control-label" for="userRoleId">Role</label>
-            <select class="form-control" id="userRoleId" [formControlName]="'userRoleId'">
-              <option value="1">User</option>
-              <option value="2">HR</option>
-              <option value="3">Admin</option>
-            </select>
-          </div>
-        </div>
-        <md-dialog-actions>
-          <button md-button type="submit" (click)="createUser()" [md-dialog-close]="true">Create</button>
-          <button md-button type="button" [md-dialog-close]="false">Close</button>
-        </md-dialog-actions>
-      </div>
+    [formGroup]="this.userCreateForm"
+    (ngSubmit)="createNewUser()">
+    <md-input-container class="form-group">
+      <input mdInput placeholder="FirstName " type="text" [formControlName]="'firstName'">
+    </md-input-container>
+    <br>
+
+    <md-input-container class="form-group">
+      <input mdInput placeholder="LastName" type="text" [formControlName]="'lastName'">
+    </md-input-container>
+    <br>
+    <div formGroupName="user">
+      <md-input-container class="form-group">
+        <input mdInput placeholder="UserName" type="text" [formControlName]="'userName'">
+      </md-input-container>
+      <br>
+      <md-input-container class="form-group">
+        <input mdInput placeholder="Password " type="text" [formControlName]="'password'">
+      </md-input-container>
+      <br>
+      <md-select placeholder="Role" class="form-control" id="userRoleId" [formControlName]="'userRoleId'">
+        <md-option [value]="1">User</md-option>
+        <md-option [value]="2">HR</md-option>
+        <md-option [value]="3">Admin</md-option>
+      </md-select>
     </div>
+    <md-dialog-actions>
+      <button md-button>Create</button>
+      <button md-button type="button" [md-dialog-close]="false">Close</button>
+    </md-dialog-actions>
+
   </form>
 </md-dialog-content>

@@ -30,4 +30,9 @@ export class BaseService {
     return this.http.post(this.url + endpoint,body)
       .map((res: Response) => res.json());
   }
+
+  updateBase(endpoint,body) {
+    return this.http.put(this.url + endpoint,body)
+      .map((res: Response) => res.json());
+  }
 }
