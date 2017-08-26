@@ -1,0 +1,36 @@
+<h2 md-deletedialog-title>Edit user</h2>
+<md-dialog-content >
+  <form
+    [formGroup]="this.userEditForm">
+    <div class="row">
+      <div class="col-xs-12 col-xl-12">
+        <div class="form-group">
+        <label class="control-label" for="firstName">FirstName</label>
+        <input class="form-control" id="firstName"  type="text" [formControlName]="'firstName'">
+        </div>
+        <div class="form-group">
+        <label class="control-label" for="lastName">LastName</label>
+        <input class="form-control" id="lastName" type="text"  [formControlName]="'lastName'">
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="description">LastName</label>
+          <textarea class="form-control" id="description" type="text"  [formControlName]="'description'"></textarea>
+        </div>
+        <div formGroupName="user">
+          <div class="form-group">
+            <label class="control-label" for="username">Username</label>
+            <input class="form-control"  id="username" type="text" [formControlName]="'userName'">
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="password">password</label>
+            <input class="form-control" id="password" type="password" [formControlName]="'password'">
+          </div>
+        </div>
+        <md-dialog-actions>
+          <button md-button type="submit" (click)="editUser()" [md-dialog-close]="true">Save</button>
+          <button md-button type="button" [md-dialog-close]="false">Close</button>
+        </md-dialog-actions>
+      </div>
+    </div>
+  </form>
+</md-dialog-content>
