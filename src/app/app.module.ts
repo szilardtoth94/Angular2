@@ -35,7 +35,7 @@ import {PersonalInformationComponent} from "../desktop-sidenav/personal.informat
 import {SidenavComponent} from "../desktop-sidenav/sidenav.component";
 import {MenuBarComponent} from "../desktop-sidenav/menu.bar/menu-bar.component";
 import {BaseService} from "../services/service";
-import {DeleteConfirmationDialog} from "../pages/users/deletedialog/dialog.component";
+import {DeleteConfirmationDialog} from "../pages/deletedialog/dialog.component";
 import {CreateUserComponent} from "../pages/users/createUser/create.user.component";
 import {EditUserComponent} from "../pages/users/user/edit.user/edit.user.component";
 import {CreateEducationComponent} from "../pages/users/user/education/create.education/create.education.component";
@@ -43,6 +43,8 @@ import {EditEducationComponent} from "../pages/users/user/education/edit.educati
 import {CreateWorkExperienceComponent} from "../pages/users/user/work.experience/create.work.experience/create.work.experience.component";
 import {EditWorkExperienceComponent} from "../pages/users/user/work.experience/edit.work.experience/edit.work.experience.component";
 import {UserSkillsComponent} from "../pages/users/user/skills/user.skills.component";
+import {JobComponent} from "../pages/jobs/job/job.component";
+import {CreateJob} from "../pages/jobs/create.job/create.job";
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -50,12 +52,14 @@ import {UserSkillsComponent} from "../pages/users/user/skills/user.skills.compon
     AppComponent,
     AboutComponent,
     CreateEducationComponent,
+    CreateJob,
     CreateUserComponent,
     CreateWorkExperienceComponent,
     DeleteConfirmationDialog,
     EditEducationComponent,
     EditUserComponent,
     EditWorkExperienceComponent,
+    JobComponent,
     JobsComponent,
     MenuBarComponent,
     PersonalInformationComponent,
@@ -97,6 +101,7 @@ import {UserSkillsComponent} from "../pages/users/user/skills/user.skills.compon
     EditEducationComponent,
     EditUserComponent,
     EditWorkExperienceComponent,
+    CreateJob,
     UserSkillsComponent,
   ]
 })

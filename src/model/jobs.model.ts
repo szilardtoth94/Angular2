@@ -1,9 +1,9 @@
 export class JobModel {
-  private id: number;
-  private name: string;
-  private description: string;
-  private benefits: string;
-  private code: string;
+  private _id: number;
+  private _name: string;
+  private _description: string;
+  private _benefits: string;
+  private _code: string;
   constructor({
                 id,
                 name,
@@ -11,50 +11,51 @@ export class JobModel {
                 benefits,
                 code
               }) {
-    this.id = id;
-    this.name = name;
-    this.description = description;
-    this.benefits = benefits;
-    this.code = code;
+    this._id = id;
+    this._name = name;
+    this._description = description;
+    this._benefits = benefits;
+    this._code = code;
   }
 
-  public getId(): number {
-    return this.id;
+
+  get id(): number {
+    return this._id;
   }
 
-  public setId(id: number) {
-    this.id = id;
+  set id(value: number) {
+    this._id = value;
   }
 
-  public getName(): string {
-    return this.name;
+  get name(): string {
+    return this._name;
   }
 
-  public setName(name: string) {
-    this.name = name;
+  set name(value: string) {
+    this._name = value;
   }
 
-  public getDescription(): string {
-    return this.description;
+  get description(): string {
+    return this._description;
   }
 
-  public setDescription(description: string) {
-    this.description = description;
+  set description(value: string) {
+    this._description = value;
   }
 
-  public getBenefits(): string {
-    return this.benefits;
+  get benefits(): string {
+    return this._benefits;
   }
 
-  public setBenefits(benefits: string) {
-    this.benefits = benefits;
+  set benefits(value: string) {
+    this._benefits = value;
   }
 
-  public getCode():string{
-    return this.code;
+  get code(): string {
+    return this._code;
   }
 
-  public  setCode(code:string){
-    this.code=code;
+  set code(value: string) {
+    this._code = value;
   }
 }

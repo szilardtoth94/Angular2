@@ -7,7 +7,7 @@ import {CreateEducationComponent} from "./education/create.education/create.educ
 import {BaseService} from "../../../services/service";
 import {EditEducationComponent} from "./education/edit.education/edit.education.component";
 import {UserEducationModel} from "../../../model/user.education.model";
-import {DeleteConfirmationDialog} from "../deletedialog/dialog.component";
+import {DeleteConfirmationDialog} from "../../deletedialog/dialog.component";
 import {CreateWorkExperienceComponent} from "./work.experience/create.work.experience/create.work.experience.component";
 import {UserWorkExperienceModel} from "../../../model/user.work.experience";
 import {EditWorkExperienceComponent} from "./work.experience/edit.work.experience/edit.work.experience.component";

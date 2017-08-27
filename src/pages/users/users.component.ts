@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {userPersInfoModel} from "../../model/user.persinfo.model";
 import {Router} from "@angular/router";
 import {MdDialog} from '@angular/material';
-import {DeleteConfirmationDialog} from "./deletedialog/dialog.component";
+import {DeleteConfirmationDialog} from "../deletedialog/dialog.component";
 import {CreateUserComponent} from "./createUser/create.user.component";
 import {BaseService} from "../../services/service";
 
@@ -14,7 +14,9 @@ import {BaseService} from "../../services/service";
 export class UsersComponent implements OnInit {
   public users: userPersInfoModel;
 
-  constructor(private  baseService: BaseService, private router: Router, public dialog: MdDialog) {
+  constructor(private  baseService: BaseService,
+              private router: Router,
+              public dialog: MdDialog) {
   }
 
   public ngOnInit() {
