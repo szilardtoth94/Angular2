@@ -6,7 +6,7 @@ import {BaseService} from "../../../../services/service";
 
 @Component({
   selector: 'edit-user',
-  templateUrl: './edit.component.html',
+  templateUrl: './edit.user.component.html',
 })
 
 export class EditUserComponent implements OnInit {
