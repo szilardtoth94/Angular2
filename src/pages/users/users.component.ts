@@ -28,6 +28,7 @@ export class UsersComponent implements OnInit {
       .getBaseAll('/api/persinfo', userPersInfoModel)
       .subscribe(
         response => {
+          console.log(response);
           this.users = response;
         },
         error2 => console.log(error2),);

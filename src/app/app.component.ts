@@ -7,15 +7,15 @@ import {MdSidenav} from "@angular/material";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  @ViewChild('sidenav') sidenav: MdSidenav;
-  public imageUrl;
+  // @ViewChild('sidenav') sidenav: MdSidenav;
+  // public imageUrl;
 
   ngOnInit() {
-    this.imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt";
+    // this.imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt";
   }
 
-  closeSideNav() {
-    this.sidenav.close();
-  }
+  // closeSideNav() {
+  //   this.sidenav.close();
+  // }
 
 }

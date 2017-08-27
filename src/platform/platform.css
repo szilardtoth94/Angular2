@@ -1,0 +1,13 @@
+.example-sidenav {
+  padding: 20px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.img-circle{
+  width:36px;
+  height:36px;
+  border-radius: 50%;
+}

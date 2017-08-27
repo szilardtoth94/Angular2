@@ -47,6 +47,8 @@ import {JobComponent} from "../pages/jobs/job/job.component";
 import {CreateJob} from "../pages/jobs/create.job/create.job";
 import {JobSkillsComponent} from "../pages/jobs/job/skills/job.skills.component";
 import {EditJobComponent} from "../pages/jobs/job/edit.job/edit.job.component";
+import {NotFoundComponent} from "../pages/not.found/not.found.component";
+import {PlatformComponent} from "../platform/platform.component";
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -66,7 +68,9 @@ import {EditJobComponent} from "../pages/jobs/job/edit.job/edit.job.component";
     JobsComponent,
     JobSkillsComponent,
     MenuBarComponent,
+    NotFoundComponent,
     PersonalInformationComponent,
+    PlatformComponent,
     SidenavComponent,
     UserComponent,
     UsersComponent,
