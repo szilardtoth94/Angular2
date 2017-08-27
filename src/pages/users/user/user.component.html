@@ -1,6 +1,8 @@
 <h1>User </h1>
 <div class="card-container">
-  <md-card class="example-card" *ngIf="users" fxFlex="100%" fxFlex.gt-sm="70%" fxFlex.gt-md="60%">
+  <md-card class="example-card"
+           *ngIf="users"
+           fxFlex="100%" fxFlex.gt-sm="70%" fxFlex.gt-md="60%">
     <md-card-header>
       <md-card-title><h3>Name: <b>{{users.firstName}} {{users.lastName}}</b></h3></md-card-title>
       <md-card-subtitle><h4>Username: <b>{{users.user.userName}}</b></h4></md-card-subtitle>
@@ -13,9 +15,10 @@
     <button md-mini-fab (click)="onEditUser()">
       <md-icon>edit</md-icon>
     </button>
-    <br><hr><br><br>
+    <br>
+    <hr>
+    <br><br>
     <h1>Education</h1>
-
     <md-card-content *ngFor="let education of users.userEducations">
       <md-card>
         <p><b>School Name:</b>
@@ -70,7 +73,7 @@
     <br><br>
     <hr>
     <br>
-    <h1 >User Skills</h1>
+    <h1>User Skills</h1>
     <md-card-content *ngFor="let skill of users.skills">
       <md-card>
         <p><b>Skill name:</b>

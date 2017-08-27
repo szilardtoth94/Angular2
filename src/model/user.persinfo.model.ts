@@ -1,7 +1,6 @@
 import {UserModel} from "./user.model";
 
 export class userPersInfoModel {
-
   private _id: number;
   private _firstName: string;
   private _lastName: string;
@@ -22,9 +21,8 @@ export class userPersInfoModel {
     this._lastName = lastName;
     this._description = description;
     this._usersId = usersId;
-    this._user=user;
+    this._user = user;
   }
-
 
   get id(): number {
     return this._id;

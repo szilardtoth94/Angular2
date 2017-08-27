@@ -8,26 +8,38 @@ import {BaseService} from "../../../../../services/service";
   templateUrl: './create.education.component.html',
 })
 export class CreateEducationComponent implements OnInit {
-
   public educationForm: FormGroup;
 
-  constructor(private  baseService: BaseService, public dialogRef: MdDialogRef<CreateEducationComponent>, @Inject(MD_DIALOG_DATA) public userId: number) {
+  constructor(private  baseService: BaseService,
+              public dialogRef: MdDialogRef<CreateEducationComponent>,
+              @Inject(MD_DIALOG_DATA) public userId: number) {
   }
 
   ngOnInit(): void {
     this.educationForm = new FormGroup({
-      'schoolName': new FormControl(null, [Validators.minLength(2), Validators.required], null),
-      'graduatedYear': new FormControl(null, [
-        Validators.minLength(4),
-        Validators.maxLength(4),
-        Validators.required,
-        Validators.min(1950),
-        Validators.pattern("^(0|[1-9][0-9]*)$")],
+      'schoolName': new FormControl(
+        null,
+        [Validators.minLength(2), Validators.required],
         null),
-      'description': new FormControl(null, null, null),
-      'personalInfoId': new FormControl(this.userId, Validators.required)
+      'graduatedYear': new FormControl(
+        null,
+        [
+          Validators.minLength(4),
+          Validators.maxLength(4),
+          Validators.required,
+          Validators.min(1950),
+          Validators.pattern("^(0|[1-9][0-9]*)$")
+        ],
+        null),
+      'description': new FormControl(
+        null,
+        null,
+        null),
+      'personalInfoId': new FormControl(
+        this.userId,
+        Validators.required,
+        null)
     })
-
   }
 
   public createEducation() {
@@ -37,7 +49,7 @@ export class CreateEducationComponent implements OnInit {
         .createBase('/api/education', this.educationForm.value)
         .subscribe(
           response => {
-            console.log(response);
+            // console.log(response);
           },
           error2 => console.log(error2),);
     }

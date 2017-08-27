@@ -6,17 +6,19 @@ import {DeleteConfirmationDialog} from "./deletedialog/dialog.component";
 import {CreateUserComponent} from "./createUser/create.user.component";
 import {BaseService} from "../../services/service";
 
-
 @Component({
   selector: 'users-component',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit {
-
   public users: userPersInfoModel;
 
   constructor(private  baseService: BaseService, private router: Router, public dialog: MdDialog) {
+  }
+
+  public ngOnInit() {
+    this.getUsers();
   }
 
   public getUsers() {
@@ -29,15 +31,9 @@ export class UsersComponent implements OnInit {
         error2 => console.log(error2),);
   }
 
-  public ngOnInit() {
-    this.getUsers();
-  }
-
-
   onSelectUser(user: userPersInfoModel) {
     this.router.navigate(['/users', user.id]);
   }
-
 
   onCreateDialog() {
     let dialogRef = this.dialog.open(CreateUserComponent, {
@@ -50,7 +46,7 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  openDeleteDialog(user: userPersInfoModel) {
+  openDeleteDialogConfirmation(user: userPersInfoModel) {
     let dialogRef = this.dialog.open(DeleteConfirmationDialog);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -70,8 +66,6 @@ export class UsersComponent implements OnInit {
         error2 => console.log(error2)
       );
   }
-
-
 }
 
 

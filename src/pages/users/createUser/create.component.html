@@ -4,33 +4,48 @@
     [formGroup]="this.userCreateForm"
     (ngSubmit)="createNewUser()">
     <md-input-container class="form-group">
-      <input mdInput placeholder="FirstName " type="text" [formControlName]="'firstName'">
+      <input mdInput
+             placeholder="FirstName "
+             type="text"
+             [formControlName]="'firstName'">
     </md-input-container>
     <br>
-
     <md-input-container class="form-group">
-      <input mdInput placeholder="LastName" type="text" [formControlName]="'lastName'">
+      <input mdInput
+             placeholder="LastName"
+             type="text"
+             [formControlName]="'lastName'">
     </md-input-container>
     <br>
     <div formGroupName="user">
       <md-input-container class="form-group">
-        <input mdInput placeholder="UserName" type="text" [formControlName]="'userName'">
+        <input mdInput
+               placeholder="UserName"
+               type="text"
+               [formControlName]="'userName'">
       </md-input-container>
       <br>
       <md-input-container class="form-group">
-        <input mdInput placeholder="Password " type="text" [formControlName]="'password'">
+        <input mdInput
+               placeholder="Password "
+               type="password"
+               [formControlName]="'password'">
       </md-input-container>
       <br>
-      <md-select placeholder="Role" class="form-control" id="userRoleId" [formControlName]="'userRoleId'">
+      <md-select placeholder="Role"
+                 class="form-control"
+                 id="userRoleId"
+                 [formControlName]="'userRoleId'">
         <md-option [value]="1">User</md-option>
         <md-option [value]="2">HR</md-option>
-        <md-option [value]="3">Admin</md-option>
       </md-select>
     </div>
     <md-dialog-actions>
       <button md-button>Create</button>
-      <button md-button type="button" [md-dialog-close]="false">Close</button>
+      <button md-button
+              type="button"
+              [md-dialog-close]="false">Close
+      </button>
     </md-dialog-actions>
-
   </form>
 </md-dialog-content>

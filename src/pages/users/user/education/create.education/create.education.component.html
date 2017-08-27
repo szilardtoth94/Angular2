@@ -1,18 +1,28 @@
-<h2 >Create education</h2>
+<h2>Create education</h2>
 <md-dialog-content>
   <form
     [formGroup]="this.educationForm"
     (ngSubmit)="createEducation()">
     <md-input-container class="form-group">
-      <input mdInput placeholder="SchoolName " type="text" [formControlName]="'schoolName'">
+      <input mdInput
+             placeholder="SchoolName "
+             type="text"
+             [formControlName]="'schoolName'">
     </md-input-container>
     <br>
     <md-input-container class="form-group">
-      <input mdInput placeholder="GraduatedYear" type="text" [formControlName]="'graduatedYear'">
+      <input mdInput
+             placeholder="GraduatedYear"
+             type="text"
+             [formControlName]="'graduatedYear'">
     </md-input-container>
     <br>
     <md-input-container class="form-group">
-      <textarea mdInput placeholder="Description" type="text" [formControlName]="'description'"></textarea>
+      <textarea mdInput
+                placeholder="Description"
+                type="text"
+                [formControlName]="'description'">
+      </textarea>
     </md-input-container>
     <br>
     <md-dialog-actions>

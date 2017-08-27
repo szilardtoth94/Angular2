@@ -1,14 +1,13 @@
 .example-card {
-  width:60%;
+  width: 60%;
 }
 
-
-.card-container{
+.card-container {
   display: flex;
   justify-content: center;
-  margin:10px
+  margin: 10px
 }
 
-.flex-item{
+.flex-item {
   justify-content: center;
 }

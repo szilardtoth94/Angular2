@@ -1,26 +1,36 @@
-<h2 md-deletedialog-title>Create WorkExperience</h2>
+<h2>Create WorkExperience</h2>
 <md-dialog-content>
   <form
     [formGroup]="this.createWorkExperienceForm"
     (ngSubmit)="createWorkExperience()">
     <md-input-container class="form-group">
-      <input mdInput placeholder="Company Name " type="text" [formControlName]="'companyName'">
+      <input mdInput
+             placeholder="Company Name "
+             type="text"
+             [formControlName]="'companyName'">
     </md-input-container>
     <br>
     <md-input-container class="form-group">
-      <input mdInput placeholder="Position" type="text" [formControlName]="'position'">
+      <input mdInput
+             placeholder="Position"
+             type="text"
+             [formControlName]="'position'">
     </md-input-container>
     <br>
-
     <md-input-container>
-      <input mdInput [mdDatepicker]="startDate" [formControlName]="'startDate'" placeholder=" Start Date">
+      <input mdInput
+             [mdDatepicker]="startDate"
+             [formControlName]="'startDate'"
+             placeholder=" Start Date">
       <button mdSuffix [mdDatepickerToggle]="startDate"></button>
     </md-input-container>
     <md-datepicker #startDate></md-datepicker>
     <br>
-
     <md-input-container>
-      <input mdInput [mdDatepicker]="endDate" [formControlName]="'endDate'" placeholder="End Date">
+      <input mdInput
+             [mdDatepicker]="endDate"
+             [formControlName]="'endDate'"
+             placeholder="End Date">
       <button mdSuffix [mdDatepickerToggle]="endDate"></button>
     </md-input-container>
     <md-datepicker #endDate></md-datepicker>

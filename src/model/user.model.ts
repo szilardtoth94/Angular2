@@ -1,10 +1,9 @@
 export class UserModel {
-
   private _id: number;
   private _userName: string;
   private _password: string;
   private _userRoleId: number;
-  private _lastLogin:Date;
+  private _lastLogin: Date;
 
   constructor({
                 id,
@@ -17,9 +16,8 @@ export class UserModel {
     this._userName = userName;
     this._password = password;
     this._userRoleId = userRoleId;
-    this._lastLogin=lastLogin;
+    this._lastLogin = lastLogin;
   }
-
 
   get id(): number {
     return this._id;

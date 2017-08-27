@@ -7,11 +7,12 @@ import {BaseService} from "../../../../services/service";
   templateUrl: './user.skills.component.html',
 })
 export class UserSkillsComponent implements OnInit {
-
   public skills: UserSkillsComponent;
   public userId: number;
 
-  constructor(private  baseService: BaseService, public dialogRef: MdDialogRef<UserSkillsComponent>, @Inject(MD_DIALOG_DATA) public list: any) {
+  constructor(private  baseService: BaseService,
+              public dialogRef: MdDialogRef<UserSkillsComponent>,
+              @Inject(MD_DIALOG_DATA) public list: any) {
   }
 
   ngOnInit(): void {
@@ -20,15 +21,14 @@ export class UserSkillsComponent implements OnInit {
   }
 
   public addSkill(id) {
-    console.log(id);
-      this.dialogRef.close(true);
-      this.baseService
-        .createBase('/api/userskills',{"personalInfoId":this.userId ,"skillsId":id})
-        .subscribe(
-          response => {
-            console.log(response);
-          },
-          error2 => console.log(error2),);
+    this.dialogRef.close(true);
+    this.baseService
+      .createBase('/api/userskills', {"personalInfoId": this.userId, "skillsId": id})
+      .subscribe(
+        response => {
+          // console.log(response);
+        },
+        error2 => console.log(error2),);
     //
   }
 }

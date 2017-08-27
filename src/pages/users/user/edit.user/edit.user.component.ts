@@ -8,38 +8,41 @@ import {BaseService} from "../../../../services/service";
   selector: 'edit-user',
   templateUrl: './edit.component.html',
 })
+
 export class EditUserComponent implements OnInit {
-
   public userEditForm: FormGroup;
+  public password: string;
 
-  constructor(private  baseService: BaseService, public dialogRef: MdDialogRef<EditUserComponent>, @Inject(MD_DIALOG_DATA) public users: PersInfoModel) {
+  constructor(private  baseService: BaseService,
+              public dialogRef: MdDialogRef<EditUserComponent>,
+              @Inject(MD_DIALOG_DATA) public users: PersInfoModel) {
   }
 
   ngOnInit(): void {
+    this.password = this.users.user.password;
     this.userEditForm = new FormGroup({
-      'firstName': new FormControl(this.users.firstName, [Validators.minLength(2), Validators.required], null),
-      'lastName': new FormControl(this.users.lastName, [Validators.minLength(2), Validators.required], null),
-      'description': new FormControl(this.users.description, null, null),
-      'user': new FormGroup({
-        'userName': new FormControl(this.users.user.userName, [Validators.minLength(6), Validators.required], null),
-        'password': new FormControl(this.users.user.password, [Validators.minLength(6), Validators.required], null),
-        'lastLogin': new FormControl(this.users.user.lastLogin, null, null),
-        'userRoleId': new FormControl(this.users.user.userRoleId, null, null),
-        'id': new FormControl(this.users.user.id, null, null),
-      })
+      'firstName': new FormControl(
+        this.users.firstName,
+        [Validators.minLength(2), Validators.required],
+        null),
+      'lastName': new FormControl(
+        this.users.lastName,
+        [Validators.minLength(2), Validators.required],
+        null),
+      'description': new FormControl(
+        this.users.description,
+        null,
+        null),
     })
-
   }
 
   public editUser() {
     if (this.userEditForm.valid) {
       this.dialogRef.close(true);
-      console.log(this.userEditForm.value);
       this.baseService
         .updateBase('/api/persinfo/' + this.users.id, this.userEditForm.value)
         .subscribe(
           response => {
-            console.log(response);
           },
           error2 => console.log(error2),);
     }

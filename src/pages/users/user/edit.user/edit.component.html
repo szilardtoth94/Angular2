@@ -4,31 +4,29 @@
     [formGroup]="this.userEditForm"
     (ngSubmit)="editUser()">
     <md-input-container class="form-group">
-      <input mdInput placeholder="FirstName " type="text" [formControlName]="'firstName'">
+      <input mdInput
+             placeholder="FirstName "
+             type="text"
+             [formControlName]="'firstName'">
     </md-input-container>
     <br>
     <md-input-container class="form-group">
-      <input mdInput placeholder="LastName" type="text" [formControlName]="'lastName'">
+      <input mdInput
+             placeholder="LastName"
+             type="text"
+             [formControlName]="'lastName'">
     </md-input-container>
     <br>
     <md-input-container class="form-group">
-      <textarea mdInput placeholder="Description" type="text" [formControlName]="'description'"></textarea>
+      <textarea mdInput
+                placeholder="Description"
+                type="text"
+                [formControlName]="'description'"></textarea>
     </md-input-container>
     <br>
-    <div formGroupName="user">
-      <md-input-container class="form-group">
-        <input mdInput placeholder="UserName" type="text" [formControlName]="'userName'">
-      </md-input-container>
-      <br>
-      <md-input-container class="form-group">
-        <input mdInput placeholder="Password " type="text" [formControlName]="'password'">
-      </md-input-container>
-      <br>
-    </div>
     <md-dialog-actions>
       <button md-button>Save</button>
       <button md-button type="button" [md-dialog-close]="false">Close</button>
     </md-dialog-actions>
-
   </form>
 </md-dialog-content>

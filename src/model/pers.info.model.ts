@@ -1,6 +1,6 @@
 import {UserEducationModel} from './user.education.model';
 import {UserWorkExperienceModel} from './user.work.experience';
-import {UserSkillsModel} from "./user.skills.model";
+import {SkillsModel} from "./skills.model";
 import {UserModel} from "./user.model";
 
 export class PersInfoModel {
@@ -10,7 +10,7 @@ export class PersInfoModel {
   private _description: string;
   private _userEducations: UserEducationModel[];
   private _userWorkExperience: UserWorkExperienceModel[];
-  private _skills: UserSkillsModel[];
+  private _skills: SkillsModel[];
   private _user: UserModel;
 
   constructor({
@@ -27,7 +27,7 @@ export class PersInfoModel {
     this._firstName = firstName;
     this._lastName = lastName;
     this._description = description;
-    this._user=user;
+    this._user = user;
     this._userEducations = [];
     this._userWorkExperience = [];
     this._skills = [];
@@ -39,7 +39,7 @@ export class PersInfoModel {
       this._userWorkExperience.push(new UserWorkExperienceModel(userWork));
     });
     skills.forEach((userSkills) => {
-      this._skills.push(new UserSkillsModel(userSkills));
+      this._skills.push(new SkillsModel(userSkills));
     })
   }
 
@@ -93,11 +93,11 @@ export class PersInfoModel {
   }
 
 
-  get skills(): UserSkillsModel[] {
+  get skills(): SkillsModel[] {
     return this._skills;
   }
 
-  set skills(value: UserSkillsModel[]) {
+  set skills(value: SkillsModel[]) {
     this._skills = value;
   }
 

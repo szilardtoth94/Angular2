@@ -12,8 +12,8 @@ import {CreateWorkExperienceComponent} from "./work.experience/create.work.exper
 import {UserWorkExperienceModel} from "../../../model/user.work.experience";
 import {EditWorkExperienceComponent} from "./work.experience/edit.work.experience/edit.work.experience.component";
 import {UserSkillsComponent} from "./skills/user.skills.component";
-import {UserSkillsModel} from "../../../model/user.skills.model";
-import {forEach} from "@angular/router/src/utils/collection";
+import {SkillsModel} from "../../../model/skills.model";
+import {SkillsOfUser} from "../../../model/skills.of.user";
 
 @Component({
   selector: "user-component",
@@ -24,35 +24,20 @@ import {forEach} from "@angular/router/src/utils/collection";
 export class UserComponent implements OnInit {
   public id2: number;
   public users: PersInfoModel;
-  public skills: UserSkillsModel[];
+  public skills: SkillsModel[];
+  public skillsOfUSer:SkillsOfUser[];
 
   constructor(private route: ActivatedRoute,
               private baseService: BaseService,
               public dialog: MdDialog) {
   }
 
-
   ngOnInit(): void {
-
     this.route.params.subscribe(
       params => {
         this.id2 = +params['id'];
-
       });
     this.getUserInformation();
-
-    this.baseService
-      .getBaseAll('/api/skills', UserSkillsModel)
-      .subscribe(
-        response => {
-          this.skills = response;
-
-
-        },
-        error2 => console.log(error2)
-      );
-
-
   }
 
   getUserInformation() {
@@ -61,7 +46,15 @@ export class UserComponent implements OnInit {
       .subscribe(
         response => {
           this.users = response;
-          // console.log(this.users);
+        },
+        error2 => console.log(error2)
+      );
+
+    this.baseService
+      .getBaseAll('/api/skills', SkillsModel)
+      .subscribe(
+        response => {
+          this.skills = response;
         },
         error2 => console.log(error2)
       );
@@ -95,8 +88,7 @@ export class UserComponent implements OnInit {
 
     let dialogRef = this.dialog.open(EditEducationComponent, {
       data: education,
-      width: '250px%',
-
+      width: '250px',
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -141,11 +133,9 @@ export class UserComponent implements OnInit {
   }
 
   onEditWorkExperience(experience: UserWorkExperienceModel) {
-
     let dialogRef = this.dialog.open(EditWorkExperienceComponent, {
       data: experience,
       width: '250px',
-
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -178,8 +168,7 @@ export class UserComponent implements OnInit {
   }
 
   onAddSkill() {
-
-    this.deleteUserSkillsFromList()
+    this.deleteUserSkillsFromList();
     let dialogRef = this.dialog.open(UserSkillsComponent, {
       data: [this.skills, this.users.id],
       width: '250px',
@@ -192,8 +181,8 @@ export class UserComponent implements OnInit {
   }
 
   deleteUserSkillsFromList() {
-    for (var i = 0; i < this.users.skills.length; i++) {
-      for (var j = 0; j < this.skills.length; j++) {
+    for (let i = 0; i < this.users.skills.length; i++) {
+      for (let j = 0; j < this.skills.length; j++) {
         if (this.users.skills[i].id == this.skills[j].id) {
           this.skills.splice(j, 1);
         }
@@ -205,23 +194,37 @@ export class UserComponent implements OnInit {
     let dialogRef = this.dialog.open(DeleteConfirmationDialog);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log(result);
-        this.onDeleteUserSkill(skillId);
+         this.getUserSkillId(skillId);
       }
     });
   }
 
-  onDeleteUserSkill(skillId) {
-    // console.log(skillId);
-    // this.baseService
-    //   .deleteBase('/api/userskills/' + skillId)
-    //   .subscribe(
-    //     response => {
-    //       console.log(response);
-    //       this.getUserInformation();
-    //     },
-    //     error2 => console.log(error2)
-    //   );
+  getUserSkillId(skillId) {
+    this.baseService
+      .getBaseAll('/api/userskills/' + this.users.id, SkillsOfUser)
+      .subscribe(
+        response => {
+          this.skillsOfUSer = response;
+          for (let i = 0; i < this.skillsOfUSer.length; i++) {
+            if (this.skillsOfUSer[i].skillsId == skillId) {
+              this.onDeleteUserSkill(this.skillsOfUSer[i].id);
+            }
+          }
+
+        },
+        error2 => console.log(error2)
+      );
+  }
+  onDeleteUserSkill(userSkillId:number) {
+    this.baseService
+      .deleteBase('/api/userskills/' +userSkillId)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.getUserInformation();
+        },
+        error2 => console.log(error2)
+      );
   }
 
 }

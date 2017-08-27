@@ -1,8 +1,8 @@
 import {Component, OnInit} from "@angular/core";
 
-@Component ({
-  selector:'personal-information',
-  templateUrl:'./personal-information.component.html',
+@Component({
+  selector: 'personal-information',
+  templateUrl: './personal-information.component.html',
 })
 export class PersonalInformationComponent implements OnInit {
   public imageUrl;

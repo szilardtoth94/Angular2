@@ -21,11 +21,6 @@ export class BaseService {
       .map((res: Response) => new Model(res.json().data));
   }
 
-  deleteBase(endpoint) {
-    return this.http.delete(this.url + endpoint)
-      .map((res: Response) => res.json());
-  }
-
   createBase(endpoint,body) {
     return this.http.post(this.url + endpoint,body)
       .map((res: Response) => res.json());
@@ -35,4 +30,10 @@ export class BaseService {
     return this.http.put(this.url + endpoint,body)
       .map((res: Response) => res.json());
   }
+
+  deleteBase(endpoint) {
+    return this.http.delete(this.url + endpoint)
+      .map((res: Response) => res.json());
+  }
+
 }

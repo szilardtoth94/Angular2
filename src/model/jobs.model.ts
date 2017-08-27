@@ -1,11 +1,9 @@
 export class JobModel {
-
   private id: number;
   private name: string;
   private description: string;
   private benefits: string;
   private code: string;
-
   constructor({
                 id,
                 name,

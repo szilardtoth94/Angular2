@@ -1,11 +1,15 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {
   MdButtonModule,
-  MdCardModule, MdDatepickerModule,
+  MdCardModule,
+  MdDatepickerModule,
   MdDialogModule,
-  MdIconModule, MdInputContainer, MdInputModule,
+  MdIconModule,
+  MdInputModule,
   MdListModule,
-  MdMenuModule, MdNativeDateModule, MdSelectModule,
+  MdMenuModule,
+  MdNativeDateModule,
+  MdSelectModule,
   MdSidenavModule,
   MdToolbarModule
 } from '@angular/material';
@@ -27,9 +31,9 @@ import {UserComponent} from "../pages/users/user/user.component";
 import {UsersService} from "../services/user.service/users.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {PersonalInformationComponent} from "../desktop-sidenav/personal-information/personal-information.component";
+import {PersonalInformationComponent} from "../desktop-sidenav/personal.information/personal-information.component";
 import {SidenavComponent} from "../desktop-sidenav/sidenav.component";
-import {MenuBarComponent} from "../desktop-sidenav/menu-bar/menu-bar.component";
+import {MenuBarComponent} from "../desktop-sidenav/menu.bar/menu-bar.component";
 import {BaseService} from "../services/service";
 import {DeleteConfirmationDialog} from "../pages/users/deletedialog/dialog.component";
 import {CreateUserComponent} from "../pages/users/createUser/create.user.component";
@@ -55,10 +59,10 @@ import {UserSkillsComponent} from "../pages/users/user/skills/user.skills.compon
     JobsComponent,
     MenuBarComponent,
     PersonalInformationComponent,
+    SidenavComponent,
     UserComponent,
     UsersComponent,
     UserSkillsComponent,
-    SidenavComponent,
   ],
 
   imports: [

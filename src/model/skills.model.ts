@@ -1,14 +1,13 @@
-export class UserSkillsModel {
+export class SkillsModel {
   private _id: number;
   private _name: string;
   private _description: number;
 
-
   constructor({
                 id,
                 name,
-                description
-  }) {
+                description,
+              }) {
     this._id = id;
     this._name = name;
     this._description = description;

@@ -1,6 +1,4 @@
 export class UserWorkExperienceModel {
-
-
   private _id: number;
   private _companyName: string;
   private _position: string;

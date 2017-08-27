@@ -1,6 +1,4 @@
 export class UserEducationModel {
-
-
   private _id: number;
   private _schoolName: string;
   private _graduatedYear: number;
