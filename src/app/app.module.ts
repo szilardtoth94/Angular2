@@ -8,7 +8,7 @@ import {
   MdInputModule,
   MdListModule,
   MdMenuModule,
-  MdNativeDateModule,
+  MdNativeDateModule, MdProgressBarModule,
   MdSelectModule,
   MdSidenavModule,
   MdToolbarModule
@@ -26,29 +26,31 @@ import '../styles/headings.css';
 
 import {NavigationComponent} from "navigation"
 import {AboutComponent, UsersComponent} from 'pages';
-import {JobsComponent} from "../pages/jobs/jobs.component";
-import {UserComponent} from "../pages/users/user/user.component";
+import {JobsComponent} from "../pages/platform/jobs/jobs.component";
+import {UserComponent} from "../pages/platform/users/user/user.component";
 import {UsersService} from "../services/user.service/users.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {PersonalInformationComponent} from "../desktop-sidenav/personal.information/personal-information.component";
-import {SidenavComponent} from "../desktop-sidenav/sidenav.component";
-import {MenuBarComponent} from "../desktop-sidenav/menu.bar/menu-bar.component";
+import {PersonalInformationComponent} from "../pages/desktop-sidenav/personal.information/personal-information.component";
+import {SidenavComponent} from "../pages/desktop-sidenav/sidenav.component";
+import {MenuBarComponent} from "../pages/desktop-sidenav/menu.bar/menu-bar.component";
 import {BaseService} from "../services/service";
-import {DeleteConfirmationDialog} from "../pages/deletedialog/dialog.component";
-import {CreateUserComponent} from "../pages/users/createUser/create.user.component";
-import {EditUserComponent} from "../pages/users/user/edit.user/edit.user.component";
-import {CreateEducationComponent} from "../pages/users/user/education/create.education/create.education.component";
-import {EditEducationComponent} from "../pages/users/user/education/edit.education/edit.education.component";
-import {CreateWorkExperienceComponent} from "../pages/users/user/work.experience/create.work.experience/create.work.experience.component";
-import {EditWorkExperienceComponent} from "../pages/users/user/work.experience/edit.work.experience/edit.work.experience.component";
-import {UserSkillsComponent} from "../pages/users/user/skills/user.skills.component";
-import {JobComponent} from "../pages/jobs/job/job.component";
-import {CreateJob} from "../pages/jobs/create.job/create.job";
-import {JobSkillsComponent} from "../pages/jobs/job/skills/job.skills.component";
-import {EditJobComponent} from "../pages/jobs/job/edit.job/edit.job.component";
-import {NotFoundComponent} from "../pages/not.found/not.found.component";
-import {PlatformComponent} from "../platform/platform.component";
+import {DeleteConfirmationDialog} from "../pages/platform/deletedialog/dialog.component";
+import {CreateUserComponent} from "../pages/platform/users/createUser/create.user.component";
+import {EditUserComponent} from "../pages/platform/users/user/edit.user/edit.user.component";
+import {CreateEducationComponent} from "../pages/platform/users/user/education/create.education/create.education.component";
+import {EditEducationComponent} from "../pages/platform/users/user/education/edit.education/edit.education.component";
+import {CreateWorkExperienceComponent} from "../pages/platform/users/user/work.experience/create.work.experience/create.work.experience.component";
+import {EditWorkExperienceComponent} from "../pages/platform/users/user/work.experience/edit.work.experience/edit.work.experience.component";
+import {UserSkillsComponent} from "../pages/platform/users/user/skills/user.skills.component";
+import {JobComponent} from "../pages/platform/jobs/job/job.component";
+import {CreateJob} from "../pages/platform/jobs/create.job/create.job";
+import {JobSkillsComponent} from "../pages/platform/jobs/job/skills/job.skills.component";
+import {EditJobComponent} from "../pages/platform/jobs/job/edit.job/edit.job.component";
+import {NotFoundComponent} from "../pages/platform/not.found/not.found.component";
+import {PlatformComponent} from "../pages/platform/platform.component";
+import {LoginComponent} from "../pages/login/login.component";
+import {AuthGuard} from "../services/authguard";
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -67,6 +69,7 @@ import {PlatformComponent} from "../platform/platform.component";
     JobComponent,
     JobsComponent,
     JobSkillsComponent,
+    LoginComponent,
     MenuBarComponent,
     NotFoundComponent,
     PersonalInformationComponent,
@@ -92,6 +95,7 @@ import {PlatformComponent} from "../platform/platform.component";
     MdListModule,
     MdMenuModule,
     MdNativeDateModule,
+    MdProgressBarModule,
     MdSelectModule,
     MdSidenavModule,
     MdToolbarModule,
@@ -99,7 +103,8 @@ import {PlatformComponent} from "../platform/platform.component";
     RouterModule.forRoot(ROUTES),
   ],
   providers: [
-    BaseService
+    BaseService,
+    AuthGuard
   ],
   entryComponents: [
     CreateEducationComponent,

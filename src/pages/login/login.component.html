@@ -1,0 +1,27 @@
+<div class="card-container">
+  <md-card class="example-card">
+    <md-card-header>
+      <md-card-title><h3>Login</h3></md-card-title>
+      <md-card-subtitle *ngIf="incorrect">Incorrect username or password</md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+      <md-input-container>
+        <input mdInput
+               placeholder="Username "
+               type="text"
+               [(ngModel)]="username">
+      </md-input-container>
+      <md-input-container>
+        <input mdInput
+               placeholder="Password"
+               type="password"
+               [(ngModel)]="password">
+      </md-input-container>
+    </md-card-content>
+    <div class="button-container">
+      <md-card-actions>
+        <button md-raised-button (click)="logIn()">Login</button>
+      </md-card-actions>
+    </div>
+  </md-card>
+</div>

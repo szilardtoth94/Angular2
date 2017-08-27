@@ -21,13 +21,23 @@ export class BaseService {
       .map((res: Response) => new Model(res.json().data));
   }
 
-  createBase(endpoint,body) {
-    return this.http.post(this.url + endpoint,body)
+  createBase(endpoint, body) {
+    return this.http.post(this.url + endpoint, body)
       .map((res: Response) => res.json());
   }
 
-  updateBase(endpoint,body) {
-    return this.http.put(this.url + endpoint,body)
+  login(endpoint, Model, body) {
+    return this.http.post(this.url + endpoint, body)
+      .map((res: Response) => {
+         if (res.json().data)
+         return  new Model(res.json().data)
+        else
+          return null;
+      });
+  }
+
+  updateBase(endpoint, body) {
+    return this.http.put(this.url + endpoint, body)
       .map((res: Response) => res.json());
   }
 
