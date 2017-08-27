@@ -15,7 +15,7 @@ import {DeleteConfirmationDialog} from "../../deletedialog/dialog.component";
 })
 
 export class JobComponent implements OnInit {
-  public jobs: JobModel;
+  public job: JobModel;
   public skills: SkillsModel[];
   public requirements:RequirementsModel[];
   public id: number;
@@ -28,6 +28,7 @@ export class JobComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(
       params => {
+
         this.id = +params['id'];
       });
     this.getJobInformation();
@@ -38,7 +39,7 @@ export class JobComponent implements OnInit {
       .getBase('/api/jobs/' + this.id, JobModel)
       .subscribe(
         response => {
-          this.jobs = response;
+          this.job = response;
         },
         error2 => console.log(error2)
       );
@@ -56,7 +57,7 @@ export class JobComponent implements OnInit {
   onAddSkill() {
     this.deleteJobSkillsFromList();
     let dialogRef = this.dialog.open(JobSkillsComponent, {
-      data: [this.skills, this.jobs.id],
+      data: [this.skills, this.job.id],
       width: '250px',
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -67,9 +68,9 @@ export class JobComponent implements OnInit {
   }
 
   deleteJobSkillsFromList() {
-    for (let i = 0; i < this.jobs.skills.length; i++) {
+    for (let i = 0; i < this.job.skills.length; i++) {
       for (let j = 0; j < this.skills.length; j++) {
-        if (this.jobs.skills[i].id == this.skills[j].id) {
+        if (this.job.skills[i].id == this.skills[j].id) {
           this.skills.splice(j, 1);
         }
       }
@@ -86,7 +87,7 @@ export class JobComponent implements OnInit {
   }
   getJobSkillId(skillId) {
     this.baseService
-      .getBaseAll('/api/requirements/' + this.jobs.id, RequirementsModel)
+      .getBaseAll('/api/requirements/' + this.job.id, RequirementsModel)
       .subscribe(
         response => {
           this.requirements = response;
