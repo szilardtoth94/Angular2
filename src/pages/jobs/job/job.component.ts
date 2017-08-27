@@ -7,17 +7,18 @@ import {JobModel} from "../../../model/jobs.model";
 import {JobSkillsComponent} from "./skills/job.skills.component";
 import {RequirementsModel} from "../../../model/requirements.model";
 import {DeleteConfirmationDialog} from "../../deletedialog/dialog.component";
+import {EditJobComponent} from "./edit.job/edit.job.component";
 
 @Component({
   selector: 'job-component',
   templateUrl: './job.component.html',
-  styleUrls:['./job.component.css'],
+  styleUrls: ['./job.component.css'],
 })
 
 export class JobComponent implements OnInit {
   public job: JobModel;
   public skills: SkillsModel[];
-  public requirements:RequirementsModel[];
+  public requirements: RequirementsModel[];
   public id: number;
 
   constructor(private route: ActivatedRoute,
@@ -54,6 +55,18 @@ export class JobComponent implements OnInit {
       );
   }
 
+  onEditJob() {
+    let dialogRef = this.dialog.open(EditJobComponent, {
+      data: this.job,
+      width: '250px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.getJobInformation();
+      }
+    });
+  }
+
   onAddSkill() {
     this.deleteJobSkillsFromList();
     let dialogRef = this.dialog.open(JobSkillsComponent, {
@@ -85,6 +98,7 @@ export class JobComponent implements OnInit {
       }
     });
   }
+
   getJobSkillId(skillId) {
     this.baseService
       .getBaseAll('/api/requirements/' + this.job.id, RequirementsModel)
@@ -101,9 +115,9 @@ export class JobComponent implements OnInit {
       );
   }
 
-  onDeleteJobSkill(jobSkillId:number) {
+  onDeleteJobSkill(jobSkillId: number) {
     this.baseService
-      .deleteBase('/api/requirements/' +jobSkillId)
+      .deleteBase('/api/requirements/' + jobSkillId)
       .subscribe(
         response => {
           this.getJobInformation();

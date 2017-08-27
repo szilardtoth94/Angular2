@@ -46,6 +46,7 @@ import {UserSkillsComponent} from "../pages/users/user/skills/user.skills.compon
 import {JobComponent} from "../pages/jobs/job/job.component";
 import {CreateJob} from "../pages/jobs/create.job/create.job";
 import {JobSkillsComponent} from "../pages/jobs/job/skills/job.skills.component";
+import {EditJobComponent} from "../pages/jobs/job/edit.job/edit.job.component";
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -58,6 +59,7 @@ import {JobSkillsComponent} from "../pages/jobs/job/skills/job.skills.component"
     CreateWorkExperienceComponent,
     DeleteConfirmationDialog,
     EditEducationComponent,
+    EditJobComponent,
     EditUserComponent,
     EditWorkExperienceComponent,
     JobComponent,
@@ -101,6 +103,7 @@ import {JobSkillsComponent} from "../pages/jobs/job/skills/job.skills.component"
     CreateWorkExperienceComponent,
     DeleteConfirmationDialog,
     EditEducationComponent,
+    EditJobComponent,
     EditUserComponent,
     EditWorkExperienceComponent,
     CreateJob,

@@ -1,0 +1,45 @@
+<h2>Edit job</h2>
+<md-dialog-content>
+  <form
+    [formGroup]="jobEditForm"
+    (ngSubmit)="editJob()">
+    <md-input-container class="form-group">
+      <input mdInput
+             placeholder="Name "
+             type="text"
+             [formControlName]="'name'">
+    </md-input-container>
+    <br>
+    <md-input-container class="form-group">
+      <textarea mdInput
+                placeholder="Description"
+                type="text"
+                [formControlName]="'description'">
+      </textarea>
+    </md-input-container>
+    <br>
+    <md-input-container class="form-group">
+      <textarea mdInput
+                placeholder="Denefits"
+                type="text"
+                [formControlName]="'benefits'">
+      </textarea>
+    </md-input-container>
+    <br>
+    <md-input-container class="form-group">
+      <input mdInput
+             placeholder="Code "
+             type="text"
+             [formControlName]="'code'">
+    </md-input-container>
+    <br>
+
+    <md-dialog-actions>
+      <button md-button>Save</button>
+      <button md-button
+              type="button"
+              [md-dialog-close]="false">Close
+      </button>
+    </md-dialog-actions>
+  </form>
+</md-dialog-content>

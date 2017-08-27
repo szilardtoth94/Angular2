@@ -11,7 +11,6 @@ import {BaseService} from "../../../../services/service";
 
 export class EditUserComponent implements OnInit {
   public userEditForm: FormGroup;
-  public password: string;
 
   constructor(private  baseService: BaseService,
               public dialogRef: MdDialogRef<EditUserComponent>,
@@ -19,7 +18,6 @@ export class EditUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.password = this.users.user.password;
     this.userEditForm = new FormGroup({
       'firstName': new FormControl(
         this.users.firstName,

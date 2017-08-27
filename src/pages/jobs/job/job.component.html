@@ -4,18 +4,20 @@
            *ngIf="job"
            fxFlex="100%" fxFlex.gt-sm="70%" fxFlex.gt-md="60%">
     <md-card-header>
-      <md-card-title><h3>Name: <b>{{job.name}}</b></h3></md-card-title>
-      <md-card-subtitle>{{job.code}}</md-card-subtitle>
+      <md-card-title><h3>{{job.name}}</h3></md-card-title>
+      <md-card-subtitle>Code :{{job.code}}</md-card-subtitle>
     </md-card-header>
     <md-card-content>
+      <h3>Description:</h3>
       <p>
         {{job.description}}
       </p>
+      <h3>Benefits:</h3>
       <p>
         {{job.benefits}}
       </p>
     </md-card-content>
-    <button md-mini-fab>
+    <button md-mini-fab (click)="onEditJob()">
       <md-icon>edit</md-icon>
     </button>
     <br><br>
