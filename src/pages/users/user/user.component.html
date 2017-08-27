@@ -13,7 +13,9 @@
     <button md-mini-fab (click)="onEditUser()">
       <md-icon>edit</md-icon>
     </button>
-    <h1 *ngIf="users.userEducations[0]">Education</h1>
+    <br><hr><br><br>
+    <h1>Education</h1>
+
     <md-card-content *ngFor="let education of users.userEducations">
       <md-card>
         <p><b>School Name:</b>
@@ -39,7 +41,7 @@
     <br><br>
     <hr>
     <br>
-    <h1 *ngIf="users.userWorkExperience[0]">Work Experience</h1>
+    <h1>Work Experience</h1>
     <md-card-content *ngFor="let experience of users.userWorkExperience">
       <md-card>
         <p><b>Company Name:</b>
@@ -68,7 +70,7 @@
     <br><br>
     <hr>
     <br>
-    <h1 *ngIf="users.skills[0]">User Skills</h1>
+    <h1 >User Skills</h1>
     <md-card-content *ngFor="let skill of users.skills">
       <md-card>
         <p><b>Skill name:</b>
@@ -77,15 +79,12 @@
         <p><b>Description:</b>
           {{skill.description}}
         </p>
-        <button md-mini-fab>
-          <md-icon>edit</md-icon>
-        </button>
-        <button md-mini-fab>
+        <button md-mini-fab (click)="openDeleteUserSkillConfirmation(skill.id)">
           <md-icon>delete</md-icon>
         </button>
       </md-card>
     </md-card-content>
-    <button md-mini-fab>
+    <button md-mini-fab (click)="onAddSkill()">
       <md-icon>add</md-icon>
     </button>
   </md-card>

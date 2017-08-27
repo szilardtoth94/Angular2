@@ -11,6 +11,9 @@ import {DeleteConfirmationDialog} from "../deletedialog/dialog.component";
 import {CreateWorkExperienceComponent} from "./work.experience/create.work.experience/create.work.experience.component";
 import {UserWorkExperienceModel} from "../../../model/user.work.experience";
 import {EditWorkExperienceComponent} from "./work.experience/edit.work.experience/edit.work.experience.component";
+import {UserSkillsComponent} from "./skills/user.skills.component";
+import {UserSkillsModel} from "../../../model/user.skills.model";
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: "user-component",
@@ -21,6 +24,7 @@ import {EditWorkExperienceComponent} from "./work.experience/edit.work.experienc
 export class UserComponent implements OnInit {
   public id2: number;
   public users: PersInfoModel;
+  public skills: UserSkillsModel[];
 
   constructor(private route: ActivatedRoute,
               private baseService: BaseService,
@@ -37,15 +41,27 @@ export class UserComponent implements OnInit {
       });
     this.getUserInformation();
 
+    this.baseService
+      .getBaseAll('/api/skills', UserSkillsModel)
+      .subscribe(
+        response => {
+          this.skills = response;
+
+
+        },
+        error2 => console.log(error2)
+      );
+
+
   }
 
   getUserInformation() {
     this.baseService
-      .getBase('/api/persinfo/all/' + this.id2,PersInfoModel)
+      .getBase('/api/persinfo/all/' + this.id2, PersInfoModel)
       .subscribe(
         response => {
           this.users = response;
-          console.log(this.users)
+          // console.log(this.users);
         },
         error2 => console.log(error2)
       );
@@ -54,7 +70,7 @@ export class UserComponent implements OnInit {
   onEditUser() {
     let dialogRef = this.dialog.open(EditUserComponent, {
       data: this.users,
-      width: '50%',
+      width: '250px',
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -66,7 +82,7 @@ export class UserComponent implements OnInit {
   onCreateEducation() {
     let dialogRef = this.dialog.open(CreateEducationComponent, {
       data: this.users.id,
-      width: '50%',
+      width: '250px',
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -75,11 +91,11 @@ export class UserComponent implements OnInit {
     });
   }
 
-  onEditEducation(education:UserEducationModel) {
+  onEditEducation(education: UserEducationModel) {
 
     let dialogRef = this.dialog.open(EditEducationComponent, {
       data: education,
-      width: '50%',
+      width: '250px%',
 
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -89,17 +105,18 @@ export class UserComponent implements OnInit {
     });
   }
 
-  openDeleteEducationConfirmation(education:UserEducationModel) {
+  openDeleteEducationConfirmation(education: UserEducationModel) {
     console.log(education.id);
     let dialogRef = this.dialog.open(DeleteConfirmationDialog);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         console.log(result);
-         this.onDeleteEducation(education);
+        this.onDeleteEducation(education);
       }
     });
   }
-  onDeleteEducation(education:UserEducationModel) {
+
+  onDeleteEducation(education: UserEducationModel) {
     this.baseService
       .deleteBase('/api/education/' + education.id)
       .subscribe(
@@ -110,10 +127,11 @@ export class UserComponent implements OnInit {
         error2 => console.log(error2)
       );
   }
+
   onCreateWorkExperience() {
     let dialogRef = this.dialog.open(CreateWorkExperienceComponent, {
       data: this.users.id,
-      width: '50%',
+      width: '250px',
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -122,11 +140,11 @@ export class UserComponent implements OnInit {
     });
   }
 
-  onEditWorkExperience(experience:UserWorkExperienceModel) {
+  onEditWorkExperience(experience: UserWorkExperienceModel) {
 
     let dialogRef = this.dialog.open(EditWorkExperienceComponent, {
       data: experience,
-      width: '50%',
+      width: '250px',
 
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -135,7 +153,8 @@ export class UserComponent implements OnInit {
       }
     });
   }
-  openDeleteWorkConfirmation(experience:UserWorkExperienceModel) {
+
+  openDeleteWorkConfirmation(experience: UserWorkExperienceModel) {
     console.log(experience.id);
     let dialogRef = this.dialog.open(DeleteConfirmationDialog);
     dialogRef.afterClosed().subscribe(result => {
@@ -145,7 +164,8 @@ export class UserComponent implements OnInit {
       }
     });
   }
-  onDeleteWorkExperience(experience:UserWorkExperienceModel) {
+
+  onDeleteWorkExperience(experience: UserWorkExperienceModel) {
     this.baseService
       .deleteBase('/api/work/' + experience.id)
       .subscribe(
@@ -155,6 +175,53 @@ export class UserComponent implements OnInit {
         },
         error2 => console.log(error2)
       );
+  }
+
+  onAddSkill() {
+
+    this.deleteUserSkillsFromList()
+    let dialogRef = this.dialog.open(UserSkillsComponent, {
+      data: [this.skills, this.users.id],
+      width: '250px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.getUserInformation();
+      }
+    });
+  }
+
+  deleteUserSkillsFromList() {
+    for (var i = 0; i < this.users.skills.length; i++) {
+      for (var j = 0; j < this.skills.length; j++) {
+        if (this.users.skills[i].id == this.skills[j].id) {
+          this.skills.splice(j, 1);
+        }
+      }
+    }
+  }
+
+  openDeleteUserSkillConfirmation(skillId) {
+    let dialogRef = this.dialog.open(DeleteConfirmationDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log(result);
+        this.onDeleteUserSkill(skillId);
+      }
+    });
+  }
+
+  onDeleteUserSkill(skillId) {
+    // console.log(skillId);
+    // this.baseService
+    //   .deleteBase('/api/userskills/' + skillId)
+    //   .subscribe(
+    //     response => {
+    //       console.log(response);
+    //       this.getUserInformation();
+    //     },
+    //     error2 => console.log(error2)
+    //   );
   }
 
 }

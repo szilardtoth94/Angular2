@@ -38,6 +38,7 @@ import {CreateEducationComponent} from "../pages/users/user/education/create.edu
 import {EditEducationComponent} from "../pages/users/user/education/edit.education/edit.education.component";
 import {CreateWorkExperienceComponent} from "../pages/users/user/work.experience/create.work.experience/create.work.experience.component";
 import {EditWorkExperienceComponent} from "../pages/users/user/work.experience/edit.work.experience/edit.work.experience.component";
+import {UserSkillsComponent} from "../pages/users/user/skills/user.skills.component";
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -56,6 +57,7 @@ import {EditWorkExperienceComponent} from "../pages/users/user/work.experience/e
     PersonalInformationComponent,
     UserComponent,
     UsersComponent,
+    UserSkillsComponent,
     SidenavComponent,
   ],
 
@@ -91,6 +93,7 @@ import {EditWorkExperienceComponent} from "../pages/users/user/work.experience/e
     EditEducationComponent,
     EditUserComponent,
     EditWorkExperienceComponent,
+    UserSkillsComponent,
   ]
 })
 export class AppModule {

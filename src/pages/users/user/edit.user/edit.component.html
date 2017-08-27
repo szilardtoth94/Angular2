@@ -1,36 +1,34 @@
-<h2 md-deletedialog-title>Edit user</h2>
-<md-dialog-content >
+<h2>Edit user</h2>
+<md-dialog-content>
   <form
-    [formGroup]="this.userEditForm">
-    <div class="row">
-      <div class="col-xs-12 col-xl-12">
-        <div class="form-group">
-        <label class="control-label" for="firstName">FirstName</label>
-        <input class="form-control" id="firstName"  type="text" [formControlName]="'firstName'">
-        </div>
-        <div class="form-group">
-        <label class="control-label" for="lastName">LastName</label>
-        <input class="form-control" id="lastName" type="text"  [formControlName]="'lastName'">
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="description">LastName</label>
-          <textarea class="form-control" id="description" type="text"  [formControlName]="'description'"></textarea>
-        </div>
-        <div formGroupName="user">
-          <div class="form-group">
-            <label class="control-label" for="username">Username</label>
-            <input class="form-control"  id="username" type="text" [formControlName]="'userName'">
-          </div>
-          <div class="form-group">
-            <label class="control-label" for="password">password</label>
-            <input class="form-control" id="password" type="password" [formControlName]="'password'">
-          </div>
-        </div>
-        <md-dialog-actions>
-          <button md-button type="submit" (click)="editUser()" [md-dialog-close]="true">Save</button>
-          <button md-button type="button" [md-dialog-close]="false">Close</button>
-        </md-dialog-actions>
-      </div>
+    [formGroup]="this.userEditForm"
+    (ngSubmit)="editUser()">
+    <md-input-container class="form-group">
+      <input mdInput placeholder="FirstName " type="text" [formControlName]="'firstName'">
+    </md-input-container>
+    <br>
+    <md-input-container class="form-group">
+      <input mdInput placeholder="LastName" type="text" [formControlName]="'lastName'">
+    </md-input-container>
+    <br>
+    <md-input-container class="form-group">
+      <textarea mdInput placeholder="Description" type="text" [formControlName]="'description'"></textarea>
+    </md-input-container>
+    <br>
+    <div formGroupName="user">
+      <md-input-container class="form-group">
+        <input mdInput placeholder="UserName" type="text" [formControlName]="'userName'">
+      </md-input-container>
+      <br>
+      <md-input-container class="form-group">
+        <input mdInput placeholder="Password " type="text" [formControlName]="'password'">
+      </md-input-container>
+      <br>
     </div>
+    <md-dialog-actions>
+      <button md-button>Save</button>
+      <button md-button type="button" [md-dialog-close]="false">Close</button>
+    </md-dialog-actions>
+
   </form>
 </md-dialog-content>

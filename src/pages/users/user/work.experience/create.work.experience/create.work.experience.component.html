@@ -1,36 +1,33 @@
 <h2 md-deletedialog-title>Create WorkExperience</h2>
 <md-dialog-content>
   <form
-    [formGroup]="this.createWorkExperienceForm">
-    <div class="row">
-      <div class="col-xs-12 col-xl-12">
-        <div class="form-group">
-          <label class="control-label" for="companyName">CompanyName</label>
-          <input class="form-control" id="companyName" type="text" [formControlName]="'companyName'">
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="position">Position</label>
-          <input class="form-control" id="position" type="text" [formControlName]="'position'">
-        </div>
-        <div class="form-group">
-          <md-input-container >
-            <input mdInput [mdDatepicker]="startDate" [formControlName]="'startDate'"  placeholder=" Start Date" >
-            <button mdSuffix [mdDatepickerToggle]="startDate" ></button>
-          </md-input-container>
-          <md-datepicker #startDate ></md-datepicker>
-        </div>
-        <div class="form-group">
-          <md-input-container >
-            <input mdInput [mdDatepicker]="endDate" [formControlName]="'endDate'"  placeholder="End Date" >
-            <button mdSuffix [mdDatepickerToggle]="endDate" ></button>
-          </md-input-container>
-          <md-datepicker #endDate ></md-datepicker>
-        </div>
-        <md-dialog-actions>
-          <button md-button type="submit" (click)="createWorkExperience()" [md-dialog-close]="true">Create</button>
-          <button md-button type="button" [md-dialog-close]="false">Close</button>
-        </md-dialog-actions>
-      </div>
-    </div>
+    [formGroup]="this.createWorkExperienceForm"
+    (ngSubmit)="createWorkExperience()">
+    <md-input-container class="form-group">
+      <input mdInput placeholder="Company Name " type="text" [formControlName]="'companyName'">
+    </md-input-container>
+    <br>
+    <md-input-container class="form-group">
+      <input mdInput placeholder="Position" type="text" [formControlName]="'position'">
+    </md-input-container>
+    <br>
+
+    <md-input-container>
+      <input mdInput [mdDatepicker]="startDate" [formControlName]="'startDate'" placeholder=" Start Date">
+      <button mdSuffix [mdDatepickerToggle]="startDate"></button>
+    </md-input-container>
+    <md-datepicker #startDate></md-datepicker>
+    <br>
+
+    <md-input-container>
+      <input mdInput [mdDatepicker]="endDate" [formControlName]="'endDate'" placeholder="End Date">
+      <button mdSuffix [mdDatepickerToggle]="endDate"></button>
+    </md-input-container>
+    <md-datepicker #endDate></md-datepicker>
+    <br>
+    <md-dialog-actions>
+      <button md-button type="submit">Create</button>
+      <button md-button type="button" [md-dialog-close]="false">Close</button>
+    </md-dialog-actions>
   </form>
 </md-dialog-content>

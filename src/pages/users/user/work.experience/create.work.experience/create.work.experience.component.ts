@@ -16,8 +16,8 @@ export class CreateWorkExperienceComponent implements OnInit {
 
   ngOnInit(): void {
     this.createWorkExperienceForm = new FormGroup({
-      'companyName': new FormControl(null, Validators.minLength(2), null),
-      'position': new FormControl(null, Validators.minLength(2), null),
+      'companyName': new FormControl(null, [Validators.required,Validators.minLength(2)], null),
+      'position': new FormControl(null, [Validators.required,Validators.minLength(2)], null),
       'startDate': new FormControl(null, null, null),
       'endDate': new FormControl(null, null, null),
       'personInfoId': new FormControl(this.userId, Validators.required)
@@ -27,13 +27,15 @@ export class CreateWorkExperienceComponent implements OnInit {
   }
 
   public createWorkExperience() {
-    console.log(this.createWorkExperienceForm.value);
-    this.baseService
-      .createBase('/api/work', this.createWorkExperienceForm.value)
-      .subscribe(
-        response => {
-          console.log(response);
-        },
-        error2 => console.log(error2),);
+    if (this.createWorkExperienceForm.valid) {
+      this.dialogRef.close(true);
+      this.baseService
+        .createBase('/api/work', this.createWorkExperienceForm.value)
+        .subscribe(
+          response => {
+            console.log(response);
+          },
+          error2 => console.log(error2),);
+    }
   }
 }

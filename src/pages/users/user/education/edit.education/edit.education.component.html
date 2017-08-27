@@ -1,26 +1,23 @@
-<h2 md-deletedialog-title>Edit education</h2>
+<h2 >Edit education</h2>
 <md-dialog-content>
   <form
-    [formGroup]="this.editEducationForm">
-    <div class="row">
-      <div class="col-xs-12 col-xl-12">
-        <div class="form-group">
-          <label class="control-label" for="schoolName">SchooolName</label>
-          <input class="form-control" id="schoolName" type="text" [formControlName]="'schoolName'">
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="graduatedYear">GraduatedYear</label>
-          <input class="form-control" id="graduatedYear" type="text" [formControlName]="'graduatedYear'">
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="description">Description</label>
-          <textarea class="form-control" id="description" type="text" [formControlName]="'description'"></textarea>
-        </div>
-        <md-dialog-actions>
-          <button md-button type="submit" (click)="editEducation()" [md-dialog-close]="true">Save</button>
-          <button md-button type="button" [md-dialog-close]="false">Close</button>
-        </md-dialog-actions>
-      </div>
-    </div>
+    [formGroup]="this.editEducationForm"
+    (ngSubmit)="editEducation()">
+    <md-input-container class="form-group">
+      <input mdInput placeholder="SchoolName " type="text" [formControlName]="'schoolName'">
+    </md-input-container>
+    <br>
+    <md-input-container class="form-group">
+      <input mdInput placeholder="GraduatedYear" type="text" [formControlName]="'graduatedYear'">
+    </md-input-container>
+    <br>
+    <md-input-container class="form-group">
+      <textarea mdInput placeholder="Description" type="text" [formControlName]="'description'"></textarea>
+    </md-input-container>
+    <br>
+    <md-dialog-actions>
+      <button md-button>Save</button>
+      <button md-button type="button" [md-dialog-close]="false">Close</button>
+    </md-dialog-actions>
   </form>
 </md-dialog-content>
