@@ -4,7 +4,7 @@
            *ngIf="job"
            fxFlex="100%" fxFlex.gt-sm="70%" fxFlex.gt-md="60%">
     <md-card-header>
-      <md-card-title><h3>{{job.name}}</h3></md-card-title>
+      <md-card-title><h1>{{job.name}}</h1></md-card-title>
       <md-card-subtitle>Code :{{job.code}}</md-card-subtitle>
     </md-card-header>
     <md-card-content>
@@ -17,7 +17,9 @@
         {{job.benefits}}
       </p>
     </md-card-content>
-    <button md-mini-fab (click)="onEditJob()">
+    <button md-mini-fab
+            *ngIf="access"
+            (click)="onEditJob()">
       <md-icon>edit</md-icon>
     </button>
     <br><br>
@@ -32,12 +34,14 @@
         <p><b>Description:</b>
           {{skill.description}}
         </p>
-        <button md-mini-fab (click)="openDeleteSkillConfirmation(skill.id)">
+        <button md-mini-fab
+                *ngIf="access"
+                (click)="openDeleteSkillConfirmation(skill.id)">
           <md-icon>delete</md-icon>
         </button>
       </md-card>
     </md-card-content>
-    <button md-mini-fab (click)="onAddSkill()">
+    <button md-mini-fab *ngIf="access" (click)="onAddSkill()">
       <md-icon>add</md-icon>
     </button>
   </md-card>

@@ -12,7 +12,9 @@
         {{users.description}}
       </p>
     </md-card-content>
-    <button md-mini-fab (click)="onEditUser()">
+    <button md-mini-fab
+            *ngIf="acces"
+            (click)="onEditUser()">
       <md-icon>edit</md-icon>
     </button>
     <br>
@@ -30,15 +32,22 @@
         <p><b>Description:</b>
           {{education.description}}
         </p>
-        <button md-mini-fab (click)="onEditEducation(education)">
+        <button md-mini-fab
+                *ngIf="acces"
+                (click)="onEditEducation(education)">
           <md-icon>edit</md-icon>
         </button>
-        <button md-mini-fab (click)="openDeleteEducationConfirmation(education)">
+        <button md-mini-fab
+                *ngIf="acces"
+                (click)="openDeleteEducationConfirmation(education)">
           <md-icon>delete</md-icon>
         </button>
       </md-card>
     </md-card-content>
-    <button md-mini-fab id="create-education" (click)="onCreateEducation()">
+    <button md-mini-fab
+            id="create-education"
+            *ngIf="acces"
+            (click)="onCreateEducation()">
       <md-icon>add</md-icon>
     </button>
     <br><br>
@@ -59,15 +68,21 @@
         <p><b>End date:</b>
           {{experience.endDate}}
         </p>
-        <button md-mini-fab (click)="onEditWorkExperience(experience)">
+        <button md-mini-fab
+                *ngIf="acces"
+                (click)="onEditWorkExperience(experience)">
           <md-icon>edit</md-icon>
         </button>
-        <button md-mini-fab (click)="openDeleteWorkConfirmation(experience)">
+        <button md-mini-fab
+                *ngIf="acces"
+                (click)="openDeleteWorkConfirmation(experience)">
           <md-icon>delete</md-icon>
         </button>
       </md-card>
     </md-card-content>
-    <button md-mini-fab (click)="onCreateWorkExperience()">
+    <button md-mini-fab
+            *ngIf="acces"
+            (click)="onCreateWorkExperience()">
       <md-icon>add</md-icon>
     </button>
     <br><br>
@@ -82,12 +97,16 @@
         <p><b>Description:</b>
           {{skill.description}}
         </p>
-        <button md-mini-fab (click)="openDeleteUserSkillConfirmation(skill.id)">
+        <button md-mini-fab
+                *ngIf="acces"
+                (click)="openDeleteUserSkillConfirmation(skill.id)">
           <md-icon>delete</md-icon>
         </button>
       </md-card>
     </md-card-content>
-    <button md-mini-fab (click)="onAddSkill()">
+    <button md-mini-fab
+            *ngIf="acces"
+            (click)="onAddSkill()">
       <md-icon>add</md-icon>
     </button>
   </md-card>

@@ -3,6 +3,7 @@ import {Md5} from "ts-md5/dist/md5";
 import {BaseService} from "../../services/service";
 import {Router} from "@angular/router";
 import {UserModel} from "../../model/user.model";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'login',
@@ -11,9 +12,8 @@ import {UserModel} from "../../model/user.model";
 })
 
 export class LoginComponent implements OnInit {
-  public username;
-  public password;
-  public incorrect =false;
+  public loginForm: FormGroup;
+  public incorrect = false;
   public user: UserModel;
 
   constructor(private  baseService: BaseService,
@@ -24,11 +24,23 @@ export class LoginComponent implements OnInit {
     if (localStorage.getItem('id')) {
       this.router.navigate(['platform/users']);
     }
+    this.loginForm = new FormGroup({
+      'userName': new FormControl(
+        null,
+        [Validators.minLength(2), Validators.required],
+        null),
+      'password': new FormControl(null,
+        [Validators.minLength(2), Validators.required],
+        null),
+    });
   }
 
   logIn() {
     this.baseService
-      .login('/api/users', UserModel, {"userName": this.username, "password": Md5.hashStr(this.password)})
+      .login('/api/users', UserModel, {
+        "userName": this.loginForm.value.userName,
+        "password": Md5.hashStr(this.loginForm.value.password)
+      })
       .subscribe(
         response => {
           if (response) {
@@ -36,12 +48,11 @@ export class LoginComponent implements OnInit {
             if (this.user.id) {
               localStorage.setItem("id", this.user.id.toString());
               localStorage.setItem("role", this.user.userRoleId.toString())
-              this.router.navigate(['platform/users']);
+              this.router.navigate(['platform/about']);
             }
           }
-          else{
-            this.incorrect=true;
-            this.password=null;
+          else {
+            this.incorrect = true;
           }
         },
         error2 => console.log(error2),);

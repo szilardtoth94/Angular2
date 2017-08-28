@@ -14,6 +14,7 @@ import {CreateJob} from "./create.job/create.job";
 
 export class JobsComponent implements OnInit {
   public jobs: JobModel[];
+  public access = false;
 
   constructor(private  baseService: BaseService,
               private router: Router,
@@ -21,6 +22,8 @@ export class JobsComponent implements OnInit {
   }
 
   public ngOnInit() {
+    if (parseInt(localStorage.getItem('role')) > 1)
+      this.access = true;
     this.getJobs();
   }
 

@@ -20,6 +20,7 @@ export class JobComponent implements OnInit {
   public skills: SkillsModel[];
   public requirements: RequirementsModel[];
   public id: number;
+  public access = false;
 
   constructor(private route: ActivatedRoute,
               private baseService: BaseService,
@@ -27,6 +28,9 @@ export class JobComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (parseInt(localStorage.getItem('role')) > 1)
+      this.access = true;
+
     this.route.params.subscribe(
       params => {
 

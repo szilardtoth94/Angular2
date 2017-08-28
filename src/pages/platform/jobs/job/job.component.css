@@ -1,6 +1,20 @@
+.create-button {
+  display: flex;
+  justify-content: center;
+  margin: 10px
+}
+
 .card-container {
   display: flex;
   justify-content: center;
   margin: 10px
+}
+
+.example-card {
+  width: 60%;
+}
+
+.flex-item {
+  justify-content: center;
 }
 

@@ -11,6 +11,7 @@ import {BaseService} from "../../../services/service";
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
 })
+
 export class UsersComponent implements OnInit {
   public users: userPersInfoModel;
   public role;
@@ -21,8 +22,8 @@ export class UsersComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.role=localStorage.getItem('role')
     this.getUsers();
+    this.role = localStorage.getItem('role');
   }
 
   public getUsers() {
@@ -30,7 +31,6 @@ export class UsersComponent implements OnInit {
       .getBaseAll('/api/persinfo', userPersInfoModel)
       .subscribe(
         response => {
-          console.log(response);
           this.users = response;
         },
         error2 => console.log(error2),);

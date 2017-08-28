@@ -25,7 +25,8 @@ export class UserComponent implements OnInit {
   public id2: number;
   public users: PersInfoModel;
   public skills: SkillsModel[];
-  public skillsOfUSer:SkillsOfUser[];
+  public skillsOfUSer: SkillsOfUser[];
+  public acces = false;
 
   constructor(private route: ActivatedRoute,
               private baseService: BaseService,
@@ -33,6 +34,9 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (parseInt(localStorage.getItem('role')) > 1) {
+      this.acces = true;
+    }
     this.route.params.subscribe(
       params => {
         this.id2 = +params['id'];
@@ -46,6 +50,10 @@ export class UserComponent implements OnInit {
       .subscribe(
         response => {
           this.users = response;
+          if (parseInt(localStorage.getItem('id')) == this.users.user.id) {
+            this.acces = true;
+          }
+          console.log(this.acces)
         },
         error2 => console.log(error2)
       );
@@ -85,7 +93,6 @@ export class UserComponent implements OnInit {
   }
 
   onEditEducation(education: UserEducationModel) {
-
     let dialogRef = this.dialog.open(EditEducationComponent, {
       data: education,
       width: '250px',
@@ -194,7 +201,7 @@ export class UserComponent implements OnInit {
     let dialogRef = this.dialog.open(DeleteConfirmationDialog);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-         this.getUserSkillId(skillId);
+        this.getUserSkillId(skillId);
       }
     });
   }
@@ -215,9 +222,10 @@ export class UserComponent implements OnInit {
         error2 => console.log(error2)
       );
   }
-  onDeleteUserSkill(userSkillId:number) {
+
+  onDeleteUserSkill(userSkillId: number) {
     this.baseService
-      .deleteBase('/api/userskills/' +userSkillId)
+      .deleteBase('/api/userskills/' + userSkillId)
       .subscribe(
         response => {
           console.log(response);

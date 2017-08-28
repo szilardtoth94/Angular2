@@ -2,7 +2,7 @@
 <div class="create-button">
   <button fxLayoutAlign="right"
           md-raised-button
-          *ngIf="jobs"
+          *ngIf="access"
           (click)="onCreateJobDialog()">
     Add new job
   </button>
@@ -30,9 +30,11 @@
       </div>
       <div class="flex-item" fxFlex="20%">
         <button md-mini-fab (click)="onSelectJob(job)">
-          <md-icon>edit</md-icon>
+          <md-icon>content_paste</md-icon>
         </button>
-        <button md-mini-fab (click)="openDeleteJobConfirmation(job)">
+        <button md-mini-fab
+                *ngIf="access"
+                (click)="openDeleteJobConfirmation(job)">
           <md-icon>delete</md-icon>
         </button>
       </div>

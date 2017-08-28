@@ -2,7 +2,7 @@
 <div class="create-button">
   <button fxLayoutAlign="right"
           md-raised-button
-          *ngIf="users"
+          *ngIf="role>1"
           (click)="onCreateDialog()">
     Add new user
   </button>
@@ -30,11 +30,14 @@
         <md-card-subtitle><b>FirstName:</b> {{user.firstName}}</md-card-subtitle>
         <md-card-subtitle><b>LastName:</b> {{user.lastName}}</md-card-subtitle>
       </div>
-      <div class="flex-item"  fxFlex="20%">
-        <button md-mini-fab (click)="onSelectUser(user)">
-          <md-icon>edit</md-icon>
+      <div class="flex-item" fxFlex="20%">
+        <button md-mini-fab
+                (click)="onSelectUser(user)">
+          <md-icon>content_paste</md-icon>
         </button>
-        <button md-mini-fab  (click)="openDeleteDialogConfirmation(user)">
+        <button md-mini-fab
+                *ngIf="role>1"
+                (click)="openDeleteDialogConfirmation(user)">
           <md-icon>delete</md-icon>
         </button>
       </div>
