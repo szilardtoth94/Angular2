@@ -2,20 +2,21 @@
   <div class="img-container">
     <img class="img" (click)="openMyProfile()" src={{imageUrl}}>
   </div>
-  <button md-button [mdMenuTriggerFor]="menu">
-    <md-icon>more_vert</md-icon>
-    <b>Profile Information</b>
-  </button>
-  <md-menu #menu="mdMenu">
-    <button md-menu-item
-            (click)="openMyProfile() ">
-      <md-icon>account_circle</md-icon>
-      <span>My profile</span>
+  <div fxLayoutAlign="center">
+    <button class="pers-menu" md-raised-button  [mdMenuTriggerFor]="menu">
+      <md-icon>more_vert</md-icon>Personal Information
     </button>
-    <button md-menu-item
-            (click)="onChangePassword()">
-      <md-icon>edit</md-icon>
-      <span>Change password</span>
-    </button>
-  </md-menu>
+    <md-menu #menu="mdMenu">
+      <button md-menu-item
+              (click)="openMyProfile() ">
+        <md-icon>account_circle</md-icon>
+        <span>My profile</span>
+      </button>
+      <button md-menu-item
+              (click)="onChangePassword()">
+        <md-icon>edit</md-icon>
+        <span>Change password</span>
+      </button>
+    </md-menu>
+  </div>
 </div>

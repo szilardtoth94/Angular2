@@ -3,22 +3,41 @@
 @import 'variables';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
- md-sidenav-container{
-  width: 100%;
-  height: 100%;
+md-sidenav-container {
+  background: url("../assets/images/magnifying-glass-e1490210600982.jpg") no-repeat;
+  background-size: 100% 100%;
+  min-height: 100%;
+}
+
+.side-container {
+  background-color: rgba(241, 248, 248, 0.90);
+  min-height: 100vh;
 }
 
 .menu-button {
-  width: 80%;
+  width: 100%;
   margin-top: 20px;
 }
 
-.personal-information-container {
-  position: sticky;
-  top: 0;
+button:active {
+  background-color: #00838F;
+  border-radius: 3px;
 }
 
-.menu-container {
-  position: sticky;
-  top: 290px;
+md-mini-fab {
+  color: #00838F;
+}
+
+md-toolbar {
+  height: 70px;
+  background-color: transparent;
+}
+
+footer {
+  display: flex;
+  justify-content:space-around;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  background-color: rgba(237, 237, 237, 0.92)
 }

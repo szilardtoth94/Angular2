@@ -15,6 +15,7 @@ export class PlatformComponent implements OnInit {
   @ViewChild('sidenav') sidenav: MdSidenav;
   public imageUrl;
   public users: PersInfoModel;
+  public id;
 
   constructor(private baseService: BaseService,
               private router: Router,
@@ -22,13 +23,15 @@ export class PlatformComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.id = localStorage.getItem("id");
     this.baseService
-      .getBase('/api/persinfo/all/' + localStorage.getItem("id"), PersInfoModel)
+      .getBase('/api/persinfo/all/' + this.id, PersInfoModel)
       .subscribe(
         response => {
           this.users = response;
           console.log(this.users.img);
-          if (this.users.img!==null)
+          if (this.users.img !== null)
             this.imageUrl = this.users.img;
           else this.imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt";
           localStorage.setItem("img", this.imageUrl)
@@ -45,13 +48,13 @@ export class PlatformComponent implements OnInit {
 
   openMyProfile() {
     this.closeSideNav();
-    this.router.navigate(['platform/users/' + localStorage.getItem('id')]);
+    this.router.navigate(['platform/users/' + this.id]);
   }
 
   onChangePassword() {
     this.closeSideNav();
     let dialogRef = this.dialog.open(ChangePasswordComponent, {
-      data: localStorage.getItem('id'),
+      data: this.id,
       width: '250px',
     });
     dialogRef.afterClosed().subscribe(result => {

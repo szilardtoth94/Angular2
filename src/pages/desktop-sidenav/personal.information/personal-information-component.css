@@ -1,9 +1,13 @@
-.img-container{
+.img-container {
   display: flex;
   justify-content: center;
 }
 
-.img{
-  height:250px;
+.img {
+  height: 200px;
   border-radius: 50%;
+}
+
+.pers-menu{
+  margin-top: 20px;
 }

@@ -10,7 +10,7 @@ import {
   MdMenuModule,
   MdNativeDateModule, MdProgressBarModule,
   MdSelectModule,
-  MdSidenavModule,
+  MdSidenavModule, MdTabsModule,
   MdToolbarModule
 } from '@angular/material';
 import {NgModule} from '@angular/core';
@@ -102,6 +102,7 @@ import {ApplyDialog} from "../pages/platform/jobs/job/apply.dialog/dialog.compon
     MdProgressBarModule,
     MdSelectModule,
     MdSidenavModule,
+    MdTabsModule,
     MdToolbarModule,
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES),

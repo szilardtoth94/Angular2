@@ -1,25 +1,30 @@
-.example-sidenav {
-  padding: 20px;
+md-sidenav {
+  width: 220px;
+  background-color: rgba(237, 237, 237, 0.92);
+  min-height: 100vh;
 }
-.img-container{
+
+desktop-sidenav-component {
+  background-color: rgba(237, 237, 237, 0.92)
+}
+
+.img-container {
   display: flex;
   justify-content: center;
 }
 
-.img{
-  height:250px;
+.img {
+  height: 250px;
   border-radius: 50%;
 }
+
 
 .example-spacer {
   flex: 1 1 auto;
 }
 
-.img-circle{
-  width:36px;
-  height:36px;
+.img-circle {
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-}
-
-.desktop-side-nav-container{
 }
