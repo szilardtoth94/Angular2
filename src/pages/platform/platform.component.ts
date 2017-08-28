@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from "@angular/core";
-import {MdSidenav} from "@angular/material";
+import {MdDialog, MdSidenav} from "@angular/material";
 import {Router} from "@angular/router";
+import {ChangePasswordComponent} from "./users/user/change.password/change.password.component";
 
 @Component({
   selector: 'platform',
@@ -12,7 +13,8 @@ export class PlatformComponent implements OnInit {
   @ViewChild('sidenav') sidenav: MdSidenav;
   public imageUrl;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+             public dialog:MdDialog) {
   }
 
   ngOnInit() {
@@ -26,6 +28,15 @@ export class PlatformComponent implements OnInit {
   openMyProfile() {
     this.closeSideNav();
     this.router.navigate(['platform/users/' + localStorage.getItem('id')]);
+  }
+  onChangePassword() {
+    this.closeSideNav();
+    let dialogRef = this.dialog.open(ChangePasswordComponent, {
+      data: localStorage.getItem('id'),
+      width: '250px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
   signOut() {

@@ -1,5 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
+import {ChangePasswordComponent} from "../../platform/users/user/change.password/change.password.component";
+import {MdDialog} from "@angular/material";
 
 @Component({
   selector: 'personal-information',
@@ -9,7 +11,8 @@ export class PersonalInformationComponent implements OnInit {
   public imageUrl;
   public myId;
 
-  constructor( private router: Router) {
+  constructor( private router: Router,
+               public dialog: MdDialog) {
   }
 
   ngOnInit() {
@@ -19,5 +22,14 @@ export class PersonalInformationComponent implements OnInit {
 
   openMyProfile(){
     this.router.navigate(['platform/users/'+this.myId]);
+  }
+
+  onChangePassword() {
+    let dialogRef = this.dialog.open(ChangePasswordComponent, {
+      data: this.myId,
+      width: '250px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 }

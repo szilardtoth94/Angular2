@@ -51,12 +51,14 @@ import {NotFoundComponent} from "../pages/platform/not.found/not.found.component
 import {PlatformComponent} from "../pages/platform/platform.component";
 import {LoginComponent} from "../pages/login/login.component";
 import {AuthGuard} from "../services/authguard";
+import {ChangePasswordComponent} from "../pages/platform/users/user/change.password/change.password.component";
 
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     AboutComponent,
+    ChangePasswordComponent,
     CreateEducationComponent,
     CreateJob,
     CreateUserComponent,
@@ -107,6 +109,7 @@ import {AuthGuard} from "../services/authguard";
     AuthGuard
   ],
   entryComponents: [
+    ChangePasswordComponent,
     CreateEducationComponent,
     CreateUserComponent,
     CreateWorkExperienceComponent,
@@ -122,3 +125,4 @@ import {AuthGuard} from "../services/authguard";
 })
 export class AppModule {
 }
+
