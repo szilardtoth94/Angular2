@@ -4,7 +4,7 @@
               mode="over"
               class="example-sidenav">
     <div class='personal-information-container'>
-      <div>
+      <div class="img-container">
         <img class="img"
              (click)="openMyProfile()"
              src={{imageUrl}}>
@@ -58,8 +58,8 @@
       </md-list>
     </div>
   </md-sidenav>
-  <div>
-    <div class="flex-container"
+  <div class="desktop-side-nav-container">
+    <div class="flex-container desktop-side-nav-container"
          fxLayout="row"
          fxLayoutAlign="center">
       <desktop-sidenav-component></desktop-sidenav-component>
@@ -94,6 +94,7 @@
           </md-toolbar-row>
         </md-toolbar>
         <router-outlet></router-outlet>
+        <footer>Created by Szilard</footer>
       </div>
     </div>
   </div>

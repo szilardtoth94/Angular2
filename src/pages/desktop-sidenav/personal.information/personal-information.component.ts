@@ -6,22 +6,23 @@ import {MdDialog} from "@angular/material";
 @Component({
   selector: 'personal-information',
   templateUrl: './personal-information.component.html',
+  styleUrls:['./personal-information-component.css'],
 })
 export class PersonalInformationComponent implements OnInit {
   public imageUrl;
   public myId;
 
-  constructor( private router: Router,
-               public dialog: MdDialog) {
+  constructor(private router: Router,
+              public dialog: MdDialog) {
   }
 
   ngOnInit() {
     this.myId = localStorage.getItem('id');
-    this.imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt";
+    this.imageUrl = localStorage.getItem("img");
   }
 
-  openMyProfile(){
-    this.router.navigate(['platform/users/'+this.myId]);
+  openMyProfile() {
+    this.router.navigate(['platform/users/' + this.myId]);
   }
 
   onChangePassword() {

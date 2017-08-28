@@ -28,14 +28,14 @@ module.exports = function (options) {
      /**
       * The public path is set to the REPO name.
       *
-      * `HtmlElementsPlugin` will add it to all resources url's created by it.
+      * `HtmlElementsPlugin` will add it to all resources img's created by it.
       * `HtmlWebpackPlugin` will add it to all webpack bundels/chunks.
       *
       * In theory publicPath shouldn't be used since the browser should automatically prefix the
       * `baseUrl` into all URLs, however this is not the case when the URL is absolute (start with /)
       *
       * It's important to prefix & suffix the repo name with a slash (/).
-      * Prefixing so every resource will be absolute (otherwise it will be url.com/repoName/repoName...
+      * Prefixing so every resource will be absolute (otherwise it will be img.com/repoName/repoName...
       * Suffixing since chunks will not do it automatically (testes against about page)
       */
      publicPath: '/' + GH_REPO_NAME + '/' + ghDeploy.safeUrl(webpackConfig.output.publicPath)

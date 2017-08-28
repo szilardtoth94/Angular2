@@ -8,6 +8,7 @@ export class PersInfoModel {
   private _firstName: string;
   private _lastName: string;
   private _description: string;
+  private _img: string;
   private _userEducations: UserEducationModel[];
   private _userWorkExperience: UserWorkExperienceModel[];
   private _skills: SkillsModel[];
@@ -21,13 +22,15 @@ export class PersInfoModel {
                 userEducation,
                 workExperience,
                 skills,
-                user
+                user,
+                img
               }) {
     this._id = id;
     this._firstName = firstName;
     this._lastName = lastName;
     this._description = description;
     this._user = user;
+    this._img = img;
     this._userEducations = [];
     this._userWorkExperience = [];
     this._skills = [];
@@ -73,6 +76,14 @@ export class PersInfoModel {
 
   set description(value: string) {
     this._description = value;
+  }
+
+  get img(): string {
+    return this._img;
+  }
+
+  set img(value: string) {
+    this._img = value;
   }
 
   get userEducations(): UserEducationModel[] {

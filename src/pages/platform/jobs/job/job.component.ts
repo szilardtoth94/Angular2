@@ -8,6 +8,9 @@ import {JobSkillsComponent} from "./skills/job.skills.component";
 import {RequirementsModel} from "../../../../model/requirements.model";
 import {DeleteConfirmationDialog} from "../../deletedialog/dialog.component";
 import {EditJobComponent} from "./edit.job/edit.job.component";
+import {SkillsOfUser} from "../../../../model/skills.of.user";
+import {JobApplyModel} from "../../../../model/jobApplyModel";
+import {ApplyDialog} from "./apply.dialog/dialog.component";
 
 @Component({
   selector: 'job-component',
@@ -19,8 +22,13 @@ export class JobComponent implements OnInit {
   public job: JobModel;
   public skills: SkillsModel[];
   public requirements: RequirementsModel[];
+  public userSkills: SkillsOfUser[];
+  public jobApply: JobApplyModel[];
   public id: number;
   public access = false;
+  public apply = "Apply";
+  public jobApplyId:number;
+  public userId = parseInt(localStorage.getItem('id'));
 
   constructor(private route: ActivatedRoute,
               private baseService: BaseService,
@@ -28,9 +36,9 @@ export class JobComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (parseInt(localStorage.getItem('role')) > 1)
+    if (parseInt(localStorage.getItem('role')) > 1) {
       this.access = true;
-
+    }
     this.route.params.subscribe(
       params => {
 
@@ -54,6 +62,46 @@ export class JobComponent implements OnInit {
       .subscribe(
         response => {
           this.skills = response;
+        },
+        error2 => console.log(error2)
+      );
+
+    this.baseService
+      .getBaseAll('/api/userskills/' + this.userId, SkillsOfUser)
+      .subscribe(
+        response => {
+          this.userSkills = response;
+          console.log(this.userSkills);
+
+        },
+        error2 => console.log(error2)
+      );
+
+    this.baseService
+      .getBaseAll('/api/requirements/' + this.id, RequirementsModel)
+      .subscribe(
+        response => {
+          this.requirements = response;
+          console.log(this.requirements);
+        },
+        error2 => console.log(error2)
+      );
+
+    this.getJobApplys();
+  }
+
+  getJobApplys() {
+    this.baseService
+      .getBaseAll('/api/apply/' + this.id, JobApplyModel)
+      .subscribe(
+        response => {
+          this.jobApply = response;
+          for (let i = 0; i < this.jobApply.length; i++) {
+            if (this.jobApply[i].userId == this.userId) {
+              this.jobApplyId= this.jobApply[i].id;
+              this.apply = "UnApply";
+            }
+          }
         },
         error2 => console.log(error2)
       );
@@ -104,19 +152,11 @@ export class JobComponent implements OnInit {
   }
 
   getJobSkillId(skillId) {
-    this.baseService
-      .getBaseAll('/api/requirements/' + this.job.id, RequirementsModel)
-      .subscribe(
-        response => {
-          this.requirements = response;
-          for (let i = 0; i < this.requirements.length; i++) {
-            if (this.requirements[i].skillsId == skillId) {
-              this.onDeleteJobSkill(this.requirements[i].id);
-            }
-          }
-        },
-        error2 => console.log(error2)
-      );
+    for (let i = 0; i < this.requirements.length; i++) {
+      if (this.requirements[i].skillsId == skillId) {
+        this.onDeleteJobSkill(this.requirements[i].id);
+      }
+    }
   }
 
   onDeleteJobSkill(jobSkillId: number) {
@@ -128,5 +168,57 @@ export class JobComponent implements OnInit {
         },
         error2 => console.log(error2)
       );
+  }
+
+  onApplyJob() {
+    if (this.apply == "Apply") {
+      let apply = false;
+      for (let i = 0; i < this.requirements.length; i++) {
+        for (let j = 0; j < this.userSkills.length; j++) {
+          if (this.requirements[i].skillsId == this.userSkills[j].skillsId) {
+            apply = true;
+          }
+        }
+      }
+      if (apply) {
+        this.createJobApply();
+      }
+      else {
+        this.onNotEnoughSkill();
+      }
+    }
+    else {
+      this.deleteJobApply();
+    }
+
+  }
+
+  deleteJobApply() {
+    this.baseService
+      .deleteBase('/api/apply/' + this.jobApplyId)
+      .subscribe(response => {
+          console.log(response);
+          this.apply = "Apply";
+          this.getJobApplys();
+        },
+        error2 => console.log(error2)
+      );
+  }
+
+  createJobApply() {
+    this.baseService
+      .createBase('/api/apply', {"jobId": this.job.id, "userId": this.userId})
+      .subscribe(response => {
+          console.log(response);
+          this.getJobApplys();
+        },
+        error2 => console.log(error2)
+      );
+  }
+
+  onNotEnoughSkill() {
+    this.dialog.open(ApplyDialog, {
+      width: '250px',
+    });
   }
 }

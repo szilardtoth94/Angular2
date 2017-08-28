@@ -52,12 +52,14 @@ import {PlatformComponent} from "../pages/platform/platform.component";
 import {LoginComponent} from "../pages/login/login.component";
 import {AuthGuard} from "../services/authguard";
 import {ChangePasswordComponent} from "../pages/platform/users/user/change.password/change.password.component";
+import {ApplyDialog} from "../pages/platform/jobs/job/apply.dialog/dialog.component";
 
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     AboutComponent,
+    ApplyDialog,
     ChangePasswordComponent,
     CreateEducationComponent,
     CreateJob,
@@ -109,6 +111,7 @@ import {ChangePasswordComponent} from "../pages/platform/users/user/change.passw
     AuthGuard
   ],
   entryComponents: [
+    ApplyDialog,
     ChangePasswordComponent,
     CreateEducationComponent,
     CreateUserComponent,

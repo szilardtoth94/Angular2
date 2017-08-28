@@ -41,9 +41,15 @@
         </button>
       </md-card>
     </md-card-content>
-    <button md-mini-fab *ngIf="access" (click)="onAddSkill()">
-      <md-icon>add</md-icon>
-    </button>
+    <div class="apply-button">
+      <button md-mini-fab *ngIf="access" (click)="onAddSkill()">
+        <md-icon>add</md-icon>
+      </button>
+      <div>
+        <button md-raised-button  (click)="onApplyJob()"> {{apply}}</button>
+        <!--<button md-raised-button > UnApply</button>-->
+      </div>
+    </div>
   </md-card>
 </div>
 

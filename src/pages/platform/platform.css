@@ -1,6 +1,15 @@
 .example-sidenav {
   padding: 20px;
 }
+.img-container{
+  display: flex;
+  justify-content: center;
+}
+
+.img{
+  height:250px;
+  border-radius: 50%;
+}
 
 .example-spacer {
   flex: 1 1 auto;
@@ -10,4 +19,7 @@
   width:36px;
   height:36px;
   border-radius: 50%;
+}
+
+.desktop-side-nav-container{
 }

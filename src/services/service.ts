@@ -29,8 +29,8 @@ export class BaseService {
   login(endpoint, Model, body) {
     return this.http.post(this.url + endpoint, body)
       .map((res: Response) => {
-         if (res.json().data)
-         return  new Model(res.json().data)
+        if (res.json().data)
+          return new Model(res.json().data)
         else
           return null;
       });
@@ -45,5 +45,4 @@ export class BaseService {
     return this.http.delete(this.url + endpoint)
       .map((res: Response) => res.json());
   }
-
 }

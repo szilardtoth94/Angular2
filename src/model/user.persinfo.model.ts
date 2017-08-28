@@ -6,6 +6,7 @@ export class userPersInfoModel {
   private _lastName: string;
   private _description: string;
   private _usersId: number;
+  private _img: string;
   private _user: UserModel;
 
   constructor({
@@ -14,6 +15,7 @@ export class userPersInfoModel {
                 lastName,
                 description,
                 usersId,
+                img,
                 user
               }) {
     this._id = id;
@@ -21,6 +23,7 @@ export class userPersInfoModel {
     this._lastName = lastName;
     this._description = description;
     this._usersId = usersId;
+    this._img = img;
     this._user = user;
   }
 
@@ -70,6 +73,14 @@ export class userPersInfoModel {
 
   set usersId(value: number) {
     this._usersId = value;
+  }
+
+  get img(): string {
+    return this._img;
+  }
+
+  set img(value: string) {
+    this._img = value;
   }
 
   get user(): UserModel {
