@@ -2,14 +2,16 @@ import {Component, Inject, OnInit} from "@angular/core";
 import {MD_DIALOG_DATA, MdDialogRef} from "@angular/material";
 import {BaseService} from "../../../../../services/service";
 import {SkillsModel} from "../../../../../model/skills.model";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'edit-user',
   templateUrl: './job.skills.component.html',
 })
 export class JobSkillsComponent implements OnInit {
-  public skills: SkillsModel;
+  public skills: SkillsModel[];
   public jobId: number;
+  public skillForm;
 
   constructor(private  baseService: BaseService,
               public dialogRef: MdDialogRef<JobSkillsComponent>,
@@ -19,6 +21,43 @@ export class JobSkillsComponent implements OnInit {
   ngOnInit(): void {
     this.skills = this.list[0];
     this.jobId = this.list[1];
+
+    this.skillForm = new FormGroup({
+      "name": new FormControl(),
+      "description": new FormControl()
+    });
+  }
+
+  public addElemToList() {
+    console.log(this.skillForm.value);
+    this.baseService
+      .createBase('/api/skills', this.skillForm.value)
+      .subscribe(
+        response => {
+          this.skills.push(response.data);
+          this.skillForm.reset();
+        },
+        error2 => console.log(error2)
+      );
+  }
+
+  public deleteSkill(id) {
+    this.baseService
+      .deleteBase('/api/skills/' + id)
+      .subscribe(
+        response => {
+          this.baseService
+            .getBaseAll('/api/skills', SkillsModel)
+            .subscribe(
+              response => {
+                this.skills = response;
+              },
+              error2 => console.log(error2)
+            )
+          ;
+        },
+        error2 => console.log(error2)
+      );
   }
 
   public addSkill(id) {

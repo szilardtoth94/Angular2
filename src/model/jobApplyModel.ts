@@ -1,16 +1,22 @@
+import {UserModel} from "./user.model";
+
 export class JobApplyModel {
   private _id: number;
   private _jobId: number;
   private _userId: number;
+  private _user: UserModel;
 
   constructor({
                 id,
                 jobId,
-                userId
+                userId,
+                user
               }) {
     this._id = id;
     this._jobId = jobId;
     this._userId = userId;
+    this._user = user;
+
   }
 
   get id(): number {
@@ -35,5 +41,14 @@ export class JobApplyModel {
 
   set userId(value: number) {
     this._userId = value;
+  }
+
+
+  get user(): UserModel {
+    return this._user;
+  }
+
+  set user(value: UserModel) {
+    this._user = value;
   }
 }

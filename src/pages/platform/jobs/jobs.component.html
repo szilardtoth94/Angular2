@@ -1,10 +1,12 @@
 <h1>Jobs </h1><br>
-<div class="create-button">
-  <button fxLayoutAlign="right"
-          md-raised-button
-          *ngIf="access"
-          (click)="onCreateJobDialog()">
-    Add new job
+<div class="add-user">
+  <button
+    md-fab
+    mdTooltip="New Job"
+    mdTooltipPosition="before"
+    *ngIf="access"
+    (click)="onCreateJobDialog()">
+    <md-icon>add</md-icon>
   </button>
 </div>
 <div class="card-container" *ngFor="let job of jobs ">
@@ -29,10 +31,15 @@
         <md-card-title> {{job.name}}</md-card-title>
       </div>
       <div class="flex-item" fxFlex="20%">
-        <button md-mini-fab (click)="onSelectJob(job)">
+        <button md-mini-fab
+                mdTooltip="Open"
+                mdTooltipPosition="before"
+                (click)="onSelectJob(job)">
           <md-icon>content_paste</md-icon>
         </button>
         <button md-mini-fab
+                mdTooltip="Delete Job"
+                mdTooltipPosition="after"
                 *ngIf="access"
                 (click)="openDeleteJobConfirmation(job)">
           <md-icon>delete</md-icon>

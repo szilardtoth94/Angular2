@@ -11,7 +11,7 @@ import {
   MdNativeDateModule, MdProgressBarModule, MdRadioModule,
   MdSelectModule,
   MdSidenavModule, MdTabsModule,
-  MdToolbarModule
+  MdToolbarModule, MdTooltipModule
 } from '@angular/material';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms"
@@ -53,12 +53,14 @@ import {LoginComponent} from "../pages/login/login.component";
 import {AuthGuard} from "../services/authguard";
 import {ChangePasswordComponent} from "../pages/platform/users/user/change.password/change.password.component";
 import {ApplyDialog} from "../pages/platform/jobs/job/apply.dialog/dialog.component";
+import {AppliedList} from "../pages/platform/jobs/job/applied.users.list/applied.users.component.list";
 
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     AboutComponent,
+    AppliedList,
     ApplyDialog,
     ChangePasswordComponent,
     CreateEducationComponent,
@@ -105,6 +107,7 @@ import {ApplyDialog} from "../pages/platform/jobs/job/apply.dialog/dialog.compon
     MdSidenavModule,
     MdTabsModule,
     MdToolbarModule,
+    MdTooltipModule,
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES),
   ],
@@ -113,6 +116,7 @@ import {ApplyDialog} from "../pages/platform/jobs/job/apply.dialog/dialog.compon
     AuthGuard
   ],
   entryComponents: [
+    AppliedList,
     ApplyDialog,
     ChangePasswordComponent,
     CreateEducationComponent,

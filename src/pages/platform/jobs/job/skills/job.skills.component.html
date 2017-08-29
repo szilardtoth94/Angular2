@@ -1,9 +1,38 @@
 <md-nav-list>
   <md-list-item *ngFor="let skill of skills">
     <h4 md-line>{{ skill.name }}</h4>
-    <p md-line>{{skill.description}}</p>
-    <button md-mini-fab (click)="addSkill(skill.id)">
+    <button md-mini-fab
+            mdTooltip="Add Skill"
+            mdTooltipPosition="before"
+            (click)="addSkill(skill.id)">
       <md-icon>add</md-icon>
     </button>
+    <button md-mini-fab
+            mdTooltip="Delete Skill"
+            mdTooltipPosition="after"
+            (click)="deleteSkill(skill.id)">
+      <md-icon>delete</md-icon>
+    </button>
   </md-list-item>
+  <form
+    [formGroup]="skillForm">
+    <md-input-container class="form-group">
+      <input mdInput
+             placeholder="Skill Name"
+             type="text"
+             [formControlName]="'name'">
+    </md-input-container>
+    <md-input-container class="form-group">
+      <textarea mdInput
+                placeholder="Description"
+                type="text"
+                [formControlName]="'description'"></textarea>
+    </md-input-container>
+  </form>
+  <button md-mini-fab
+          mdTooltip="New Skill"
+          mdTooltipPosition="after"
+          (click)="addElemToList()">
+    <md-icon>add_to_photos</md-icon>
+  </button>
 </md-nav-list>

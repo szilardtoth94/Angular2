@@ -28,6 +28,9 @@ md-toolbar {
   background-color: transparent;
 }
 
+md-dialog-content{
+  overflow: unset !important ;
+}
 footer {
   display: flex;
   justify-content:space-around;
@@ -36,3 +39,5 @@ footer {
   bottom: 0px;
   background-color: rgba(237, 237, 237, 0.92)
 }
+
+

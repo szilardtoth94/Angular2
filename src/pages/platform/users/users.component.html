@@ -1,12 +1,12 @@
 <h1>Users </h1><br>
-<div class="create-button">
-  <button fxLayoutAlign="right"
-          md-raised-button
-          *ngIf="role>1"
-          (click)="onCreateDialog()">
-    Add new user
-  </button>
-</div>
+<button md-fab
+        mdTooltip="Create User"
+        mdTooltipPosition="before"
+        class="add-user"
+        *ngIf="role>1"
+        (click)="onCreateDialog()">
+  <md-icon>add</md-icon>
+</button>
 <div class="card-container" *ngFor="let user of users ">
   <md-card class="example-card"
            fxFlex="100%"
@@ -32,10 +32,14 @@
       </div>
       <div class="flex-item" fxFlex="20%">
         <button md-mini-fab
+                mdTooltip="Open Profile"
+                mdTooltipPosition="before"
                 (click)="onSelectUser(user)">
           <md-icon>content_paste</md-icon>
         </button>
         <button md-mini-fab
+                mdTooltip="Delete User"
+                mdTooltipPosition="after"
                 *ngIf="role>1"
                 (click)="openDeleteDialogConfirmation(user)">
           <md-icon>delete</md-icon>

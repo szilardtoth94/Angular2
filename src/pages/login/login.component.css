@@ -10,6 +10,9 @@
 
 .color-container {
   background-color: rgba(241, 248, 248, 0.90);
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .example-card {

@@ -1,7 +1,7 @@
-.create-button {
-  display: flex;
-  justify-content: left;
-  margin: 10px
+.add-user {
+  position: fixed;
+  top:100px;
+  right:150px;
 }
 
 .card-container {

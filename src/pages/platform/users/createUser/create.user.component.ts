@@ -7,9 +7,11 @@ import {Md5} from "ts-md5/dist/md5";
 @Component({
   selector: 'dialog-result-example-dialog',
   templateUrl: './create.component.html',
+  styleUrls: ['./create.user.component.css']
 })
 export class CreateUserComponent implements OnInit {
   public userCreateForm: FormGroup;
+  public errorMessage;
 
   constructor(private  baseService: BaseService,
               public dialogRef: MdDialogRef<CreateUserComponent>) {
@@ -52,15 +54,19 @@ export class CreateUserComponent implements OnInit {
 
   public createNewUser() {
     if (this.userCreateForm.valid) {
-      this.dialogRef.close(true);
       this.userCreateForm.value.user.password = Md5.hashStr(this.userCreateForm.value.user.password);
       this.baseService
         .createBase('/api/persinfo', this.userCreateForm.value)
         .subscribe(
           response => {
             console.log(response);
+            this.dialogRef.close(true);
           },
-          error2 => console.log(error2),);
+          error2 => {
+            this.userCreateForm.controls['user'].reset();
+            this.errorMessage = "User Exist"
+          });
+
     }
   }
 }

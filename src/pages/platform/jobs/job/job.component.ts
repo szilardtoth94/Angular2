@@ -11,6 +11,7 @@ import {EditJobComponent} from "./edit.job/edit.job.component";
 import {SkillsOfUser} from "../../../../model/skills.of.user";
 import {JobApplyModel} from "../../../../model/jobApplyModel";
 import {ApplyDialog} from "./apply.dialog/dialog.component";
+import {AppliedList} from "./applied.users.list/applied.users.component.list";
 
 @Component({
   selector: 'job-component',
@@ -27,7 +28,7 @@ export class JobComponent implements OnInit {
   public id: number;
   public access = false;
   public apply = "Apply";
-  public jobApplyId:number;
+  public jobApplyId: number;
   public userId = parseInt(localStorage.getItem('id'));
 
   constructor(private route: ActivatedRoute,
@@ -98,7 +99,7 @@ export class JobComponent implements OnInit {
           this.jobApply = response;
           for (let i = 0; i < this.jobApply.length; i++) {
             if (this.jobApply[i].userId == this.userId) {
-              this.jobApplyId= this.jobApply[i].id;
+              this.jobApplyId = this.jobApply[i].id;
               this.apply = "UnApply";
             }
           }
@@ -123,7 +124,8 @@ export class JobComponent implements OnInit {
     this.deleteJobSkillsFromList();
     let dialogRef = this.dialog.open(JobSkillsComponent, {
       data: [this.skills, this.job.id],
-      width: '250px',
+      width: '350px',
+      height: '80%'
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -214,6 +216,13 @@ export class JobComponent implements OnInit {
         },
         error2 => console.log(error2)
       );
+  }
+
+  getAppliedUsers() {
+    this.dialog.open(AppliedList, {
+      width: '250px',
+      data: this.jobApply,
+    })
   }
 
   onNotEnoughSkill() {

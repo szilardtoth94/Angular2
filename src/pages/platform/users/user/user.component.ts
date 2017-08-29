@@ -34,14 +34,14 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (parseInt(localStorage.getItem('role')) > 1) {
+    if (parseInt(localStorage.getItem('role')) > 2) {
       this.acces = true;
     }
     this.route.params.subscribe(
       params => {
         this.id2 = +params['id'];
+        this.getUserInformation();
       });
-    this.getUserInformation();
   }
 
   getUserInformation() {
@@ -178,7 +178,8 @@ export class UserComponent implements OnInit {
     this.deleteUserSkillsFromList();
     let dialogRef = this.dialog.open(UserSkillsComponent, {
       data: [this.skills, this.users.id],
-      width: '250px',
+      width: '350px',
+      height: '80%'
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {

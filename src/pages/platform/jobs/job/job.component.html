@@ -18,6 +18,8 @@
       </p>
     </md-card-content>
     <button md-mini-fab
+            mdTooltip="Edit Job"
+            mdTooltipPosition="after"
             *ngIf="access"
             (click)="onEditJob()">
       <md-icon>edit</md-icon>
@@ -35,6 +37,8 @@
           {{skill.description}}
         </p>
         <button md-mini-fab
+                mdTooltip="Delete Skill"
+                mdTooltipPosition="after"
                 *ngIf="access"
                 (click)="openDeleteSkillConfirmation(skill.id)">
           <md-icon>delete</md-icon>
@@ -42,11 +46,16 @@
       </md-card>
     </md-card-content>
     <div class="apply-button">
-      <button md-mini-fab *ngIf="access" (click)="onAddSkill()">
+      <button md-mini-fab
+              mdTooltip="Add Skill"
+              mdTooltipPosition="after"
+              *ngIf="access"
+              (click)="onAddSkill()">
         <md-icon>add</md-icon>
       </button>
+      <button md-raised-button (click)="getAppliedUsers()">Applied Users</button>
       <div>
-        <button md-raised-button  (click)="onApplyJob()"> {{apply}}</button>
+        <button md-raised-button (click)="onApplyJob()"> {{apply}}</button>
         <!--<button md-raised-button > UnApply</button>-->
       </div>
     </div>

@@ -13,6 +13,8 @@
       </p>
     </md-card-content>
     <button md-mini-fab
+            mdTooltip="Edit User"
+            mdTooltipPosition="after"
             *ngIf="acces"
             (click)="onEditUser()">
       <md-icon>edit</md-icon>
@@ -33,11 +35,15 @@
           {{education.description}}
         </p>
         <button md-mini-fab
+                mdTooltip="Edit Education"
+                mdTooltipPosition="before"
                 *ngIf="acces"
                 (click)="onEditEducation(education)">
           <md-icon>edit</md-icon>
         </button>
         <button md-mini-fab
+                mdTooltip="Delete Education"
+                mdTooltipPosition="after"
                 *ngIf="acces"
                 (click)="openDeleteEducationConfirmation(education)">
           <md-icon>delete</md-icon>
@@ -45,6 +51,8 @@
       </md-card>
     </md-card-content>
     <button md-mini-fab
+            mdTooltip="Create Education"
+            mdTooltipPosition="after"
             id="create-education"
             *ngIf="acces"
             (click)="onCreateEducation()">
@@ -69,11 +77,15 @@
           {{experience.endDate}}
         </p>
         <button md-mini-fab
+                mdTooltip="Edit Experience"
+                mdTooltipPosition="before"
                 *ngIf="acces"
                 (click)="onEditWorkExperience(experience)">
           <md-icon>edit</md-icon>
         </button>
         <button md-mini-fab
+                mdTooltip="Delete Experience"
+                mdTooltipPosition="after"
                 *ngIf="acces"
                 (click)="openDeleteWorkConfirmation(experience)">
           <md-icon>delete</md-icon>
@@ -81,6 +93,8 @@
       </md-card>
     </md-card-content>
     <button md-mini-fab
+            mdTooltip="Create Experience"
+            mdTooltipPosition="after"
             *ngIf="acces"
             (click)="onCreateWorkExperience()">
       <md-icon>add</md-icon>
@@ -98,6 +112,8 @@
           {{skill.description}}
         </p>
         <button md-mini-fab
+                mdTooltip="Delete Skill"
+                mdTooltipPosition="before"
                 *ngIf="acces"
                 (click)="openDeleteUserSkillConfirmation(skill.id)">
           <md-icon>delete</md-icon>
@@ -105,6 +121,8 @@
       </md-card>
     </md-card-content>
     <button md-mini-fab
+            mdTooltip="Add Skill"
+            mdTooltipPosition="after"
             *ngIf="acces"
             (click)="onAddSkill()">
       <md-icon>add</md-icon>

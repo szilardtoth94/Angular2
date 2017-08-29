@@ -2,14 +2,16 @@ import {Component, Inject, OnInit} from "@angular/core";
 import {MD_DIALOG_DATA, MdDialogRef} from "@angular/material";
 import {BaseService} from "../../../../../services/service";
 import {SkillsModel} from "../../../../../model/skills.model";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'edit-user',
-  templateUrl: './user.skills.component.html',
+  templateUrl: './user.skills.component.html'
 })
 export class UserSkillsComponent implements OnInit {
-  public skills: SkillsModel;
+  public skills: SkillsModel[];
   public userId: number;
+  public skillForm;
 
   constructor(private  baseService: BaseService,
               public dialogRef: MdDialogRef<UserSkillsComponent>,
@@ -19,6 +21,38 @@ export class UserSkillsComponent implements OnInit {
   ngOnInit(): void {
     this.skills = this.list[0];
     this.userId = this.list[1];
+    console.log(this.skills);
+
+
+    this.skillForm = new FormGroup({
+      "name": new FormControl(),
+      "description": new FormControl()
+    });
+  }
+
+  public addElemToList() {
+    console.log(this.skillForm.value);
+    this.baseService
+      .createBase('/api/skills', this.skillForm.value)
+      .subscribe(
+        response => {
+          this.skills.push(response.data);
+          this.skillForm.reset();
+        },
+        error2 => console.log(error2)
+      );
+  }
+
+  public deleteSkill(id) {
+    this.baseService
+      .deleteBase('/api/skills/' +id)
+      .subscribe(
+        response => {
+          this.skills.push(response.data);
+          this.skillForm.reset();
+        },
+        error2 => console.log(error2)
+      );
   }
 
   public addSkill(id) {

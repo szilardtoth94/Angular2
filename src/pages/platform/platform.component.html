@@ -27,7 +27,9 @@
           </md-menu>
         </div>
       </div>
-      <br><hr><br>
+      <br>
+      <hr>
+      <br>
       <div class="menu-container">
         <md-list>
           <md-list-item>
@@ -77,21 +79,14 @@
             <span class="example-spacer"></span>
             <h5>HR Assist</h5>
             <span class="example-spacer"></span>
-            <button md-icon-button [mdMenuTriggerFor]="signout">
-              <md-icon>more</md-icon>
+
+            <button  mdTooltip="Sign Out"
+                     mdTooltipPosition="before"
+                    (click)="signOut()"
+                    routerLink="../login">
+              <md-icon>exit_to_app</md-icon>
             </button>
-            <md-menu #signout="mdMenu">
-              <button md-menu-item (click)="openMyProfile()">
-                <md-icon>account_circle</md-icon>
-                <span>My profile</span>
-              </button>
-              <button md-menu-item
-                      (click)="signOut()"
-                      routerLink="../login">
-                <md-icon>close</md-icon>
-                <span>Sign Out</span>
-              </button>
-            </md-menu>
+
             <!--</md-toolbar-row>-->
           </md-toolbar>
           <router-outlet></router-outlet>
