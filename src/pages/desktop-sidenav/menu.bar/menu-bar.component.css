@@ -1,2 +1,27 @@
 
+md-button-toggle-group {
+  width: 100%;
+  text-align: center;
+  background-color: rgba(237, 237, 237, 0.92);
+  margin-right: 2px;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+}
 
+md-button-toggle {
+  width: 86%;
+  border-radius: 3px;
+  background-color: White;
+  margin-left: 14px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+md-button-toggle:active {
+  border-radius: 3px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.24), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+md-button-toggle:hover {
+  border-radius: 3px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.24), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

@@ -2,15 +2,14 @@
   <md-card class="example-card">
     <md-card-header>
       <md-card-title><h3>Login</h3></md-card-title>
-      <md-card-subtitle *ngIf="incorrect">Incorrect username or password</md-card-subtitle>
-    </md-card-header>
+       </md-card-header>
     <form
       [formGroup]="this.loginForm"
       (ngSubmit)="logIn()">
       <md-card-content>
         <md-input-container class="form-group">
           <input mdInput
-                 placeholder="Username "
+                 placeholder={{errorMessage}}
                  type="text"
                  [formControlName]="'userName'">
         </md-input-container>
@@ -23,7 +22,7 @@
       </md-card-content>
       <div class="button-container">
         <md-card-actions>
-          <button md-raised-button>Login</button>
+          <button md-raised-button  [disabled]="!loginForm.valid">Login</button>
         </md-card-actions>
       </div>
     </form>

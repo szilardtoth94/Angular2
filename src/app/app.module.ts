@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {
-  MdButtonModule,
+  MdButtonModule, MdButtonToggleModule,
   MdCardModule,
   MdDatepickerModule,
   MdDialogModule,
@@ -8,7 +8,7 @@ import {
   MdInputModule,
   MdListModule,
   MdMenuModule,
-  MdNativeDateModule, MdProgressBarModule,
+  MdNativeDateModule, MdProgressBarModule, MdRadioModule,
   MdSelectModule,
   MdSidenavModule, MdTabsModule,
   MdToolbarModule
@@ -95,6 +95,7 @@ import {ApplyDialog} from "../pages/platform/jobs/job/apply.dialog/dialog.compon
     MdIconModule,
     MdInputModule,
     MdButtonModule,
+    MdButtonToggleModule,
     MdDialogModule,
     MdListModule,
     MdMenuModule,

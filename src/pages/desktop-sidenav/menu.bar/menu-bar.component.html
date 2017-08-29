@@ -1,28 +1,44 @@
 <div class="menu-container">
-  <md-list>
-    <md-list-item>
-      <button class="menu-button"
-              md-raised-button
-              routerLink="about">
-        <md-icon md-list-icon>description</md-icon>
-        About
-      </button>
-    </md-list-item>
-    <md-list-item>
-      <button class="menu-button"
-              md-raised-button
-              routerLink="users">
-        <md-icon md-list-icon>person</md-icon>
-        Users
-      </button>
-    </md-list-item>
-    <md-list-item>
-      <button class="menu-button"
-              md-raised-button
-              routerLink="jobs">
-        <md-icon md-list-icon>work</md-icon>
-        Jobs
-      </button>
-    </md-list-item>
-  </md-list>
+  <!--<md-list>-->
+  <!--<md-list-item>-->
+  <!--<button class="menu-button"-->
+  <!--md-raised-button-->
+  <!--routerLink="about">-->
+  <!--<md-icon md-list-icon>description</md-icon>-->
+  <!--About-->
+  <!--</button>-->
+  <!--</md-list-item>-->
+  <!--<md-list-item>-->
+  <!--<button class="menu-button"-->
+  <!--md-raised-button-->
+  <!--routerLink="users">-->
+  <!--<md-icon md-list-icon>person</md-icon>-->
+  <!--Users-->
+  <!--</button>-->
+  <!--</md-list-item>-->
+  <!--<md-list-item>-->
+  <!--<button class="menu-button"-->
+  <!--md-raised-button-->
+  <!--routerLink="jobs">-->
+  <!--<md-icon md-list-icon>work</md-icon>-->
+  <!--Jobs-->
+  <!--</button>-->
+  <!--</md-list-item>-->
+  <!--</md-list>-->
+
+
+  <md-button-toggle-group [vertical]="true" #group="mdButtonToggleGroup">
+    <md-button-toggle class="menu-button" routerLink="about">
+      <md-icon md-list-icon>description</md-icon>
+      About
+    </md-button-toggle>
+    <md-button-toggle class="menu-button" routerLink="users">
+      <md-icon md-list-icon>person</md-icon>
+      Users
+    </md-button-toggle>
+    <md-button-toggle class="menu-button" routerLink="jobs">
+      <md-icon md-list-icon>work</md-icon>
+      Jobs
+    </md-button-toggle>
+  </md-button-toggle-group>
 </div>

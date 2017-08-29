@@ -1,6 +1,10 @@
 .card-container{
   display: flex;
   justify-content: center;
+  background: url("../../assets/images/magnifying-glass-e1490210600982.jpg") no-repeat;
+  background-size: 100% 100%;
+  min-height: 96vh;
+
 }
 
 .example-card {

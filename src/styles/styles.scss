@@ -19,13 +19,8 @@ md-sidenav-container {
   margin-top: 20px;
 }
 
-button:active {
-  background-color: #00838F;
-  border-radius: 3px;
-}
-
-md-mini-fab {
-  color: #00838F;
+button:hover {
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 md-toolbar {

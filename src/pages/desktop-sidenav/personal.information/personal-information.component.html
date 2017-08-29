@@ -3,8 +3,9 @@
     <img class="img" (click)="openMyProfile()" src={{imageUrl}}>
   </div>
   <div fxLayoutAlign="center">
-    <button class="pers-menu" md-raised-button  [mdMenuTriggerFor]="menu">
-      <md-icon>more_vert</md-icon>Personal Information
+    <button class="pers-menu" md-raised-button [mdMenuTriggerFor]="menu">
+      <md-icon>more_vert</md-icon>
+      Personal Information
     </button>
     <md-menu #menu="mdMenu">
       <button md-menu-item

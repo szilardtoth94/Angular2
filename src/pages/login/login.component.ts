@@ -13,17 +13,19 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
-  public incorrect = false;
   public user: UserModel;
+  public errorMessage: string;
 
   constructor(private  baseService: BaseService,
               private router: Router) {
   }
 
   ngOnInit(): void {
+    this.errorMessage = "UserName"
     if (localStorage.getItem('id')) {
       this.router.navigate(['platform/users']);
     }
+
     this.loginForm = new FormGroup({
       'userName': new FormControl(
         null,
@@ -52,7 +54,9 @@ export class LoginComponent implements OnInit {
             }
           }
           else {
-            this.incorrect = true;
+            this.loginForm.controls['userName'].setErrors({'incorrect': true});
+            this.loginForm.controls['password'].setErrors({'incorrect': true});
+            this.errorMessage = 'Wrong username or password ' ;
           }
         },
         error2 => console.log(error2),);
