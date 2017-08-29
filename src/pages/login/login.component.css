@@ -1,10 +1,15 @@
-.card-container{
+.card-container {
   display: flex;
   justify-content: center;
   background: url("../../assets/images/magnifying-glass-e1490210600982.jpg") no-repeat;
   background-size: 100% 100%;
-  min-height: 96vh;
+  min-height: 97vh;
+  min-width: 100vw;
 
+}
+
+.color-container {
+  background-color: rgba(241, 248, 248, 0.90);
 }
 
 .example-card {
@@ -12,10 +17,17 @@
   height: 250px;
   margin-top: 100px;
   text-align: center;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3), 0 8px 20px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 20%;
 
 }
 
-.button-container{
+.button-container {
   display: flex;
-  justify-content:flex-end;
+  justify-content: flex-end;
 }
+
+button:hover {
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
