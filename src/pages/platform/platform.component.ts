@@ -64,5 +64,7 @@ export class PlatformComponent implements OnInit {
   signOut() {
     localStorage.removeItem('id');
     localStorage.removeItem('role');
+    localStorage.removeItem('name');
+    localStorage.removeItem('password');
   }
 }

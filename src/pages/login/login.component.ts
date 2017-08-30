@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
 
   logIn() {
     this.baseService
-      .login('/api/users', UserModel, {
+      .login('/login', UserModel, {
         "userName": this.loginForm.value.userName,
         "password": Md5.hashStr(this.loginForm.value.password)
       })
@@ -50,6 +50,8 @@ export class LoginComponent implements OnInit {
             if (this.user.id) {
               localStorage.setItem("id", this.user.id.toString());
               localStorage.setItem("role", this.user.userRoleId.toString())
+              localStorage.setItem("name", this.user.userName);
+              localStorage.setItem("password", this.user.password)
               this.router.navigate(['platform/about']);
             }
           }
