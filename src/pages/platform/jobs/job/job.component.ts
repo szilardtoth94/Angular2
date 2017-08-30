@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {SkillsModel} from "../../../../model/skills.model";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {BaseService} from "../../../../services/service";
 import {MdDialog} from "@angular/material";
 import {JobModel} from "../../../../model/jobs.model";
@@ -32,6 +32,7 @@ export class JobComponent implements OnInit {
   public userId = parseInt(localStorage.getItem('id'));
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private baseService: BaseService,
               public dialog: MdDialog) {
   }
@@ -55,7 +56,12 @@ export class JobComponent implements OnInit {
         response => {
           this.job = response;
         },
-        error2 => console.log(error2)
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2)
+        }
       );
 
     this.baseService
@@ -64,7 +70,12 @@ export class JobComponent implements OnInit {
         response => {
           this.skills = response;
         },
-        error2 => console.log(error2)
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2)
+        }
       );
 
     this.baseService
@@ -75,7 +86,12 @@ export class JobComponent implements OnInit {
           console.log(this.userSkills);
 
         },
-        error2 => console.log(error2)
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2)
+        }
       );
 
     this.baseService
@@ -85,7 +101,12 @@ export class JobComponent implements OnInit {
           this.requirements = response;
           console.log(this.requirements);
         },
-        error2 => console.log(error2)
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2)
+        }
       );
 
     this.getJobApplys();
@@ -104,7 +125,12 @@ export class JobComponent implements OnInit {
             }
           }
         },
-        error2 => console.log(error2)
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2)
+        }
       );
   }
 
@@ -168,7 +194,12 @@ export class JobComponent implements OnInit {
         response => {
           this.getJobInformation();
         },
-        error2 => console.log(error2)
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2)
+        }
       );
   }
 
@@ -203,7 +234,12 @@ export class JobComponent implements OnInit {
           this.apply = "Apply";
           this.getJobApplys();
         },
-        error2 => console.log(error2)
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2)
+        }
       );
   }
 
@@ -214,7 +250,12 @@ export class JobComponent implements OnInit {
           console.log(response);
           this.getJobApplys();
         },
-        error2 => console.log(error2)
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2)
+        }
       );
   }
 

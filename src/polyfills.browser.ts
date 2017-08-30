@@ -11,6 +11,7 @@
 /**
  * Added parts of es6 which are necessary for your project or your browser support requirements.
  */
+import 'reflect-metadata';
 import 'core-js/es6/symbol';
 import 'core-js/es6/object';
 import 'core-js/es6/function';

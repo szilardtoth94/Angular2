@@ -47,13 +47,14 @@ import {JobComponent} from "../pages/platform/jobs/job/job.component";
 import {CreateJob} from "../pages/platform/jobs/create.job/create.job";
 import {JobSkillsComponent} from "../pages/platform/jobs/job/skills/job.skills.component";
 import {EditJobComponent} from "../pages/platform/jobs/job/edit.job/edit.job.component";
-import {NotFoundComponent} from "../pages/platform/not.found/not.found.component";
+import {NotFoundComponent} from "../pages/not.found/not.found.component";
 import {PlatformComponent} from "../pages/platform/platform.component";
 import {LoginComponent} from "../pages/login/login.component";
 import {AuthGuard} from "../services/authguard";
 import {ChangePasswordComponent} from "../pages/platform/users/user/change.password/change.password.component";
 import {ApplyDialog} from "../pages/platform/jobs/job/apply.dialog/dialog.component";
 import {AppliedList} from "../pages/platform/jobs/job/applied.users.list/applied.users.component.list";
+import {ForbiddenComponent} from "../pages/forbidden/forbidden.component";
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -72,6 +73,7 @@ import {AppliedList} from "../pages/platform/jobs/job/applied.users.list/applied
     EditJobComponent,
     EditUserComponent,
     EditWorkExperienceComponent,
+    ForbiddenComponent,
     JobComponent,
     JobsComponent,
     JobSkillsComponent,

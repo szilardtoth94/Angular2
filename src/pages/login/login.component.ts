@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.errorMessage = "UserName"
     if (localStorage.getItem('id')) {
-      this.router.navigate(['platform/users']);
+      this.router.navigate(['platform/about']);
     }
 
     this.loginForm = new FormGroup({
@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
           else {
             this.loginForm.controls['userName'].setErrors({'incorrect': true});
             this.loginForm.controls['password'].setErrors({'incorrect': true});
-            this.errorMessage = 'Wrong username or password ' ;
+            this.errorMessage = 'Wrong username or password ';
           }
         },
         error2 => console.log(error2),);

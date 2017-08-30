@@ -33,7 +33,12 @@ export class UsersComponent implements OnInit {
         response => {
           this.users = response;
         },
-        error2 => console.log(error2),);
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2);
+        });
   }
 
   onSelectUser(user: userPersInfoModel) {
@@ -68,7 +73,12 @@ export class UsersComponent implements OnInit {
           console.log(response);
           this.getUsers();
         },
-        error2 => console.log(error2)
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2);
+        }
       );
   }
 }

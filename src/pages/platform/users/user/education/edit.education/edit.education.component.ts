@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MD_DIALOG_DATA, MdDialogRef} from "@angular/material";
 import {BaseService} from "../../../../../../services/service";
 import {UserEducationModel} from "../../../../../../model/user.education.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'create-education',
@@ -12,6 +13,7 @@ export class EditEducationComponent implements OnInit {
   public editEducationForm: FormGroup;
 
   constructor(private  baseService: BaseService,
+              private router: Router,
               public dialogRef: MdDialogRef<EditEducationComponent>,
               @Inject(MD_DIALOG_DATA) public education: UserEducationModel) {
   }
@@ -54,7 +56,12 @@ export class EditEducationComponent implements OnInit {
           response => {
             console.log(response);
           },
-          error2 => console.log(error2),);
+          error2 => {
+            if (error2.status == 403) {
+              this.router.navigate(['forbidden']);
+            }
+            console.log(error2);
+          });
     }
   }
 }

@@ -1,23 +1,43 @@
 import {Injectable} from "@angular/core";
-import {Http, Response} from "@angular/http";
+import { Headers, Http, RequestOptions, Response} from "@angular/http";
 import "rxjs/add/operator/map";
 import 'rxjs/Rx';
+import {Router} from "@angular/router";
 
 @Injectable()
 export class BaseService {
 
-  constructor(private http: Http) {
+  constructor(private http: Http,private router: Router) {
   }
 
   public url = 'http://localhost:5000';
+  public header = new Headers();
 
   getBaseAll(endpoint, Model) {
-    return this.http.get(this.url + endpoint)
+    const headers = new Headers();
+    // headers.append('Accept','application/json');
+    // headers.append('Authorization','Basic: xxxyhkhio');
+    // headers.append('Content-Type','application/json');
+    // headers.append('X-Request-With','XMLHttpRequest');
+
+    return this.http.request(this.url + endpoint, new RequestOptions({
+      method: 'GET',
+      headers
+    }))
       .map((res: Response) => res.json().data.map((obj) => new Model(obj)));
   }
 
   getBase(endpoint, Model) {
-    return this.http.get(this.url + endpoint)
+    const headers = new Headers();
+    // headers.append('Accept','application/json');
+    // headers.append('Authorization','Basic: xxxyhkhio');
+    // headers.append('Content-Type','application/json');
+    // headers.append('X-Request-With','XMLHttpRequest');
+
+    return this.http.request(this.url + endpoint, new RequestOptions({
+      method: 'GET',
+      headers
+    }))
       .map((res: Response) => new Model(res.json().data));
   }
 

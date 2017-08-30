@@ -3,6 +3,7 @@ import {MD_DIALOG_DATA, MdDialogRef} from "@angular/material";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {BaseService} from "../../../../../services/service";
 import {JobModel} from "../../../../../model/jobs.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'edit-job',
@@ -13,6 +14,7 @@ export class EditJobComponent implements OnInit {
   public jobEditForm: FormGroup;
 
   constructor(private  baseService: BaseService,
+              private router:Router,
               public dialogRef: MdDialogRef<EditJobComponent>,
               @Inject(MD_DIALOG_DATA) public job: JobModel) {
   }
@@ -46,7 +48,12 @@ export class EditJobComponent implements OnInit {
         .subscribe(
           response => {
           },
-          error2 => console.log(error2),);
+          error2 => {
+            if (error2.status == 403) {
+              this.router.navigate(['forbidden']);
+            }
+            console.log(error2)
+          });
     }
   }
 }

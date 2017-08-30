@@ -36,7 +36,12 @@ export class PlatformComponent implements OnInit {
           else this.imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt";
           localStorage.setItem("img", this.imageUrl)
         },
-        error2 => console.log(error2)
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2)
+        }
       );
 
 
@@ -66,5 +71,6 @@ export class PlatformComponent implements OnInit {
     localStorage.removeItem('role');
     localStorage.removeItem('name');
     localStorage.removeItem('password');
+    localStorage.removeItem("img");
   }
 }

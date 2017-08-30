@@ -5,10 +5,11 @@ import {UsersComponent} from "../pages/platform/users/users.component";
 import {UserComponent} from "../pages/platform/users/user/user.component";
 import {UserUpdateComponent} from "../pages/platform/users/update/user.update.component";
 import {JobComponent} from "../pages/platform/jobs/job/job.component";
-import {NotFoundComponent} from "../pages/platform/not.found/not.found.component";
+import {NotFoundComponent} from "../pages/not.found/not.found.component";
 import {PlatformComponent} from "../pages/platform/platform.component";
 import {LoginComponent} from "../pages/login/login.component";
 import {AuthGuard} from "../services/authguard";
+import {ForbiddenComponent} from "../pages/forbidden/forbidden.component";
 
 export const ROUTES: Routes = [
   {
@@ -55,12 +56,17 @@ export const ROUTES: Routes = [
         path: 'users/:id',
         component: UserComponent
       },
+
       {
         path: '**',
         component: NotFoundComponent
       },
     ]
 
+  },
+  {
+    path: 'forbidden',
+    component: ForbiddenComponent
   },
   {
     path: '**',

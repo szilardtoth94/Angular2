@@ -1,4 +1,4 @@
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {OnInit, Component} from '@angular/core';
 import {PersInfoModel} from "../../../../model/pers.info.model";
 import {EditUserComponent} from "./edit.user/edit.user.component";
@@ -29,6 +29,7 @@ export class UserComponent implements OnInit {
   public acces = false;
 
   constructor(private route: ActivatedRoute,
+              private router:Router,
               private baseService: BaseService,
               public dialog: MdDialog) {
   }
@@ -55,7 +56,12 @@ export class UserComponent implements OnInit {
           }
           console.log(this.acces)
         },
-        error2 => console.log(error2)
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2);
+        }
       );
 
     this.baseService
@@ -64,7 +70,12 @@ export class UserComponent implements OnInit {
         response => {
           this.skills = response;
         },
-        error2 => console.log(error2)
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2);
+        }
       );
   }
 
@@ -123,7 +134,12 @@ export class UserComponent implements OnInit {
           console.log(response);
           this.getUserInformation();
         },
-        error2 => console.log(error2)
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2);
+        }
       );
   }
 
@@ -220,8 +236,12 @@ export class UserComponent implements OnInit {
           }
 
         },
-        error2 => console.log(error2)
-      );
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2);
+        });
   }
 
   onDeleteUserSkill(userSkillId: number) {
@@ -232,7 +252,12 @@ export class UserComponent implements OnInit {
           console.log(response);
           this.getUserInformation();
         },
-        error2 => console.log(error2)
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2);
+        }
       );
   }
 

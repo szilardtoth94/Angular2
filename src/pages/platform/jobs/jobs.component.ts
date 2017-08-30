@@ -34,7 +34,12 @@ export class JobsComponent implements OnInit {
         response => {
           this.jobs = response
         },
-        error2 => console.log(error2),);
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2)
+        });
   }
 
   onSelectJob(job: JobModel) {
@@ -68,7 +73,12 @@ export class JobsComponent implements OnInit {
         response => {
           this.getJobs();
         },
-        error2 => console.log(error2)
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2)
+        }
       );
   }
 

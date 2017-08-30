@@ -3,6 +3,7 @@ import {MD_DIALOG_DATA, MdDialogRef} from "@angular/material";
 import {BaseService} from "../../../../../services/service";
 import {SkillsModel} from "../../../../../model/skills.model";
 import {FormControl, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'edit-user',
@@ -14,6 +15,7 @@ export class JobSkillsComponent implements OnInit {
   public skillForm;
 
   constructor(private  baseService: BaseService,
+              private router:Router,
               public dialogRef: MdDialogRef<JobSkillsComponent>,
               @Inject(MD_DIALOG_DATA) public list: any) {
   }
@@ -37,7 +39,12 @@ export class JobSkillsComponent implements OnInit {
           this.skills.push(response.data);
           this.skillForm.reset();
         },
-        error2 => console.log(error2)
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2)
+        }
       );
   }
 
@@ -56,7 +63,12 @@ export class JobSkillsComponent implements OnInit {
             )
           ;
         },
-        error2 => console.log(error2)
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2)
+        }
       );
   }
 
@@ -68,6 +80,11 @@ export class JobSkillsComponent implements OnInit {
         response => {
           // console.log(response);
         },
-        error2 => console.log(error2));
+        error2 => {
+          if (error2.status == 403) {
+            this.router.navigate(['forbidden']);
+          }
+          console.log(error2)
+        });
   }
 }

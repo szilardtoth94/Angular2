@@ -6,7 +6,7 @@ import {MdDialog} from "@angular/material";
 @Component({
   selector: 'personal-information',
   templateUrl: './personal-information.component.html',
-  styleUrls:['./personal-information-component.css'],
+  styleUrls: ['./personal-information-component.css'],
 })
 export class PersonalInformationComponent implements OnInit {
   public imageUrl;

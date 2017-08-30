@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MD_DIALOG_DATA, MdDialogRef} from "@angular/material";
 import {PersInfoModel} from "../../../../../model/pers.info.model";
 import {BaseService} from "../../../../../services/service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'edit-user',
@@ -13,6 +14,7 @@ export class EditUserComponent implements OnInit {
   public userEditForm: FormGroup;
 
   constructor(private  baseService: BaseService,
+              private router:Router,
               public dialogRef: MdDialogRef<EditUserComponent>,
               @Inject(MD_DIALOG_DATA) public users: PersInfoModel) {
   }
@@ -42,7 +44,12 @@ export class EditUserComponent implements OnInit {
         .subscribe(
           response => {
           },
-          error2 => console.log(error2),);
+          error2 => {
+            if (error2.status == 403) {
+              this.router.navigate(['forbidden']);
+            }
+            console.log(error2);
+          });
     }
   }
 }
