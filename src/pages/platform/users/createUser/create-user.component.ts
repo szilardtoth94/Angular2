@@ -14,6 +14,7 @@ import {Router} from "@angular/router";
 export class CreateUserComponent implements OnInit {
   public userCreateForm: FormGroup;
   public errorMessage;
+  public role;
 
   constructor(private  baseService: BaseService,
               private router: Router,
@@ -21,6 +22,7 @@ export class CreateUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.role = localStorage.getItem("role");
     this.userCreateForm = new FormGroup({
       'firstName': new FormControl(
         null,

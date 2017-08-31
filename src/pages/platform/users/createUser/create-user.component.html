@@ -39,6 +39,7 @@
                  [formControlName]="'userRoleId'">
         <md-option [value]="1">User</md-option>
         <md-option [value]="2">HR</md-option>
+        <md-option *ngIf="role>2" [value]="3">Admin</md-option>
       </md-select>
     </div>
     <md-dialog-actions>
