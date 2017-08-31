@@ -25,6 +25,7 @@ export class userPersInfoModel {
     this._usersId = usersId;
     this._img = img;
     this._user = user;
+
   }
 
   get id(): number {

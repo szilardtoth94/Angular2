@@ -1,1 +1,1 @@
-export {JobSkillsComponent} from './job.skills.component'
+export {JobSkillsComponent} from './job-skills.component'

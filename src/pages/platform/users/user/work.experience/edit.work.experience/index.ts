@@ -1,1 +1,1 @@
-export {EditWorkExperienceComponent} from './edit.work.experience.component'
+export {EditWorkExperienceComponent} from './edit-work-experience.component'

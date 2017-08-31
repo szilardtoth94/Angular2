@@ -4,14 +4,14 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {BaseService} from "../../../../services/service";
 import {MdDialog} from "@angular/material";
 import {JobModel} from "../../../../model/jobs.model";
-import {JobSkillsComponent} from "./skills/job.skills.component";
+import {JobSkillsComponent} from "./skills/job-skills.component";
 import {RequirementsModel} from "../../../../model/requirements.model";
-import {DeleteConfirmationDialog} from "../../deletedialog/dialog.component";
-import {EditJobComponent} from "./edit.job/edit.job.component";
-import {SkillsOfUser} from "../../../../model/skills.of.user";
-import {JobApplyModel} from "../../../../model/jobApplyModel";
-import {ApplyDialog} from "./apply.dialog/dialog.component";
-import {AppliedList} from "./applied.users.list/applied.users.component.list";
+import {DeleteConfirmationDialog} from "../../deletedialog/delete-dialog.component";
+import {EditJobComponent} from "./edit.job/edit-job.component";
+import {SkillsOfUser} from "../../../../model/skills-of-user";
+import {JobApplyModel} from "../../../../model/job-apply.model";
+import {ApplyDialog} from "./apply.dialog/apply-dialog.component";
+import {AppliedList} from "./applied.users.list/applied-users-list.component";
 
 @Component({
   selector: 'job-component',
@@ -83,8 +83,6 @@ export class JobComponent implements OnInit {
       .subscribe(
         response => {
           this.userSkills = response;
-          console.log(this.userSkills);
-
         },
         error2 => {
           if (error2.status == 403) {
@@ -99,7 +97,6 @@ export class JobComponent implements OnInit {
       .subscribe(
         response => {
           this.requirements = response;
-          console.log(this.requirements);
         },
         error2 => {
           if (error2.status == 403) {
@@ -108,7 +105,6 @@ export class JobComponent implements OnInit {
           console.log(error2)
         }
       );
-
     this.getJobApplys();
   }
 

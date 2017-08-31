@@ -6,13 +6,13 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'create-education',
-  templateUrl: './create.education.component.html',
+  templateUrl: './create-education.component.html',
 })
 export class CreateEducationComponent implements OnInit {
   public educationForm: FormGroup;
 
   constructor(private  baseService: BaseService,
-              private router:Router,
+              private router: Router,
               public dialogRef: MdDialogRef<CreateEducationComponent>,
               @Inject(MD_DIALOG_DATA) public userId: number) {
   }

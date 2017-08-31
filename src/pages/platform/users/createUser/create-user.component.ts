@@ -7,9 +7,10 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'dialog-result-example-dialog',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.user.component.css']
+  templateUrl: './create-user.component.html',
+  styleUrls: ['./create-user.component.css']
 })
+
 export class CreateUserComponent implements OnInit {
   public userCreateForm: FormGroup;
   public errorMessage;
@@ -64,7 +65,6 @@ export class CreateUserComponent implements OnInit {
             console.log(response);
             this.dialogRef.close(true);
           },
-
           error2 => {
             if (error2.status == 403) {
               this.router.navigate(['forbidden']);
@@ -73,7 +73,6 @@ export class CreateUserComponent implements OnInit {
             this.userCreateForm.controls['user'].reset();
             this.errorMessage = "User Exist"
           });
-
     }
   }
 }

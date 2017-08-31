@@ -16,7 +16,6 @@ export class JobApplyModel {
     this._jobId = jobId;
     this._userId = userId;
     this._user = user;
-
   }
 
   get id(): number {

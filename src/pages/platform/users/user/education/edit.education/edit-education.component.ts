@@ -2,12 +2,12 @@ import {Component, Inject, OnInit} from "@angular/core";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MD_DIALOG_DATA, MdDialogRef} from "@angular/material";
 import {BaseService} from "../../../../../../services/service";
-import {UserEducationModel} from "../../../../../../model/user.education.model";
+import {UserEducationModel} from "../../../../../../model/education.model";
 import {Router} from "@angular/router";
 
 @Component({
   selector: 'create-education',
-  templateUrl: './edit.education.component.html',
+  templateUrl: './edit-education.component.html',
 })
 export class EditEducationComponent implements OnInit {
   public editEducationForm: FormGroup;

@@ -1,1 +1,1 @@
-export {CreateUserComponent} from './create.user.component'
+export {CreateUserComponent} from './create-user.component'

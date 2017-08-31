@@ -3,7 +3,7 @@ import {MdDialogRef} from "@angular/material";
 
 @Component({
   selector: 'dialog-result-example-dialog',
-  templateUrl: './dialog.component.html',
+  templateUrl: './delete-dialog.component.html',
 })
 
 export class DeleteConfirmationDialog {

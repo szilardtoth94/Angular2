@@ -6,7 +6,7 @@ import {Md5} from "ts-md5/dist/md5";
 
 @Component({
   selector: 'change-password',
-  templateUrl: './change.password.component.html',
+  templateUrl: './change-password.component.html',
 })
 
 export class ChangePasswordComponent implements OnInit {
@@ -14,7 +14,6 @@ export class ChangePasswordComponent implements OnInit {
   public oldPassword = 'Old Password';
   public newPassword = 'New Password';
   public newPassword2 = 'Retype New Password';
-
 
   constructor(private  baseService: BaseService,
               public dialogRef: MdDialogRef<ChangePasswordComponent>,
@@ -38,12 +37,8 @@ export class ChangePasswordComponent implements OnInit {
     })
   }
 
-  public checkPasword(){
-    return ( this.validateForm.controls['oldPassword'].setErrors({'incorrect': true}))
-  }
-
   public changePassword() {
-    if(this.validateForm.value.newPassword!=this.validateForm.value.newPassword2){
+    if (this.validateForm.value.newPassword != this.validateForm.value.newPassword2) {
       this.validateForm.controls['newPassword'].setErrors({'incorrect': true});
       this.newPassword = "Password does not match";
       this.validateForm.controls['newPassword2'].setErrors({'incorrect': true});

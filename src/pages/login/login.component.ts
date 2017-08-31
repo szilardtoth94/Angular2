@@ -4,7 +4,7 @@ import {BaseService} from "../../services/service";
 import {Router} from "@angular/router";
 import {UserModel} from "../../model/user.model";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {PersInfoModel} from "../../model/pers.info.model";
+import {PersInfoModel} from "../../model/personal-info.model";
 
 @Component({
   selector: 'login',
@@ -71,7 +71,6 @@ export class LoginComponent implements OnInit {
                     console.log(error2)
                   }
                 );
-
             }
           }
           else {
@@ -82,5 +81,4 @@ export class LoginComponent implements OnInit {
         },
         error2 => console.log(error2),);
   }
-
 }

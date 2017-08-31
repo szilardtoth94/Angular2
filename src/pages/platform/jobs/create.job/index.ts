@@ -1,1 +1,1 @@
-export {CreateJob} from './create.job'
+export {CreateJob} from './create-job.component'

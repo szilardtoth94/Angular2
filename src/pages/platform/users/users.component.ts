@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {userPersInfoModel} from "../../../model/user.persinfo.model";
+import {userPersInfoModel} from "../../../model/persinfo-with-user.model";
 import {Router} from "@angular/router";
 import {MdDialog} from '@angular/material';
-import {DeleteConfirmationDialog} from "../deletedialog/dialog.component";
-import {CreateUserComponent} from "./createUser/create.user.component";
+import {DeleteConfirmationDialog} from "../deletedialog/delete-dialog.component";
+import {CreateUserComponent} from "./createUser/create-user.component";
 import {BaseService} from "../../../services/service";
 
 @Component({

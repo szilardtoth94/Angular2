@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
-import {ChangePasswordComponent} from "../../platform/users/user/change.password/change.password.component";
+import {ChangePasswordComponent} from "../../platform/users/user/change.password/change-password.component";
 import {MdDialog} from "@angular/material";
 
 @Component({
@@ -8,6 +8,7 @@ import {MdDialog} from "@angular/material";
   templateUrl: './personal-information.component.html',
   styleUrls: ['./personal-information-component.css'],
 })
+
 export class PersonalInformationComponent implements OnInit {
   public imageUrl;
   public myId;

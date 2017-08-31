@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'edit-user',
-  templateUrl: './job.skills.component.html',
+  templateUrl: './job-skills.component.html',
 })
 export class JobSkillsComponent implements OnInit {
   public skills: SkillsModel[];
@@ -15,7 +15,7 @@ export class JobSkillsComponent implements OnInit {
   public skillForm;
 
   constructor(private  baseService: BaseService,
-              private router:Router,
+              private router: Router,
               public dialogRef: MdDialogRef<JobSkillsComponent>,
               @Inject(MD_DIALOG_DATA) public list: any) {
   }

@@ -2,53 +2,45 @@ import {Component, Inject, OnInit} from "@angular/core";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MD_DIALOG_DATA, MdDialogRef} from "@angular/material";
 import {BaseService} from "../../../../../../services/service";
-import {UserWorkExperienceModel} from "../../../../../../model/user.work.experience";
 import {Router} from "@angular/router";
 
 @Component({
   selector: 'create-education',
-  templateUrl: './edit.work.experience.component.html',
+  templateUrl: './create-work-experience.component.html',
 })
-
-export class EditWorkExperienceComponent implements OnInit {
-  public editWorkExperienceForm: FormGroup;
+export class CreateWorkExperienceComponent implements OnInit {
+  public createWorkExperienceForm: FormGroup;
 
   constructor(private  baseService: BaseService,
-              private router:Router,
-              public dialogRef: MdDialogRef<EditWorkExperienceComponent>,
-              @Inject(MD_DIALOG_DATA) public experience: UserWorkExperienceModel) {
+              private router: Router,
+              public dialogRef: MdDialogRef<CreateWorkExperienceComponent>,
+              @Inject(MD_DIALOG_DATA) public userId: number) {
   }
 
   ngOnInit(): void {
-    this.editWorkExperienceForm = new FormGroup({
+    this.createWorkExperienceForm = new FormGroup({
       'companyName': new FormControl(
-        this.experience.companyName,
+        null,
         [Validators.required, Validators.minLength(2)],
         null),
       'position': new FormControl(
-        this.experience.position,
+        null,
         [Validators.required, Validators.minLength(2)],
         null),
-      'startDate': new FormControl(
-        this.experience.startDate,
-        null,
-        null),
-      'endDate': new FormControl(
-        this.experience.endDate,
-        null,
-        null),
+      'startDate': new FormControl(),
+      'endDate': new FormControl(),
       'personInfoId': new FormControl(
-        this.experience.personInfoId,
+        this.userId,
         Validators.required,
         null)
     })
   }
 
-  public editWorkExperience() {
-    if (this.editWorkExperienceForm.valid) {
+  public createWorkExperience() {
+    if (this.createWorkExperienceForm.valid) {
       this.dialogRef.close(true);
       this.baseService
-        .updateBase('/api/work/' + this.experience.id, this.editWorkExperienceForm.value)
+        .createBase('/api/work', this.createWorkExperienceForm.value)
         .subscribe(
           response => {
             // console.log(response);

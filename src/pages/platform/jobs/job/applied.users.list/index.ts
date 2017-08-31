@@ -1,1 +1,1 @@
-export {AppliedList} from './applied.users.component.list'
+export {AppliedList} from './applied-users-list.component'

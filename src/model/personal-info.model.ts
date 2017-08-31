@@ -1,5 +1,5 @@
-import {UserEducationModel} from './user.education.model';
-import {UserWorkExperienceModel} from './user.work.experience';
+import {UserEducationModel} from './education.model';
+import {UserWorkExperienceModel} from './work-experience';
 import {SkillsModel} from "./skills.model";
 import {UserModel} from "./user.model";
 

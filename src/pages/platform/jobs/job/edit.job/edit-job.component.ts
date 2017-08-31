@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'edit-job',
-  templateUrl: './edit.job.component.html',
+  templateUrl: './edit-job.component.html',
 })
 
 export class EditJobComponent implements OnInit {

@@ -1,19 +1,19 @@
 import {ActivatedRoute, Router} from '@angular/router';
 import {OnInit, Component} from '@angular/core';
-import {PersInfoModel} from "../../../../model/pers.info.model";
-import {EditUserComponent} from "./edit.user/edit.user.component";
+import {PersInfoModel} from "../../../../model/personal-info.model";
+import {EditUserComponent} from "./edit.user/edit-user.component";
 import {MdDialog} from "@angular/material";
-import {CreateEducationComponent} from "./education/create.education/create.education.component";
+import {CreateEducationComponent} from "./education/create.education/create-education.component";
 import {BaseService} from "../../../../services/service";
-import {EditEducationComponent} from "./education/edit.education/edit.education.component";
-import {UserEducationModel} from "../../../../model/user.education.model";
-import {DeleteConfirmationDialog} from "../../deletedialog/dialog.component";
-import {CreateWorkExperienceComponent} from "./work.experience/create.work.experience/create.work.experience.component";
-import {UserWorkExperienceModel} from "../../../../model/user.work.experience";
-import {EditWorkExperienceComponent} from "./work.experience/edit.work.experience/edit.work.experience.component";
-import {UserSkillsComponent} from "./skills/user.skills.component";
+import {EditEducationComponent} from "./education/edit.education/edit-education.component";
+import {UserEducationModel} from "../../../../model/education.model";
+import {DeleteConfirmationDialog} from "../../deletedialog/delete-dialog.component";
+import {CreateWorkExperienceComponent} from "./work.experience/create.work.experience/create-work-experience.component";
+import {UserWorkExperienceModel} from "../../../../model/work-experience";
+import {EditWorkExperienceComponent} from "./work.experience/edit.work.experience/edit-work-experience.component";
+import {UserSkillsComponent} from "./skills/user-skills.component";
 import {SkillsModel} from "../../../../model/skills.model";
-import {SkillsOfUser} from "../../../../model/skills.of.user";
+import {SkillsOfUser} from "../../../../model/skills-of-user";
 
 @Component({
   selector: "user-component",
@@ -29,7 +29,7 @@ export class UserComponent implements OnInit {
   public acces = false;
 
   constructor(private route: ActivatedRoute,
-              private router:Router,
+              private router: Router,
               private baseService: BaseService,
               public dialog: MdDialog) {
   }

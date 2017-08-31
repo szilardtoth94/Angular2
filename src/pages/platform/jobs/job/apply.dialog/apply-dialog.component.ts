@@ -3,7 +3,7 @@ import {MdDialogRef} from "@angular/material";
 
 @Component({
   selector: 'apply-dialog',
-  templateUrl: './dialog.component.html',
+  templateUrl: './apply-dialog.component.html',
 })
 
 export class ApplyDialog {

@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'edit-user',
-  templateUrl: './user.skills.component.html'
+  templateUrl: './user-skills.component.html'
 })
 export class UserSkillsComponent implements OnInit {
   public skills: SkillsModel[];
@@ -23,9 +23,6 @@ export class UserSkillsComponent implements OnInit {
   ngOnInit(): void {
     this.skills = this.list[0];
     this.userId = this.list[1];
-    console.log(this.skills);
-
-
     this.skillForm = new FormGroup({
       "name": new FormControl(),
       "description": new FormControl()

@@ -2,17 +2,18 @@ import {Component, OnInit} from "@angular/core";
 import {MdDialogRef} from "@angular/material";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {BaseService} from "../../../../services/service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'create-job',
-  templateUrl: './create.job.html',
+  templateUrl: './create-job.component.html',
 })
+
 export class CreateJob implements OnInit {
   public jobCreateForm: FormGroup;
 
   constructor(private  baseService: BaseService,
-              private router:Router,
+              private router: Router,
               public dialogRef: MdDialogRef<CreateJob>) {
   }
 

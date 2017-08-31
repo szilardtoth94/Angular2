@@ -1,1 +1,1 @@
-export {ApplyDialog} from './dialog.component'
+export {ApplyDialog} from './apply-dialog.component'

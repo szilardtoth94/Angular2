@@ -1,10 +1,8 @@
-
-
 <md-dialog-content>
   <md-list-item *ngFor="let apply of applied">
     <button
       md-raised-button
-            (click)="openMyProfile(apply.user.id)    ">
+      (click)="openMyProfile(apply.user.id)    ">
       {{ apply.user.userName }}
     </button>
     <br>

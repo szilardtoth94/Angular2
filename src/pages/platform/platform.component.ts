@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild} from "@angular/core";
 import {MdDialog, MdSidenav} from "@angular/material";
 import {Router} from "@angular/router";
-import {ChangePasswordComponent} from "./users/user/change.password/change.password.component";
-import {PersInfoModel} from "../../model/pers.info.model";
+import {ChangePasswordComponent} from "./users/user/change.password/change-password.component";
+import {PersInfoModel} from "../../model/personal-info.model";
 
 @Component({
   selector: 'platform',

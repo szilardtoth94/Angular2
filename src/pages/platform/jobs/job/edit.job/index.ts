@@ -1,1 +1,1 @@
-export {EditJobComponent} from './edit.job.component'
+export {EditJobComponent} from './edit-job.component'

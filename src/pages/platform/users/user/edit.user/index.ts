@@ -1,1 +1,1 @@
-export {EditUserComponent} from './edit.user.component'
+export {EditUserComponent} from './edit-user.component'

@@ -69,7 +69,6 @@
         <desktop-sidenav-component></desktop-sidenav-component>
         <div class="flex-item" fxFlex>
           <md-toolbar>
-            <!--<md-toolbar-row>-->
             <button
               fxHide.gt-md fxHide.gt-sm
               md-icon-button
@@ -80,14 +79,12 @@
             <h5>HR Assist</h5>
             <span class="example-spacer"></span>
 
-            <button  mdTooltip="Sign Out"
-                     mdTooltipPosition="before"
+            <button mdTooltip="Sign Out"
+                    mdTooltipPosition="before"
                     (click)="signOut()"
                     routerLink="../login">
               <md-icon>exit_to_app</md-icon>
             </button>
-
-            <!--</md-toolbar-row>-->
           </md-toolbar>
           <router-outlet></router-outlet>
           <br>

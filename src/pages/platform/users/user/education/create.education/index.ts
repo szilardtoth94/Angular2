@@ -1,1 +1,1 @@
-export {CreateEducationComponent} from './create.education.component'
+export {CreateEducationComponent} from './create-education.component'

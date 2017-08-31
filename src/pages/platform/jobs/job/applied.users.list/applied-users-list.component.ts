@@ -1,12 +1,12 @@
 import {Component, Inject, OnInit} from "@angular/core";
 import {MD_DIALOG_DATA, MdDialogRef} from "@angular/material";
-import {JobApplyModel} from "../../../../../model/jobApplyModel";
+import {JobApplyModel} from "../../../../../model/job-apply.model";
 import {Router} from "@angular/router";
 
 @Component({
   selector: 'apply-list',
-  templateUrl: './applied.users.list.html',
-  styleUrls: ['./applied.users.list.css']
+  templateUrl: './applied-users-list.component.html',
+  styleUrls: ['./applied-users-list.component.css']
 })
 
 export class AppliedList implements OnInit {

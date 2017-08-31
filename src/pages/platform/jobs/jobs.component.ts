@@ -2,9 +2,9 @@ import {Component, OnInit} from "@angular/core";
 import {JobModel} from "../../../model/jobs.model";
 import {BaseService} from "../../../services/service";
 import {Router} from "@angular/router";
-import {DeleteConfirmationDialog} from "../deletedialog/dialog.component";
+import {DeleteConfirmationDialog} from "../deletedialog/delete-dialog.component";
 import {MdDialog} from "@angular/material";
-import {CreateJob} from "./create.job/create.job";
+import {CreateJob} from "./create.job/create-job.component";
 
 @Component({
   selector: 'jobs-component',
@@ -81,6 +81,5 @@ export class JobsComponent implements OnInit {
         }
       );
   }
-
 }
 

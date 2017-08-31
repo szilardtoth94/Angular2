@@ -1,20 +1,20 @@
 import {Component, Inject, OnInit} from "@angular/core";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MD_DIALOG_DATA, MdDialogRef} from "@angular/material";
-import {PersInfoModel} from "../../../../../model/pers.info.model";
+import {PersInfoModel} from "../../../../../model/personal-info.model";
 import {BaseService} from "../../../../../services/service";
 import {Router} from "@angular/router";
 
 @Component({
   selector: 'edit-user',
-  templateUrl: './edit.user.component.html',
+  templateUrl: './edit-user.component.html',
 })
 
 export class EditUserComponent implements OnInit {
   public userEditForm: FormGroup;
 
   constructor(private  baseService: BaseService,
-              private router:Router,
+              private router: Router,
               public dialogRef: MdDialogRef<EditUserComponent>,
               @Inject(MD_DIALOG_DATA) public users: PersInfoModel) {
   }
