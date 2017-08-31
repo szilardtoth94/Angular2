@@ -2,7 +2,6 @@ import {Component, OnInit, ViewChild} from "@angular/core";
 import {MdDialog, MdSidenav} from "@angular/material";
 import {Router} from "@angular/router";
 import {ChangePasswordComponent} from "./users/user/change.password/change.password.component";
-import {BaseService} from "../../services/service";
 import {PersInfoModel} from "../../model/pers.info.model";
 
 @Component({
@@ -17,34 +16,14 @@ export class PlatformComponent implements OnInit {
   public users: PersInfoModel;
   public id;
 
-  constructor(private baseService: BaseService,
-              private router: Router,
+  constructor(private router: Router,
               public dialog: MdDialog) {
   }
 
   ngOnInit() {
 
     this.id = localStorage.getItem("id");
-    this.baseService
-      .getBase('/api/persinfo/all/' + this.id, PersInfoModel)
-      .subscribe(
-        response => {
-          this.users = response;
-          console.log(this.users.img);
-          if (this.users.img !== null)
-            this.imageUrl = this.users.img;
-          else this.imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt";
-          localStorage.setItem("img", this.imageUrl)
-        },
-        error2 => {
-          if (error2.status == 403) {
-            this.router.navigate(['forbidden']);
-          }
-          console.log(error2)
-        }
-      );
-
-
+    this.imageUrl = localStorage.getItem("img");
   }
 
   closeSideNav() {
@@ -58,11 +37,9 @@ export class PlatformComponent implements OnInit {
 
   onChangePassword() {
     this.closeSideNav();
-    let dialogRef = this.dialog.open(ChangePasswordComponent, {
+    this.dialog.open(ChangePasswordComponent, {
       data: this.id,
       width: '250px',
-    });
-    dialogRef.afterClosed().subscribe(result => {
     });
   }
 

@@ -14,30 +14,19 @@ export class BaseService {
   public header = new Headers();
 
   getBaseAll(endpoint, Model) {
-    const headers = new Headers();
-    // headers.append('Accept','application/json');
-    // headers.append('Authorization','Basic: xxxyhkhio');
-    // headers.append('Content-Type','application/json');
-    // headers.append('X-Request-With','XMLHttpRequest');
-
-    return this.http.request(this.url + endpoint, new RequestOptions({
-      method: 'GET',
-      headers
-    }))
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', `c3ppbGFyZDoxMjNxd2Vhc2Q=`);
+    let options = new RequestOptions({ headers: headers });
+    return this.http.get(this.url + endpoint,options)
       .map((res: Response) => res.json().data.map((obj) => new Model(obj)));
   }
 
   getBase(endpoint, Model) {
-    const headers = new Headers();
-    // headers.append('Accept','application/json');
-    // headers.append('Authorization','Basic: xxxyhkhio');
-    // headers.append('Content-Type','application/json');
-    // headers.append('X-Request-With','XMLHttpRequest');
+    let headers = new Headers();
+    let options = new RequestOptions({ headers: headers })
 
-    return this.http.request(this.url + endpoint, new RequestOptions({
-      method: 'GET',
-      headers
-    }))
+    return this.http.get(this.url + endpoint,options)
       .map((res: Response) => new Model(res.json().data));
   }
 

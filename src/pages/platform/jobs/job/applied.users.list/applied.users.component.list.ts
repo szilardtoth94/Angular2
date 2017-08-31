@@ -1,12 +1,12 @@
 import {Component, Inject, OnInit} from "@angular/core";
 import {MD_DIALOG_DATA, MdDialogRef} from "@angular/material";
 import {JobApplyModel} from "../../../../../model/jobApplyModel";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'apply-list',
   templateUrl: './applied.users.list.html',
-  styleUrls:['./applied.users.list.css']
+  styleUrls: ['./applied.users.list.css']
 })
 
 export class AppliedList implements OnInit {
@@ -21,8 +21,10 @@ export class AppliedList implements OnInit {
   }
 
   openMyProfile(id) {
-    this.dialogRef.close(true);
-    this.router.navigate(['platform/users/'+id]);
+    if (parseInt(localStorage.getItem("role")) > 1) {
+      this.dialogRef.close(true);
+      this.router.navigate(['platform/users/' + id]);
+    }
   }
 }
 
