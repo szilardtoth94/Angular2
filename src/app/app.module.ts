@@ -8,7 +8,7 @@ import {
   MdInputModule,
   MdListModule,
   MdMenuModule,
-  MdNativeDateModule, MdProgressBarModule, MdRadioModule,
+  MdNativeDateModule, MdProgressBarModule,
   MdSelectModule,
   MdSidenavModule, MdTabsModule,
   MdToolbarModule, MdTooltipModule

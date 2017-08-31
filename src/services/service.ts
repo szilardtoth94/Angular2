@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import { Headers, Http, RequestOptions, Response} from "@angular/http";
+import {Headers, Http, RequestOptions, Response} from "@angular/http";
 import "rxjs/add/operator/map";
 import 'rxjs/Rx';
 import {Router} from "@angular/router";
@@ -7,31 +7,33 @@ import {Router} from "@angular/router";
 @Injectable()
 export class BaseService {
 
-  constructor(private http: Http,private router: Router) {
+  constructor(private http: Http, private router: Router) {
   }
 
   public url = 'http://localhost:5000';
-  public header = new Headers();
 
   getBaseAll(endpoint, Model) {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', `c3ppbGFyZDoxMjNxd2Vhc2Q=`);
-    let options = new RequestOptions({ headers: headers });
-    return this.http.get(this.url + endpoint,options)
+    let user = btoa(localStorage.getItem("name") + ":" + localStorage.getItem("password"));
+    let headers = new Headers({'Authorization': user});
+    let options = new RequestOptions({headers: headers});
+
+    return this.http.get(this.url + endpoint, options)
       .map((res: Response) => res.json().data.map((obj) => new Model(obj)));
   }
 
   getBase(endpoint, Model) {
-    let headers = new Headers();
-    let options = new RequestOptions({ headers: headers })
-
-    return this.http.get(this.url + endpoint,options)
+    let user = btoa(localStorage.getItem("name") + ":" + localStorage.getItem("password"));
+    let headers = new Headers({'Authorization': user});
+    let options = new RequestOptions({headers: headers});
+    return this.http.get(this.url + endpoint, options)
       .map((res: Response) => new Model(res.json().data));
   }
 
   createBase(endpoint, body) {
-    return this.http.post(this.url + endpoint, body)
+    let user = btoa(localStorage.getItem("name") + ":" + localStorage.getItem("password"));
+    let headers = new Headers({'Authorization': user});
+    let options = new RequestOptions({headers: headers});
+    return this.http.post(this.url + endpoint, body, options)
       .map((res: Response) => res.json());
   }
 
@@ -46,12 +48,18 @@ export class BaseService {
   }
 
   updateBase(endpoint, body) {
-    return this.http.put(this.url + endpoint, body)
+    let user = btoa(localStorage.getItem("name") + ":" + localStorage.getItem("password"));
+    let headers = new Headers({'Authorization': user});
+    let options = new RequestOptions({headers: headers});
+    return this.http.put(this.url + endpoint, body, options)
       .map((res: Response) => res.json());
   }
 
   deleteBase(endpoint) {
-    return this.http.delete(this.url + endpoint)
+    let user = btoa(localStorage.getItem("name") + ":" + localStorage.getItem("password"));
+    let headers = new Headers({'Authorization': user});
+    let options = new RequestOptions({headers: headers});
+    return this.http.delete(this.url + endpoint, options)
       .map((res: Response) => res.json());
   }
 }

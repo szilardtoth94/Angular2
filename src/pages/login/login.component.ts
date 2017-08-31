@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
               localStorage.setItem("id", this.user.id.toString());
               localStorage.setItem("role", this.user.userRoleId.toString())
               localStorage.setItem("name", this.user.userName);
-              localStorage.setItem("password", this.user.password)
+              localStorage.setItem("password", this.user.password);
               this.baseService
                 .getBase('/api/persinfo/all/' + this.user.id, PersInfoModel)
                 .subscribe(
@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
                     this.userInfo = response;
                     if (this.userInfo.img !== null)
                       localStorage.setItem("img", this.userInfo.img)
-                    else localStorage.setItem("img",  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt");
+                    else localStorage.setItem("img", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1hJzWM3QVJlDyR2Ef0JsahD1me4vt7OhhY8YILIlGETf5vWt");
                     this.router.navigate(['platform/about']);
                   },
                   error2 => {
