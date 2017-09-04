@@ -62,4 +62,5 @@ export class BaseService {
     return this.http.delete(this.url + endpoint, options)
       .map((res: Response) => res.json());
   }
+
 }

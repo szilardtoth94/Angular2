@@ -7,7 +7,7 @@ import {PersInfoModel} from "../../model/personal-info.model";
 @Component({
   selector: 'platform',
   templateUrl: './platform.component.html',
-  styleUrls: ['./platform.css']
+  styleUrls: ['./platform.component.css']
 })
 
 export class PlatformComponent implements OnInit {

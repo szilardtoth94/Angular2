@@ -1,4 +1,5 @@
 <h1>User </h1>
+
 <div class="card-container">
   <md-card class="example-card"
            *ngIf="users"
@@ -8,9 +9,7 @@
       <md-card-subtitle><h4>Username: <b>{{users.user.userName}}</b></h4></md-card-subtitle>
     </md-card-header>
     <md-card-content>
-      <p>
-        {{users.description}}
-      </p>
+      <p>{{users.description}}</p>
     </md-card-content>
     <button md-mini-fab
             mdTooltip="Edit User"

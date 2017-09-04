@@ -14,6 +14,7 @@
       <md-icon>delete</md-icon>
     </button>
   </md-list-item>
+
   <form
     [formGroup]="skillForm">
     <md-input-container class="form-group">
@@ -29,10 +30,12 @@
                 [formControlName]="'description'"></textarea>
     </md-input-container>
   </form>
+
   <button md-mini-fab
           mdTooltip="New Skill"
           mdTooltipPosition="after"
           (click)="addElemToList()">
     <md-icon>add_to_photos</md-icon>
   </button>
+
 </md-nav-list>

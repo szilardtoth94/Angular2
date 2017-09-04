@@ -1,7 +1,9 @@
 <div class='personal-information-container'>
+
   <div class="img-container">
     <img class="img" (click)="openMyProfile()" src={{imageUrl}}>
   </div>
+
   <div fxLayoutAlign="center">
     <button class="pers-menu" md-raised-button [mdMenuTriggerFor]="menu">
       <md-icon>more_vert</md-icon>
@@ -20,4 +22,5 @@
       </button>
     </md-menu>
   </div>
+
 </div>
